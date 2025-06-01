@@ -18,11 +18,11 @@ cd backend
 ```
 python3 -m venv venv
 ```
-#### For Linux/Mac
 ```
-source venv/bin/activate  # For Linux/macOS
+# For Linux/Mac
+source venv/bin/activate  
 ```
-#### On Windows:
 ```
+#On Windows:
 venv\Scripts\activate
 ```
