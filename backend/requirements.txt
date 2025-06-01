@@ -6,4 +6,6 @@ pdfplumber
 faiss-cpu 
 tiktoken 
 chromadb 
+google-generativeai>=0.4.0
+langchain>=0.1.14
 python-dotenv

@@ -4,6 +4,8 @@ from routes.summarize import summarize_bp
 from routes.qa import qa_bp
 from routes.pdf_list import list_bp
 from flask_cors import CORS
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)       #enables CORS for React Frontend
