@@ -26,3 +26,10 @@ source venv/bin/activate
 #For Windows:
 venv\Scripts\activate
 ```
+
+#### Installing Python Dependencies
+
+```
+cd backend
+pip install -r requirements.txt
+```
