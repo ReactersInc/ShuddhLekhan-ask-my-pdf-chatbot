@@ -9,3 +9,5 @@ werkzeug
 langchain-community
 langchain-google-genai
 google-ai-generativelanguage==0.6.15
+langchain_google_genai  
+protobuf
