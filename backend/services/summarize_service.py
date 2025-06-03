@@ -4,7 +4,6 @@ from langchain.chains.summarize import load_summarize_chain
 from langchain.docstore.document import Document
 import os
 
-
 def generate_summary(text):
     llm = get_gemini_flash_llm()
     docs = [Document(page_content=text)]

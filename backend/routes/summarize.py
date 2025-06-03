@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 import os
 
 from services.parse_pdf import extract_text_from_pdf
-from backend.services.summarize_service import generate_summary, save_summary
+from services.summarize_service import generate_summary, save_summary
 
 summarize_bp = Blueprint("summarize", __name__)
 UPLOAD_FOLDER = "uploads"
