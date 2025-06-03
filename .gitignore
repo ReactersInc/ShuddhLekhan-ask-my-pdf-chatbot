@@ -1,5 +1,5 @@
 /backend/venv/
 /backend/.env
-/backend/uploads
-/backend/vector_store
-/summaries
+/backend/uploads/
+/backend/vector_store/
+/backend/summaries

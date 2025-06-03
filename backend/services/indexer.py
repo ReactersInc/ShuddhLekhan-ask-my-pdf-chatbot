@@ -1,6 +1,7 @@
+# indexer.py
 import os
-from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import SentenceTransformerEmbeddings
+from langchain_chroma import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.docstore.document import Document
 
@@ -15,8 +16,7 @@ def index_pdf_text(pdf_name: str, full_text: str):
     persist_dir = os.path.join(PERSIST_ROOT, pdf_name)
     os.makedirs(persist_dir, exist_ok=True)
 
-    embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     vectordb = Chroma.from_documents(documents=docs, embedding=embeddings, persist_directory=persist_dir)
-    vectordb.persist()
 
     return True
