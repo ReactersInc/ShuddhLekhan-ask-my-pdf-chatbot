@@ -1,5 +1,18 @@
-/backend/venv/
+# Ignore the .env file
 /backend/.env
-/backend/uploads/
-/backend/vector_store/
-/backend/summaries
+
+# Ignore contents inside venv, but not the folder
+/backend/venv/*
+!/backend/venv/.gitkeep
+
+# Ignore contents inside uploads, but not the folder
+/backend/uploads/*
+!/backend/uploads/.gitkeep
+
+# Ignore contents inside vector_store, but not the folder
+/backend/vector_store/*
+!/backend/vector_store/.gitkeep
+
+# Ignore contents inside summaries, but not the folder
+/backend/summaries/*
+!/backend/summaries/.gitkeep
