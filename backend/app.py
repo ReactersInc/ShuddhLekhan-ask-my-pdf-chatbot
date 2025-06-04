@@ -15,6 +15,10 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
 
+    # Ensure required folders exist
+    os.makedirs("uploads", exist_ok=True)
+    os.makedirs("summaries", exist_ok=True)
+
     # Celery config
     app.config['CELERY_BROKER_URL'] = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379/0')
     app.config['CELERY_RESULT_BACKEND'] = os.getenv('CELERY_RESULT_BACKEND', 'redis://localhost:6379/0')

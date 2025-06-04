@@ -14,11 +14,16 @@ def upload_pdfs():
         return jsonify({"error": "No files found"}), 400
 
     files = request.files.getlist('files')
+    if not files or all(file.filename == '' for file in files):
+        return jsonify({"error": "No files selected"}), 400
+
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
     os.makedirs(SUMMARY_FOLDER, exist_ok=True)
 
     responses = []
     for file_in in files:
+        if file_in.filename == '':
+            continue
         filename = secure_filename(file_in.filename)
         save_path = os.path.join(UPLOAD_FOLDER, filename)
         file_in.save(save_path)
@@ -32,7 +37,11 @@ def upload_pdfs():
             "task_id": task.id
         })
 
+    if not responses:
+        return jsonify({"error": "No valid files uploaded"}), 400
+
     return jsonify(responses), 202
+
 
 @upload_bp.route('/task_status/<task_id>', methods=['GET'])
 def get_task_status(task_id):
