@@ -13,3 +13,6 @@ langchain_google_genai
 protobuf
 langchain-huggingface
 langchain-chroma
+socketio
+celery
+redis

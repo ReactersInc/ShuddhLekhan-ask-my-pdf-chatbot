@@ -1,59 +1,60 @@
 from flask import Blueprint, request, jsonify
 import os
 from werkzeug.utils import secure_filename
-import traceback
-
-from services.parse_pdf import extract_text_from_pdf
-from services.indexer import index_pdf_text
-from services.summarize_service import summarize_from_indexed_pdf  # <-- new function
+from pdf_tasks import process_pdf_task
+from extensions import celery
 
 upload_bp = Blueprint("upload", __name__)
 UPLOAD_FOLDER = "uploads"
 SUMMARY_FOLDER = "summaries"
 
 @upload_bp.route('/', methods=['POST'])
-def upload_pdf():
-    if 'file' not in request.files:
-        return jsonify({"error": "No file found"}), 400
+def upload_pdfs():
+    if 'files' not in request.files:
+        return jsonify({"error": "No files found"}), 400
 
-    file_in = request.files['file']
-    if file_in.filename == '':
-        return jsonify({"error": "No selected file"}), 400
-
-    filename = secure_filename(file_in.filename)
+    files = request.files.getlist('files')
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
     os.makedirs(SUMMARY_FOLDER, exist_ok=True)
 
-    save_path = os.path.join(UPLOAD_FOLDER, filename)
-    file_in.save(save_path)
+    responses = []
+    for file_in in files:
+        filename = secure_filename(file_in.filename)
+        save_path = os.path.join(UPLOAD_FOLDER, filename)
+        file_in.save(save_path)
 
-    try:
         base_name = os.path.splitext(filename)[0]
+        task = process_pdf_task.delay(filename, save_path, base_name)
 
-        # Extracting text from PDF
-        text = extract_text_from_pdf(save_path)
-
-        # Step 1: Indexing the PDF text chunks for retrieval
-        index_pdf_text(base_name, text)
-
-        # Step 2: Summarize using indexed chunks
-        summary = summarize_from_indexed_pdf(base_name)
-
-        # Saving summary to disk
-        with open(os.path.join(SUMMARY_FOLDER, base_name + ".txt"), "w") as f:
-            f.write(summary)
-
-        return jsonify({
-            "message": f"{filename} uploaded, indexed, and summarized successfully",
+        responses.append({
             "filename": filename,
-            "summary": summary
-        }), 200
+            "status": "queued",
+            "task_id": task.id
+        })
 
-    except Exception as e:
-        tb = traceback.format_exc()
-        print(f"Error during summarization:\n{tb}")
+    return jsonify(responses), 202
+
+@upload_bp.route('/task_status/<task_id>', methods=['GET'])
+def get_task_status(task_id):
+    task = celery.AsyncResult(task_id)
+
+    if task.state == 'PENDING':
+        return jsonify({"status": "pending"})
+
+    elif task.state == 'SUCCESS':
+        result = task.result or {}
         return jsonify({
-            "message": f"{filename} uploaded, but summarization failed",
-            "filename": filename,
-            "error": str(e)
-        }), 500
+            "status": "completed",
+            "filename": result.get("filename"),
+            "summary": result.get("summary_text"),
+            "summary_path": result.get("summary_path"),
+        })
+
+    elif task.state == 'FAILURE':
+        return jsonify({
+            "status": "failed",
+            "error": str(task.result)
+        })
+
+    else:
+        return jsonify({"status": task.state.lower()})
