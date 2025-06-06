@@ -20,7 +20,7 @@ def process_pdf_task(filename, filepath, base_name):
             "status": "completed",
             "filename": filename,
             "summary_path": summary_path,
-            "summary_text": summary   # <-- include actual summary here
+            "summary_text": summary   # <-- includes actual summary here
         }
     except Exception as e:
         return {"status": "error", "filename": filename, "error": str(e)}

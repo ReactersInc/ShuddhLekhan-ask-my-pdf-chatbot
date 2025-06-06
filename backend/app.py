@@ -8,6 +8,8 @@ from routes.upload import upload_bp
 from routes.summarize import summarize_bp
 from routes.qa import qa_bp
 from routes.pdf_list import list_bp
+from routes.qa import qa_bp
+
 
 load_dotenv()
 
@@ -15,7 +17,7 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
 
-    # Ensure required folders exist
+    # Ensuring required folders exist(otherwise system fails if any of the folder is missing)
     os.makedirs("uploads", exist_ok=True)
     os.makedirs("summaries", exist_ok=True)
 
@@ -32,11 +34,13 @@ def create_app():
             with app.app_context():
                 return self.run(*args, **kwargs)
     celery.Task = ContextTask
+    
 
-    # Register Blueprints
+    # Registering Blueprints (similar to Routes in Node.JS)
+
     app.register_blueprint(upload_bp, url_prefix='/upload')
     app.register_blueprint(summarize_bp, url_prefix='/summarize')
-    app.register_blueprint(qa_bp, url_prefix='/ask')
+    app.register_blueprint(qa_bp, url_prefix="/qa")
     app.register_blueprint(list_bp, url_prefix='/pdfs')
 
     return app
