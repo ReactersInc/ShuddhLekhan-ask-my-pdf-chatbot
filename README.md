@@ -33,3 +33,26 @@ venv\Scripts\activate
 cd backend
 pip install -r requirements.txt
 ```
+
+### 3. Booting Up The Software
+
+#### Start Redis Server (for Celery Broker)
+```
+# For Linux/Mac
+redis-server
+```
+#### Firing the backend
+```
+cd backend
+python3 app.py
+
+# Adjust the concurrency based on your System Specs
+celery -A celery_worker.celery worker --concurrency=2 --loglevel=info
+```
+
+#### Firing the Frontend
+```
+cd frontend
+npm i
+npm run dev
+```
