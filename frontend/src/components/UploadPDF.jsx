@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { API_URL } from "../config.js";
+import AskQuestion from "./AskQuestion";
+import { saveAs } from "file-saver";
+import { Document, Packer, Paragraph, TextRun } from "docx";
 
 function UploadPDF() {
   const [files, setFiles] = useState([]);
@@ -24,7 +27,7 @@ function UploadPDF() {
     setSummaries([]);
 
     const formData = new FormData();
-    files.forEach((file) => formData.append("files", file)); // multiple files key = "files"
+    files.forEach((file) => formData.append("files", file));
 
     try {
       const res = await fetch(`${API_URL}/upload/`, {
@@ -39,7 +42,6 @@ function UploadPDF() {
         setFiles([]);
         document.querySelector('input[type="file"]').value = null;
 
-        // Start polling for each file's task_id
         data.forEach(({ task_id, filename }, index) => {
           pollTaskStatus(task_id, filename, index);
         });
@@ -78,36 +80,61 @@ function UploadPDF() {
     }
   };
 
+  const handleDownloadWord = async () => {
+    const doc = new Document({
+      sections: [
+        {
+          children: summaries.map((item) => (
+            new Paragraph({
+              children: [
+                new TextRun({ text: item.filename, bold: true, size: 26 }),
+                new TextRun("\n" + item.summary + "\n\n")
+              ]
+            })
+          ))
+        }
+      ]
+    });
+
+    const blob = await Packer.toBlob(doc);
+    saveAs(blob, "Summaries.docx");
+  };
+
   return (
-    <div>
-      <h2>Upload PDF(s)</h2>
-      <input
-        type="file"
-        accept=".pdf"
-        multiple
-        onChange={handleFileChange}
-      />
-      <button onClick={handleUpload} disabled={loading}>
-        {loading ? "Uploading..." : "Upload"}
-      </button>
+    <div style={{ display: "flex", gap: "2rem" }}>
+      <div style={{ flex: 1 }}>
+        <h2>Upload PDF(s)</h2>
+        <input type="file" accept=".pdf" multiple onChange={handleFileChange} />
+        <button onClick={handleUpload} disabled={loading}>
+          {loading ? "Uploading..." : "Upload"}
+        </button>
 
-      {message && (
-        <p className={message.toLowerCase().includes("success") ? "success" : "error"}>
-          {message}
-        </p>
-      )}
+        {message && (
+          <p className={message.toLowerCase().includes("success") ? "success" : "error"}>{message}</p>
+        )}
 
-      {summaries.length > 0 && (
-        <div style={{ marginTop: "1rem", whiteSpace: "pre-wrap" }}>
-          <h3>Summaries:</h3>
-          {summaries.map((item, idx) => (
-            <div key={idx} style={{ marginBottom: "1rem" }}>
-              <strong>{item.filename}</strong>
-              <p>{item.summary}</p>
-            </div>
-          ))}
-        </div>
-      )}
+        {summaries.length > 0 && (
+          <div style={{ marginTop: "1rem", whiteSpace: "pre-wrap" }}>
+            <h3>Summaries:</h3>
+            <button onClick={handleDownloadWord} style={{ marginBottom: "1rem" }}>
+              Download All as Word Document
+            </button>
+            {summaries.map((item, idx) =>
+              item ? (
+                <div key={idx} style={{ marginBottom: "1rem" }}>
+                  <strong>{item.filename}</strong>
+                  <p>{item.summary}</p>
+                </div>
+              ) : null
+            )}
+
+          </div>
+        )}
+      </div>
+
+      <div style={{ flex: 1 }}>
+        <AskQuestion />
+      </div>
     </div>
   );
 }

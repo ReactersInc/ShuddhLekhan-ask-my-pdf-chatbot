@@ -1,7 +1,9 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import os
 from flask import Flask
 from flask_cors import CORS
-from dotenv import load_dotenv
 
 from extensions import celery
 from routes.upload import upload_bp
@@ -10,8 +12,6 @@ from routes.qa import qa_bp
 from routes.pdf_list import list_bp
 from routes.qa import qa_bp
 
-
-load_dotenv()
 
 def create_app():
     app = Flask(__name__)

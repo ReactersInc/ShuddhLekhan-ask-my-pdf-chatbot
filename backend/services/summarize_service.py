@@ -1,9 +1,7 @@
 import os
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
-from services.llm import get_gemini_flash_llm
 
 PERSIST_ROOT = "vector_store"
 
@@ -17,17 +15,14 @@ SUMMARY_PROMPT = PromptTemplate(
         """
 )
 
-def summarize_from_indexed_pdf(pdf_name, query=None, top_k=3):
+def summarize_from_indexed_pdf(pdf_name, embedding_model, llm_model, query=None, top_k=3):
     persist_dir = os.path.join(PERSIST_ROOT, pdf_name)
 
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    vectordb = Chroma(persist_directory=persist_dir, embedding_function=embeddings)
+    vectordb = Chroma(persist_directory=persist_dir, embedding_function=embedding_model)  # use passed embedding
 
     docs = vectordb.similarity_search(query or "", k=top_k)
 
-    llm = get_gemini_flash_llm()
-
-    chain = LLMChain(llm=llm, prompt=SUMMARY_PROMPT)
+    chain = LLMChain(llm=llm_model, prompt=SUMMARY_PROMPT)  # use passed LLM
 
     combined_text = "\n".join([doc.page_content for doc in docs])
     summary = chain.run(text=combined_text)

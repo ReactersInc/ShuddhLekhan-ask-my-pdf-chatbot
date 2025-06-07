@@ -14,9 +14,9 @@ function App() {
         <section>
           <PDFList />
         </section>
-        <section>
+        {/* <section>
           <AskQuestion />
-        </section>
+        </section> */}
       </div>
     );
   }

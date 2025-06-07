@@ -1,13 +1,11 @@
-# indexer.py
 import os
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.docstore.document import Document
 
 PERSIST_ROOT = "vector_store"
 
-def index_pdf_text(pdf_name: str, full_text: str):
+def index_pdf_text(pdf_name: str, full_text: str, embedding_model):
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     chunks = splitter.split_text(full_text)
 
@@ -16,7 +14,10 @@ def index_pdf_text(pdf_name: str, full_text: str):
     persist_dir = os.path.join(PERSIST_ROOT, pdf_name)
     os.makedirs(persist_dir, exist_ok=True)
 
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    vectordb = Chroma.from_documents(documents=docs, embedding=embeddings, persist_directory=persist_dir)
+    vectordb = Chroma.from_documents(
+        documents=docs,
+        embedding=embedding_model,  # passed model, no global import
+        persist_directory=persist_dir
+    )
 
     return True
