@@ -6,7 +6,7 @@ import { SelectedPDFContext } from "../context/selectedPDFContext";
 
 function PDFViewerPage() {
   const { selectedPDFUrl, selectedPDFName } = useContext(SelectedPDFContext);
-  const { name } = useParams(); // get pdf name from URL
+  const { name } = useParams(); // gets pdf name from URL
   const navigate = useNavigate();
 
   const [url, setUrl] = useState(null);
@@ -17,7 +17,8 @@ function PDFViewerPage() {
       setUrl(selectedPDFUrl);
       setPdfName(selectedPDFName);
     } else if (name) {
-      // Try to reconstruct PDF url from uploaded file name
+      
+      // Trys to reconstruct PDF url from uploaded file name
       const fileFromCache = sessionStorage.getItem(name);
       if (fileFromCache) {
         const blob = new Blob([new Uint8Array(JSON.parse(fileFromCache))], { type: "application/pdf" });
@@ -43,7 +44,7 @@ function PDFViewerPage() {
       <div style={{ flex: 1, padding: "1rem" }}>
         <button
           onClick={() => {
-            URL.revokeObjectURL(url); // free memory
+            URL.revokeObjectURL(url); // freeing memory
             navigate("/");
           }}
           style={{ marginBottom: "1rem" }}

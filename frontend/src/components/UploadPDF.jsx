@@ -25,7 +25,7 @@ function UploadPDF() {
   const handleFileChange = (e) => {
     const fileArray = Array.from(e.target.files);
     setFiles(fileArray);
-    setOriginalFiles(fileArray); // <-- set backup files here
+    setOriginalFiles(fileArray); //set backup files here
     setMessage("");
     setSummaries([]);
   };
