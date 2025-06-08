@@ -1,123 +1,83 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { API_URL } from "../config";
 
-function AskQuestion() {
-    const [pdf, setPdf] = useState("");
-    const [question, setQuestion] = useState("");
-    const [answer, setAnswer] = useState("");
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
+function AskQuestion({ pdfName }) {
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-    const handleAsk = async () => {
-        setAnswer("");
-        setError("");
-        if (!pdf.trim() || !question.trim()) {
-            setError("Please enter both the PDF name and your question.");
-            return;
-        }
+  // Clear form when pdfName changes
+  useEffect(() => {
+    setQuestion("");
+    setAnswer("");
+    setError("");
+  }, [pdfName]);
 
-        setLoading(true);
-        try {
-            const res = await fetch(`${API_URL}/qa/ask`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ pdf_name: pdf.trim(), question: question.trim() }),
-            });
+  const handleAsk = async () => {
+    setAnswer("");
+    setError("");
 
-            const data = await res.json();
-            if (res.ok) {
-                setAnswer(data.answer);
-            } else {
-                setError(data.error || "Failed to get an answer.");
-            }
-        } catch {
-            setError("Error contacting the server.");
-        } finally {
-            setLoading(false);
-        }
-    };
+    if (!pdfName?.trim()) {
+      setError("No PDF selected.");
+      return;
+    }
+    if (!question.trim()) {
+      setError("Please enter your question.");
+      return;
+    }
 
-    return (
-        <div style={styles.container}>
-            <h2 style={styles.heading}>Ask a Question About Your PDF</h2>
+    setLoading(true);
+    try {
+      const res = await fetch(`${API_URL}/qa/ask`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pdf_name: pdfName.trim(), question: question.trim() }),
+      });
 
-            <input
-                type="text"
-                placeholder="PDF name (without .pdf)"
-                value={pdf}
-                onChange={(e) => setPdf(e.target.value)}
-                style={styles.input}
-            />
+      const data = await res.json();
+      if (res.ok) {
+        setAnswer(data.answer);
+      } else {
+        setError(data.error || "Failed to get an answer.");
+      }
+    } catch {
+      setError("Error contacting the server.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-            <textarea
-                placeholder="Enter your question"
-                value={question}
-                onChange={(e) => setQuestion(e.target.value)}
-                rows={4}
-                style={styles.textarea}
-            />
+  if (!pdfName) {
+    return <p>Please select a PDF to ask questions.</p>;
+  }
 
-            <button onClick={handleAsk} disabled={loading} style={styles.button}>
-                {loading ? "Thinking..." : "Ask"}
-            </button>
+  return (
+    <div>
+      <h2>Ask a Question about <em>{pdfName}</em></h2>
+      <textarea
+        placeholder="Enter your question"
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+        rows={4}
+        style={{ width: "100%", padding: "0.5rem", fontSize: "16px" }}
+        disabled={loading}
+        aria-label={`Question about ${pdfName}`}
+      />
+      <button onClick={handleAsk} disabled={loading || !question.trim()} style={{ marginTop: "0.5rem" }}>
+        {loading ? "Thinking..." : "Ask"}
+      </button>
 
-            {answer && (
-                <div style={styles.answerBox}>
-                    <h3>Answer:</h3>
-                    <p style={styles.success}>{answer}</p>
-                </div>
-            )}
-
-            {error && <p style={styles.error}>{error}</p>}
+      {answer && (
+        <div style={{ marginTop: "1rem" }}>
+          <h4>Answer:</h4>
+          <p style={{ color: "green", whiteSpace: "pre-wrap" }}>{answer}</p>
         </div>
-    );
-}
+      )}
 
-const styles = {
-    container: {
-        maxWidth: "600px",
-        margin: "0 auto",
-        padding: "20px",
-        fontFamily: "Arial, sans-serif",
-    },
-    heading: {
-        marginBottom: "20px",
-        textAlign: "center",
-    },
-    input: {
-        width: "100%",
-        padding: "10px",
-        marginBottom: "10px",
-        fontSize: "16px",
-    },
-    textarea: {
-        width: "100%",
-        padding: "10px",
-        fontSize: "16px",
-        marginBottom: "10px",
-    },
-    button: {
-        padding: "10px 20px",
-        fontSize: "16px",
-        backgroundColor: "#007bff",
-        color: "white",
-        border: "none",
-        cursor: "pointer",
-    },
-    answerBox: {
-        marginTop: "20px",
-        padding: "10px",
-        backgroundColor: "#f1f1f1",
-        borderRadius: "5px",
-    },
-    success: {
-        color: "#2e7d32",
-        fontWeight: "bold",
-    },
-    error: {
-        color: "#d32f2f",
-        marginTop: "10px",
-    },
-};
+      {error && <p style={{ color: "red", marginTop: "1rem" }}>{error}</p>}
+    </div>
+  );
+}
 
 export default AskQuestion;

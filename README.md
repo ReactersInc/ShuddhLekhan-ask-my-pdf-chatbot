@@ -47,7 +47,7 @@ cd backend
 python3 app.py
 
 # Adjust the concurrency based on your System Specs
-celery -A celery_worker.celery worker --concurrency=2 --loglevel=info
+celery -A app.celery worker --concurrency=2 --loglevel=info
 ```
 
 #### Firing the Frontend

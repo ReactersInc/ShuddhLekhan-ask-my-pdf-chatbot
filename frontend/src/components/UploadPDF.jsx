@@ -1,17 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { API_URL } from "../config.js";
-import AskQuestion from "./AskQuestion";
 import { saveAs } from "file-saver";
 import { Document, Packer, Paragraph, TextRun } from "docx";
+import { useNavigate } from "react-router-dom";
+import { SelectedPDFContext } from "../context/selectedPDFContext.jsx";
 
 function UploadPDF() {
+  const navigate = useNavigate();
+  const { setSelectedPDFUrl, setSelectedPDFName } = useContext(SelectedPDFContext);
+
   const [files, setFiles] = useState([]);
+  const [originalFiles, setOriginalFiles] = useState([]); // state to store uploaded files for later reference
   const [message, setMessage] = useState("");
-  const [summaries, setSummaries] = useState([]); // array of summaries for each file
+  const [summaries, setSummaries] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const handleOpenPDF = (file) => {
+    const url = URL.createObjectURL(file);
+    setSelectedPDFUrl(url);
+    setSelectedPDFName(file.name.replace(/\.pdf$/i, ""));
+    navigate("/pdf");
+  };
+
   const handleFileChange = (e) => {
-    setFiles(Array.from(e.target.files));
+    const fileArray = Array.from(e.target.files);
+    setFiles(fileArray);
+    setOriginalFiles(fileArray); // <-- set backup files here
     setMessage("");
     setSummaries([]);
   };
@@ -84,14 +98,14 @@ function UploadPDF() {
     const doc = new Document({
       sections: [
         {
-          children: summaries.map((item) => (
+          children: summaries.map((item) =>
             new Paragraph({
               children: [
                 new TextRun({ text: item.filename, bold: true, size: 26 }),
                 new TextRun("\n" + item.summary + "\n\n")
               ]
             })
-          ))
+          )
         }
       ]
     });
@@ -113,28 +127,64 @@ function UploadPDF() {
           <p className={message.toLowerCase().includes("success") ? "success" : "error"}>{message}</p>
         )}
 
+        {files.length > 0 && (
+          <div>
+            <h3>Uploaded files:</h3>
+            {files.map((file, i) => (
+              <div
+                key={i}
+                onClick={() => handleOpenPDF(file)}
+                style={{ cursor: "pointer", border: "1px solid #ccc", margin: "5px", padding: "5px" }}
+              >
+                {file.name}
+              </div>
+            ))}
+          </div>
+        )}
+
         {summaries.length > 0 && (
           <div style={{ marginTop: "1rem", whiteSpace: "pre-wrap" }}>
             <h3>Summaries:</h3>
             <button onClick={handleDownloadWord} style={{ marginBottom: "1rem" }}>
               Download All as Word Document
             </button>
+
             {summaries.map((item, idx) =>
               item ? (
-                <div key={idx} style={{ marginBottom: "1rem" }}>
+                <div
+                  key={idx}
+                  style={{
+                    marginBottom: "1rem",
+                    padding: "1rem",
+                    border: "1px solid #ccc",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                    backgroundColor: "#f9f9f9",
+                  }}
+                  onClick={() => {
+                    const blob = originalFiles.find(f => f.name === item.filename);
+                    if (blob) {
+                      const url = URL.createObjectURL(blob);
+                      sessionStorage.setItem(item.filename.replace(/\.pdf$/i, ""), url);
+                      setSelectedPDFUrl(url);
+                      setSelectedPDFName(item.filename.replace(/\.pdf$/i, ""));
+                      navigate(`/pdf/${item.filename.replace(/\.pdf$/i, "")}`);
+                    }
+                  }}
+                  
+                >
                   <strong>{item.filename}</strong>
                   <p>{item.summary}</p>
                 </div>
               ) : null
             )}
-
           </div>
         )}
       </div>
 
-      <div style={{ flex: 1 }}>
+      {/* <div style={{ flex: 1 }}>
         <AskQuestion />
-      </div>
+      </div> */}
     </div>
   );
 }
