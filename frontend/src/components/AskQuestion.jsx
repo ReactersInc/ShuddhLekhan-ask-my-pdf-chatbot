@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
 import { API_URL } from "../config";
 import "./AskQuestion.css";
 
@@ -64,14 +65,18 @@ function AskQuestion({ pdfName }) {
         disabled={loading}
         aria-label={`Question about ${pdfName}`}
       />
-      <button onClick={handleAsk} disabled={loading || !question.trim()} className="ask-button">
+      <button
+        onClick={handleAsk}
+        disabled={loading || !question.trim()}
+        className="ask-button"
+      >
         {loading ? "Thinking..." : "Ask"}
       </button>
 
       {answer && (
         <div className="answer-box">
           <h4>Answer:</h4>
-          <p>{answer}</p>
+          <ReactMarkdown>{answer}</ReactMarkdown>
         </div>
       )}
 
