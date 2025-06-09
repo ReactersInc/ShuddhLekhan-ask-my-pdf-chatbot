@@ -1,0 +1,81 @@
+.upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* ✅ Use min-height instead of height */
+  background-color: #f4f4f4;
+  padding: 2rem; /* ⬅ Add more padding if needed for spacing */
+  box-sizing: border-box;
+  flex-direction: column; /* ✅ Stack items vertically if needed */
+}
+
+
+.upload-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.upload-box h2 {
+  margin-bottom: 1rem;
+}
+
+.upload-box input[type="file"] {
+  margin-bottom: 1rem;
+}
+
+.upload-box button {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.upload-box button:disabled {
+  background-color: #ccc;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+.file-item {
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  margin: 0.25rem 0;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.file-item:hover {
+  background-color: #f1f1f1;
+}
+
+.summary-section {
+  margin-top: 1rem;
+}
+
+.summary-card {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.summary-card:hover {
+  background-color: #eef;
+}

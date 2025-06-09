@@ -1,0 +1,31 @@
+.ask-container {
+    margin-top: 1rem;
+  }
+  
+  .ask-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .ask-textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 16px;
+    margin-top: 0.5rem;
+    resize: vertical;
+  }
+  
+  .ask-button {
+    margin-top: 0.5rem;
+  }
+  
+  .answer-box {
+    margin-top: 1rem;
+    color: green;
+    white-space: pre-wrap;
+  }
+  
+  .error-message {
+    margin-top: 1rem;
+    color: red;
+  }
+  

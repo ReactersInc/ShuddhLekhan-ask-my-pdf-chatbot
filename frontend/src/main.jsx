@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import PDFViewerPage from "./pages/PDFviewerPage";
 import { SelectedPDFProvider } from "./context/selectedPDFContext";
-import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <SelectedPDFProvider>

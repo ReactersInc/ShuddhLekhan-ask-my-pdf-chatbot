@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { API_URL } from "../config";
+import "./AskQuestion.css";
 
 function AskQuestion({ pdfName }) {
   const [question, setQuestion] = useState("");
@@ -7,7 +8,6 @@ function AskQuestion({ pdfName }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Clear form when pdfName changes
   useEffect(() => {
     setQuestion("");
     setAnswer("");
@@ -53,29 +53,29 @@ function AskQuestion({ pdfName }) {
   }
 
   return (
-    <div>
+    <div className="ask-container">
       <h2>Ask a Question about <em>{pdfName}</em></h2>
       <textarea
         placeholder="Enter your question"
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
         rows={4}
-        style={{ width: "100%", padding: "0.5rem", fontSize: "16px" }}
+        className="ask-textarea"
         disabled={loading}
         aria-label={`Question about ${pdfName}`}
       />
-      <button onClick={handleAsk} disabled={loading || !question.trim()} style={{ marginTop: "0.5rem" }}>
+      <button onClick={handleAsk} disabled={loading || !question.trim()} className="ask-button">
         {loading ? "Thinking..." : "Ask"}
       </button>
 
       {answer && (
-        <div style={{ marginTop: "1rem" }}>
+        <div className="answer-box">
           <h4>Answer:</h4>
-          <p style={{ color: "green", whiteSpace: "pre-wrap" }}>{answer}</p>
+          <p>{answer}</p>
         </div>
       )}
 
-      {error && <p style={{ color: "red", marginTop: "1rem" }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 }

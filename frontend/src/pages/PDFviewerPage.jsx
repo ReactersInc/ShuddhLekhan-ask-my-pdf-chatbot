@@ -3,10 +3,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import { API_URL } from "../config";
 import AskQuestion from "../components/AskQuestion";
 import { SelectedPDFContext } from "../context/selectedPDFContext";
+import "./PDFViewerPage.css";
 
 function PDFViewerPage() {
   const { selectedPDFUrl, selectedPDFName } = useContext(SelectedPDFContext);
-  const { name } = useParams(); // gets pdf name from URL
+  const { name } = useParams();
   const navigate = useNavigate();
 
   const [url, setUrl] = useState(null);
@@ -17,8 +18,6 @@ function PDFViewerPage() {
       setUrl(selectedPDFUrl);
       setPdfName(selectedPDFName);
     } else if (name) {
-      
-      // Trys to reconstruct PDF url from uploaded file name
       const fileFromCache = sessionStorage.getItem(name);
       if (fileFromCache) {
         const blob = new Blob([new Uint8Array(JSON.parse(fileFromCache))], { type: "application/pdf" });
@@ -40,26 +39,24 @@ function PDFViewerPage() {
   if (!url || !pdfName) return null;
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
-      <div style={{ flex: 1, padding: "1rem" }}>
+    <div className="viewer-page">
+      <div className="viewer-left">
         <button
+          className="back-button"
           onClick={() => {
-            URL.revokeObjectURL(url); // freeing memory
+            URL.revokeObjectURL(url);
             navigate("/");
           }}
-          style={{ marginBottom: "1rem" }}
         >
           ← Back to Upload
         </button>
         <iframe
           src={url}
-          width="100%"
-          height="90%"
           title={pdfName}
-          style={{ border: "1px solid #ccc" }}
+          className="pdf-iframe"
         />
       </div>
-      <div style={{ flex: 1, padding: "1rem", borderLeft: "1px solid #eee", overflowY: "auto" }}>
+      <div className="viewer-right">
         <AskQuestion pdfName={pdfName} />
       </div>
     </div>

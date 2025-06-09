@@ -2,7 +2,6 @@ import React from "react";
 import UploadPDF from "./components/UploadPDF";
 import PDFList from "./components/PDFList";
 import AskQuestion from "./components/AskQuestion";
-import "./App.css"; 
 
 function App() {
     return (

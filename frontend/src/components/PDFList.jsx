@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { API_URL } from "../config";
+import "./PDFList.css";
 
 function PDFList() {
   const [pdfs, setPdfs] = useState([]);
@@ -12,12 +13,12 @@ function PDFList() {
   }, []);
 
   return (
-    <div>
+    <div className="pdf-list-container">
       <h2>Uploaded PDFs & Summaries</h2>
       {pdfs.length === 0 && <p>No PDFs uploaded yet.</p>}
       <ul>
         {pdfs.map(({ filename, summary }) => (
-          <li key={filename}>
+          <li key={filename} className="pdf-item">
             <strong>{filename}</strong>
             <p>{summary}</p>
           </li>

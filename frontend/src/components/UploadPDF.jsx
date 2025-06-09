@@ -4,13 +4,14 @@ import { saveAs } from "file-saver";
 import { Document, Packer, Paragraph, TextRun } from "docx";
 import { useNavigate } from "react-router-dom";
 import { SelectedPDFContext } from "../context/selectedPDFContext.jsx";
+import "./UploadPDF.css";
 
 function UploadPDF() {
   const navigate = useNavigate();
   const { setSelectedPDFUrl, setSelectedPDFName } = useContext(SelectedPDFContext);
 
   const [files, setFiles] = useState([]);
-  const [originalFiles, setOriginalFiles] = useState([]); // state to store uploaded files for later reference
+  const [originalFiles, setOriginalFiles] = useState([]);
   const [message, setMessage] = useState("");
   const [summaries, setSummaries] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -25,7 +26,7 @@ function UploadPDF() {
   const handleFileChange = (e) => {
     const fileArray = Array.from(e.target.files);
     setFiles(fileArray);
-    setOriginalFiles(fileArray); //set backup files here
+    setOriginalFiles(fileArray);
     setMessage("");
     setSummaries([]);
   };
@@ -62,7 +63,7 @@ function UploadPDF() {
       } else {
         setMessage(data.error || "File upload failed");
       }
-    } catch (err) {
+    } catch {
       setMessage("Error uploading file");
     } finally {
       setLoading(false);
@@ -89,7 +90,7 @@ function UploadPDF() {
       } else {
         setTimeout(() => pollTaskStatus(taskId, filename, index), 2000);
       }
-    } catch (err) {
+    } catch {
       setMessage("Error fetching task status");
     }
   };
@@ -115,8 +116,8 @@ function UploadPDF() {
   };
 
   return (
-    <div style={{ display: "flex", gap: "2rem" }}>
-      <div style={{ flex: 1 }}>
+    <div className="upload-container">
+      <div className="upload-box">
         <h2>Upload PDF(s)</h2>
         <input type="file" accept=".pdf" multiple onChange={handleFileChange} />
         <button onClick={handleUpload} disabled={loading}>
@@ -134,7 +135,7 @@ function UploadPDF() {
               <div
                 key={i}
                 onClick={() => handleOpenPDF(file)}
-                style={{ cursor: "pointer", border: "1px solid #ccc", margin: "5px", padding: "5px" }}
+                className="file-item"
               >
                 {file.name}
               </div>
@@ -143,7 +144,7 @@ function UploadPDF() {
         )}
 
         {summaries.length > 0 && (
-          <div style={{ marginTop: "1rem", whiteSpace: "pre-wrap" }}>
+          <div className="summary-section">
             <h3>Summaries:</h3>
             <button onClick={handleDownloadWord} style={{ marginBottom: "1rem" }}>
               Download All as Word Document
@@ -153,14 +154,7 @@ function UploadPDF() {
               item ? (
                 <div
                   key={idx}
-                  style={{
-                    marginBottom: "1rem",
-                    padding: "1rem",
-                    border: "1px solid #ccc",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    backgroundColor: "#f9f9f9",
-                  }}
+                  className="summary-card"
                   onClick={() => {
                     const blob = originalFiles.find(f => f.name === item.filename);
                     if (blob) {
@@ -171,7 +165,6 @@ function UploadPDF() {
                       navigate(`/pdf/${item.filename.replace(/\.pdf$/i, "")}`);
                     }
                   }}
-                  
                 >
                   <strong>{item.filename}</strong>
                   <p>{item.summary}</p>
@@ -181,10 +174,6 @@ function UploadPDF() {
           </div>
         )}
       </div>
-
-      {/* <div style={{ flex: 1 }}>
-        <AskQuestion />
-      </div> */}
     </div>
   );
 }

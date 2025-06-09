@@ -1,0 +1,40 @@
+.viewer-page {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .viewer-left {
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  .viewer-right {
+    flex: 1;
+    padding: 1rem;
+    border-left: 1px solid #eee;
+    overflow-y: auto;
+    background-color: #fafafa;
+  }
+  
+  .back-button {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #ccc;
+  }
+  
+  .pdf-iframe {
+    width: 100%;
+    height: 90%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  

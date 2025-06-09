@@ -1,0 +1,21 @@
+.pdf-list-container {
+    padding: 1rem;
+  }
+  
+  .pdf-list-container h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .pdf-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .pdf-item strong {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  
+  .pdf-item p {
+    margin: 0;
+  }
+  
