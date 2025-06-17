@@ -48,6 +48,10 @@ python3 app.py
 
 # Adjust the concurrency based on your System Specs
 celery -A app.celery worker --concurrency=2 --loglevel=info
+
+# For Windows
+celery -A app.celery worker --concurrency=1 --loglevel=info --pool=solo
+
 ```
 
 #### Firing the Frontend
