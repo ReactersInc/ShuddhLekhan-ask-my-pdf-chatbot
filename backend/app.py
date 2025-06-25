@@ -42,6 +42,10 @@ def create_app():
     app.register_blueprint(summarize_bp, url_prefix='/summarize')
     app.register_blueprint(qa_bp, url_prefix="/qa")
     app.register_blueprint(list_bp, url_prefix='/pdfs')
+<<<<<<< Updated upstream
+=======
+    app.register_blueprint(web_bp) #web summarize
+>>>>>>> Stashed changes
 
     return app
 
