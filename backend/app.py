@@ -6,11 +6,11 @@ from flask import Flask
 from flask_cors import CORS
 
 from extensions import celery
-from routes.upload import upload_bp
+from backend.routes.upload_routes import upload_bp
 from routes.summarize import summarize_bp
-from routes.qa import qa_bp
+from backend.routes.qa_routes import qa_bp
 from routes.pdf_list import list_bp
-from routes.qa import qa_bp
+from backend.routes.qa_routes import qa_bp
 
 
 def create_app():

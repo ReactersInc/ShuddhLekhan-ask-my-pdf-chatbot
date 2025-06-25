@@ -1,15 +1,8 @@
-from flask import Blueprint, request, jsonify
-import os
-from werkzeug.utils import secure_filename
-from pdf_tasks import process_pdf_task
+from flask import jsonify
+from services.upload_service import save_and_queue_file
 from extensions import celery
 
-upload_bp = Blueprint("upload", __name__)
-UPLOAD_FOLDER = "uploads"
-SUMMARY_FOLDER = "summaries"
-
-@upload_bp.route('/', methods=['POST'])
-def upload_pdfs():
+def handle_upload_pdfs(request):
     if 'files' not in request.files:
         return jsonify({"error": "No files found"}), 400
 
@@ -17,19 +10,12 @@ def upload_pdfs():
     if not files or all(file.filename == '' for file in files):
         return jsonify({"error": "No files selected"}), 400
 
-    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-    os.makedirs(SUMMARY_FOLDER, exist_ok=True)
-
     responses = []
     for file_in in files:
         if file_in.filename == '':
             continue
-        filename = secure_filename(file_in.filename)
-        save_path = os.path.join(UPLOAD_FOLDER, filename)
-        file_in.save(save_path)
 
-        base_name = os.path.splitext(filename)[0]
-        task = process_pdf_task.delay(filename, save_path, base_name)
+        task, filename = save_and_queue_file(file_in)
 
         responses.append({
             "filename": filename,
@@ -43,8 +29,7 @@ def upload_pdfs():
     return jsonify(responses), 202
 
 
-@upload_bp.route('/task_status/<task_id>', methods=['GET'])
-def get_task_status(task_id):
+def check_task_status(task_id):
     task = celery.AsyncResult(task_id)
 
     if task.state == 'PENDING':
