@@ -16,3 +16,7 @@
 # Ignore contents inside summaries, but not the folder
 /backend/summaries/*
 !/backend/summaries/.gitkeep
+
+__pycache__/
+*.pyc
+
