@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, jsonify
 import os
 
 summarize_bp = Blueprint("summarize", __name__)
