@@ -6,6 +6,107 @@ import { useNavigate } from "react-router-dom";
 import { SelectedPDFContext } from "../context/selectedPDFContext.jsx";
 import "./UploadPDF.css";
 
+// Helper: Tree builder
+function buildSummaryTree(summaries) {
+  const root = {};
+
+  for (const { filename, summary } of summaries) {
+    const parts = filename.split('/');
+    let node = root;
+
+    parts.forEach((part, i) => {
+      if (!node[part]) {
+        node[part] = i === parts.length - 1
+          ? { __summary: summary }
+          : {};
+      }
+      node = node[part];
+    });
+  }
+
+  return root;
+}
+
+// Helper: Highlight matched query
+function highlightMatch(text, query) {
+  if (!query) return text;
+  const regex = new RegExp(`(${query})`, "gi");
+  const parts = text.split(regex);
+  return parts.map((part, i) =>
+    regex.test(part) ? <mark key={i}>{part}</mark> : part
+  );
+}
+
+// Recursive Tree Viewer
+const SummaryTree = ({ tree, path = "", onOpen, searchQuery = "" }) => {
+  const [openFolders, setOpenFolders] = useState({});
+
+  const toggleFolder = (folderPath) => {
+    setOpenFolders(prev => ({
+      ...prev,
+      [folderPath]: !prev[folderPath]
+    }));
+  };
+
+  return (
+    <ul style={{ listStyle: "none", paddingLeft: "1rem" }}>
+      {Object.entries(tree).map(([name, value]) => {
+        const currentPath = path ? `${path}/${name}` : name;
+
+        if (value.__summary) {
+          const matches = name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          value.__summary.toLowerCase().includes(searchQuery.toLowerCase());
+          if (!matches && searchQuery) return null;
+
+          return (
+            <li
+              key={currentPath}
+              onClick={() => onOpen(currentPath)}
+              style={{ cursor: "pointer", marginBottom: "0.5rem" }}
+            >
+              📄 <strong>{highlightMatch(name, searchQuery)}</strong>
+              <p style={{ fontSize: "0.875rem", marginLeft: "1.5rem", color: "#555" }}>
+                {highlightMatch(value.__summary, searchQuery)}
+              </p>
+            </li>
+          );
+        }
+
+        const hasMatchingChild = Object.entries(value).some(([childName, childVal]) => {
+          if (childVal.__summary) {
+            return childName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                   childVal.__summary.toLowerCase().includes(searchQuery.toLowerCase());
+          }
+          return true;
+        });
+
+        if (!hasMatchingChild && searchQuery) return null;
+
+        const isOpen = openFolders[currentPath] ?? true;
+
+        return (
+          <li key={currentPath} style={{ marginBottom: "0.5rem" }}>
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => toggleFolder(currentPath)}
+            >
+              {isOpen ? "📂" : "📁"} <strong>{highlightMatch(name, searchQuery)}</strong>
+            </div>
+            {isOpen && (
+              <SummaryTree
+                tree={value}
+                path={currentPath}
+                onOpen={onOpen}
+                searchQuery={searchQuery}
+              />
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
 function UploadPDF() {
   const navigate = useNavigate();
   const { setSelectedPDFUrl, setSelectedPDFName } = useContext(SelectedPDFContext);
@@ -15,12 +116,19 @@ function UploadPDF() {
   const [message, setMessage] = useState("");
   const [summaries, setSummaries] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [summarySearch, setSummarySearch] = useState("");
 
-  const handleOpenPDF = (file) => {
-    const url = URL.createObjectURL(file);
-    setSelectedPDFUrl(url);
-    setSelectedPDFName(file.name.replace(/\.pdf$/i, ""));
-    navigate("/pdf");
+  const handleOpenPDF = (filePath) => {
+    const blob = originalFiles.find(
+      f => f.webkitRelativePath === filePath || f.name === filePath
+    );
+    if (blob) {
+      const url = URL.createObjectURL(blob);
+      sessionStorage.setItem(filePath.replace(/\.pdf$/i, ""), url);
+      setSelectedPDFUrl(url);
+      setSelectedPDFName(filePath.replace(/\.pdf$/i, ""));
+      navigate(`/pdf/${filePath.replace(/\.pdf$/i, "")}`);
+    }
   };
 
   const handleFileChange = (e) => {
@@ -119,7 +227,14 @@ function UploadPDF() {
     <div className="upload-container">
       <div className="upload-box">
         <h2>Upload PDF(s)</h2>
-        <input type="file" accept=".pdf" multiple onChange={handleFileChange} />
+        <input
+          type="file"
+          accept=".pdf"
+          multiple
+          webkitdirectory="true"
+          directory="true"
+          onChange={handleFileChange}
+        />
         <button onClick={handleUpload} disabled={loading}>
           {loading ? "Uploading..." : "Upload"}
         </button>
@@ -130,15 +245,9 @@ function UploadPDF() {
 
         {files.length > 0 && (
           <div>
-            <h3>Uploaded files:</h3>
+            <h3>Selected files:</h3>
             {files.map((file, i) => (
-              <div
-                key={i}
-                onClick={() => handleOpenPDF(file)}
-                className="file-item"
-              >
-                {file.name}
-              </div>
+              <div key={i} className="file-item">{file.webkitRelativePath || file.name}</div>
             ))}
           </div>
         )}
@@ -146,31 +255,30 @@ function UploadPDF() {
         {summaries.length > 0 && (
           <div className="summary-section">
             <h3>Summaries:</h3>
+
+            <input
+              type="text"
+              placeholder="Search summaries..."
+              value={summarySearch}
+              onChange={(e) => setSummarySearch(e.target.value)}
+              style={{
+                padding: "0.5rem",
+                width: "100%",
+                marginBottom: "1rem",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+              }}
+            />
+
             <button onClick={handleDownloadWord} style={{ marginBottom: "1rem" }}>
               Download All as Word Document
             </button>
 
-            {summaries.map((item, idx) =>
-              item ? (
-                <div
-                  key={idx}
-                  className="summary-card"
-                  onClick={() => {
-                    const blob = originalFiles.find(f => f.name === item.filename);
-                    if (blob) {
-                      const url = URL.createObjectURL(blob);
-                      sessionStorage.setItem(item.filename.replace(/\.pdf$/i, ""), url);
-                      setSelectedPDFUrl(url);
-                      setSelectedPDFName(item.filename.replace(/\.pdf$/i, ""));
-                      navigate(`/pdf/${item.filename.replace(/\.pdf$/i, "")}`);
-                    }
-                  }}
-                >
-                  <strong>{item.filename}</strong>
-                  <p>{item.summary}</p>
-                </div>
-              ) : null
-            )}
+            <SummaryTree
+              tree={buildSummaryTree(summaries)}
+              onOpen={handleOpenPDF}
+              searchQuery={summarySearch}
+            />
           </div>
         )}
       </div>

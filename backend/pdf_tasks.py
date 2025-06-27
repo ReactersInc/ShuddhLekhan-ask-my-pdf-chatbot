@@ -6,7 +6,7 @@ from extensions import celery
 import os
 
 @celery.task(rate_limit="15/m")
-def process_pdf_task(filename, filepath, base_name):
+def process_pdf_task(filename, filepath, base_name ,relative_path=None):
     try:
         embedding_model = get_embedding_model()
         llm_model = get_llm_model()
@@ -15,8 +15,19 @@ def process_pdf_task(filename, filepath, base_name):
         index_pdf_text(base_name, text, embedding_model=embedding_model)
         summary = summarize_from_indexed_pdf(base_name, embedding_model=embedding_model, llm_model=llm_model)
 
-        summary_path = os.path.join("summaries", base_name + ".txt")
-        os.makedirs("summaries", exist_ok=True)
+
+        # Determining the output path for summary
+        if relative_path:
+            # Replace '.pdf' with '.txt' and mirror the location path inside the summaries directory
+            summary_rel_path = os.path.splitext(relative_path)[0] + ".txt"
+            summary_path = os.path.join("summaries", summary_rel_path)
+        
+        else:
+            # Fallback to flat summary
+            summary_path = os.path.join("summaries", base_name + ".txt")
+
+        os.makedirs(os.path.dirname(summary_path), exist_ok=True)
+        
         with open(summary_path, "w") as f:
             f.write(summary)
 
