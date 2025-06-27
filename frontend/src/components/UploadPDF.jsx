@@ -6,107 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { SelectedPDFContext } from "../context/selectedPDFContext.jsx";
 import "./UploadPDF.css";
 
-// Helper: Tree builder
-function buildSummaryTree(summaries) {
-  const root = {};
-
-  for (const { filename, summary } of summaries) {
-    const parts = filename.split('/');
-    let node = root;
-
-    parts.forEach((part, i) => {
-      if (!node[part]) {
-        node[part] = i === parts.length - 1
-          ? { __summary: summary }
-          : {};
-      }
-      node = node[part];
-    });
-  }
-
-  return root;
-}
-
-// Helper: Highlight matched query
-function highlightMatch(text, query) {
-  if (!query) return text;
-  const regex = new RegExp(`(${query})`, "gi");
-  const parts = text.split(regex);
-  return parts.map((part, i) =>
-    regex.test(part) ? <mark key={i}>{part}</mark> : part
-  );
-}
-
-// Recursive Tree Viewer
-const SummaryTree = ({ tree, path = "", onOpen, searchQuery = "" }) => {
-  const [openFolders, setOpenFolders] = useState({});
-
-  const toggleFolder = (folderPath) => {
-    setOpenFolders(prev => ({
-      ...prev,
-      [folderPath]: !prev[folderPath]
-    }));
-  };
-
-  return (
-    <ul style={{ listStyle: "none", paddingLeft: "1rem" }}>
-      {Object.entries(tree).map(([name, value]) => {
-        const currentPath = path ? `${path}/${name}` : name;
-
-        if (value.__summary) {
-          const matches = name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          value.__summary.toLowerCase().includes(searchQuery.toLowerCase());
-          if (!matches && searchQuery) return null;
-
-          return (
-            <li
-              key={currentPath}
-              onClick={() => onOpen(currentPath)}
-              style={{ cursor: "pointer", marginBottom: "0.5rem" }}
-            >
-              📄 <strong>{highlightMatch(name, searchQuery)}</strong>
-              <p style={{ fontSize: "0.875rem", marginLeft: "1.5rem", color: "#555" }}>
-                {highlightMatch(value.__summary, searchQuery)}
-              </p>
-            </li>
-          );
-        }
-
-        const hasMatchingChild = Object.entries(value).some(([childName, childVal]) => {
-          if (childVal.__summary) {
-            return childName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                   childVal.__summary.toLowerCase().includes(searchQuery.toLowerCase());
-          }
-          return true;
-        });
-
-        if (!hasMatchingChild && searchQuery) return null;
-
-        const isOpen = openFolders[currentPath] ?? true;
-
-        return (
-          <li key={currentPath} style={{ marginBottom: "0.5rem" }}>
-            <div
-              style={{ cursor: "pointer" }}
-              onClick={() => toggleFolder(currentPath)}
-            >
-              {isOpen ? "📂" : "📁"} <strong>{highlightMatch(name, searchQuery)}</strong>
-            </div>
-            {isOpen && (
-              <SummaryTree
-                tree={value}
-                path={currentPath}
-                onOpen={onOpen}
-                searchQuery={searchQuery}
-              />
-            )}
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
-
 function UploadPDF() {
   const navigate = useNavigate();
   const { setSelectedPDFUrl, setSelectedPDFName } = useContext(SelectedPDFContext);
@@ -116,20 +15,7 @@ function UploadPDF() {
   const [message, setMessage] = useState("");
   const [summaries, setSummaries] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [summarySearch, setSummarySearch] = useState("");
-
-  const handleOpenPDF = (filePath) => {
-    const blob = originalFiles.find(
-      f => f.webkitRelativePath === filePath || f.name === filePath
-    );
-    if (blob) {
-      const url = URL.createObjectURL(blob);
-      sessionStorage.setItem(filePath.replace(/\.pdf$/i, ""), url);
-      setSelectedPDFUrl(url);
-      setSelectedPDFName(filePath.replace(/\.pdf$/i, ""));
-      navigate(`/pdf/${filePath.replace(/\.pdf$/i, "")}`);
-    }
-  };
+  const [uploadedPaths, setUploadedPaths] = useState([]);
 
   const handleFileChange = (e) => {
     const fileArray = Array.from(e.target.files);
@@ -137,6 +23,7 @@ function UploadPDF() {
     setOriginalFiles(fileArray);
     setMessage("");
     setSummaries([]);
+    setUploadedPaths([]);
   };
 
   const handleUpload = async () => {
@@ -161,13 +48,10 @@ function UploadPDF() {
       const data = await res.json();
 
       if (res.ok) {
-        setMessage("Files uploaded successfully. Processing...");
+        setMessage("Files uploaded successfully. Click 'Start Processing' to begin.");
         setFiles([]);
+        setUploadedPaths(data.uploaded_files);
         document.querySelector('input[type="file"]').value = null;
-
-        data.forEach(({ task_id, filename }, index) => {
-          pollTaskStatus(task_id, filename, index);
-        });
       } else {
         setMessage(data.error || "File upload failed");
       }
@@ -178,23 +62,45 @@ function UploadPDF() {
     }
   };
 
+  const handleStartProcessing = async () => {
+    try {
+      const res = await fetch(`${API_URL}/upload/start_processing`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({})
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        data.forEach(({ task_id, filename }, index) => {
+          pollTaskStatus(task_id, filename, index);
+        });
+      } else {
+        setMessage("Processing failed");
+      }
+    } catch {
+      setMessage("Error starting processing");
+    }
+  };
+
   const pollTaskStatus = async (taskId, filename, index) => {
     try {
       const res = await fetch(`${API_URL}/upload/task_status/${taskId}`);
       const data = await res.json();
 
       if (data.status === "completed") {
-        setSummaries((prev) => {
-          const newSummaries = [...prev];
-          newSummaries[index] = { filename, summary: data.summary || "No summary found" };
-          return newSummaries;
-        });
+        setSummaries((prev) => [
+          ...prev,
+          { filename, summary: data.summary || "No summary found" }
+        ]);
       } else if (data.status === "failed") {
-        setSummaries((prev) => {
-          const newSummaries = [...prev];
-          newSummaries[index] = { filename, summary: `Task failed: ${data.error}` };
-          return newSummaries;
-        });
+        setSummaries((prev) => [
+          ...prev,
+          { filename, summary: `Task failed: ${data.error}` }
+        ]);
       } else {
         setTimeout(() => pollTaskStatus(taskId, filename, index), 2000);
       }
@@ -239,6 +145,12 @@ function UploadPDF() {
           {loading ? "Uploading..." : "Upload"}
         </button>
 
+        {uploadedPaths.length > 0 && (
+          <button onClick={handleStartProcessing} style={{ marginTop: "10px" }}>
+            Start Processing
+          </button>
+        )}
+
         {message && (
           <p className={message.toLowerCase().includes("success") ? "success" : "error"}>{message}</p>
         )}
@@ -255,30 +167,17 @@ function UploadPDF() {
         {summaries.length > 0 && (
           <div className="summary-section">
             <h3>Summaries:</h3>
-
-            <input
-              type="text"
-              placeholder="Search summaries..."
-              value={summarySearch}
-              onChange={(e) => setSummarySearch(e.target.value)}
-              style={{
-                padding: "0.5rem",
-                width: "100%",
-                marginBottom: "1rem",
-                border: "1px solid #ccc",
-                borderRadius: "4px",
-              }}
-            />
-
             <button onClick={handleDownloadWord} style={{ marginBottom: "1rem" }}>
               Download All as Word Document
             </button>
-
-            <SummaryTree
-              tree={buildSummaryTree(summaries)}
-              onOpen={handleOpenPDF}
-              searchQuery={summarySearch}
-            />
+            <div>
+              {summaries.map((item, index) => (
+                <div key={index} className="summary-item">
+                  <strong>{item.filename}</strong>
+                  <p>{item.summary}</p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
