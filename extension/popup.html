@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+  body {
+    width: 300px;
+    font-family: monospace;
+    padding: 10px;
+    background-color: #fae8e8;
+    
+  }
+
+  #summary {
+    white-space: pre-wrap;
+    margin-top: 10px;
+    padding: 12px;
+    max-height: 400px;
+    overflow: auto;
+    font-size:large;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  #summarize{
+    background-color: rgb(72, 12, 132);
+    color: white;
+    font-weight:bold;
+    padding: 10px;
+  }
+  #loading{
+    font-weight: bold;
+    font-size:medium;
+  }
+</style>
+
+  </head>
+  <body>
+    <button id="summarize">Summarize Page</button>
+    <div id="loading" style="display:none;">Summarizing</div>
+    <pre id="summary"></pre>
+    <script src="popup.js"></script>
+  </body>
+</html>

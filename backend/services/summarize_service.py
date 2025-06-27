@@ -28,3 +28,24 @@ def summarize_from_indexed_pdf(pdf_name, embedding_model, llm_model, query=None,
     summary = chain.run(text=combined_text)
 
     return summary
+<<<<<<< Updated upstream
+=======
+
+
+#  just sending the text to backend
+def summarize_text(full_text: str, llm=None) -> str:
+    if llm is None:
+        llm = get_gemini_flash_llm()
+        
+    splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=200)
+    chunks   = splitter.split_text(full_text)
+    prompt   = PromptTemplate(
+        input_variables=["text"],
+        template="""
+Can you please summarize the following content concisely in a paragraph layout covering each topic and avoid repetition.
+{text}
+"""
+    )
+    chain = LLMChain(llm=llm, prompt=prompt)
+    return chain.run(text="\n\n".join(chunks))
+>>>>>>> Stashed changes
