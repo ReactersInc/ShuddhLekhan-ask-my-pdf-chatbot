@@ -2,6 +2,8 @@ import os
 from langchain_chroma import Chroma
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from services.llm import get_gemini_flash_llm
 
 PERSIST_ROOT = "vector_store"
 
@@ -28,9 +30,6 @@ def summarize_from_indexed_pdf(pdf_name, embedding_model, llm_model, query=None,
     summary = chain.run(text=combined_text)
 
     return summary
-<<<<<<< Updated upstream
-=======
-
 
 #  just sending the text to backend
 def summarize_text(full_text: str, llm=None) -> str:
@@ -48,4 +47,3 @@ Can you please summarize the following content concisely in a paragraph layout c
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     return chain.run(text="\n\n".join(chunks))
->>>>>>> Stashed changes
