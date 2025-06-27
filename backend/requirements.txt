@@ -9,14 +9,12 @@ werkzeug
 langchain-community
 langchain-google-genai
 google-ai-generativelanguage==0.6.15
-langchain_google_genai  
+langchain_google_genai
 protobuf
 langchain-huggingface
 langchain-chroma
 celery
 redis
 flask-cors
-python-dotenv
-
-
-
+bs4
+readability-lxml

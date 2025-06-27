@@ -11,6 +11,7 @@ from routes.retrieve_summarize import summarize_bp
 from routes.qa_routes import qa_bp
 from routes.list_routes import list_bp
 from routes.qa_routes import qa_bp
+from routes.web_summarize import web_bp
 
 
 def create_app():
@@ -42,10 +43,7 @@ def create_app():
     app.register_blueprint(summarize_bp, url_prefix='/summarize')
     app.register_blueprint(qa_bp, url_prefix="/qa")
     app.register_blueprint(list_bp, url_prefix='/pdfs')
-<<<<<<< Updated upstream
-=======
     app.register_blueprint(web_bp) #web summarize
->>>>>>> Stashed changes
 
     return app
 
