@@ -1,30 +1,41 @@
-import React, { useState } from 'react';
-import { FileText ,Folder, Plus, Upload, Search, ChevronDown, ChevronRight } from 'lucide-react';
+import React, { useState, useRef , useEffect} from 'react';
+import { FileText, Folder, Plus, Upload, Search, ChevronDown, ChevronRight } from 'lucide-react';
 import './Sidebar.css';
+import useFileUploader from '../../hooks/useFileUploader'
+import { mergeFolderTrees } from '../../utils/mergeFolderTrees';
+import { API_URL } from '../../config';
+
 
 const Sidebar = ({ selectedFolder, onFolderSelect, onUploadClick }) => {
-  const [folders, setFolders] = useState([
-    {
-      id: '1',
-      name: 'Research Papers',
-      count: 1,
-      isExpanded: false,
-      children: [
-        { id: '1-1', name: 'Machine Learning', count: 1 },
-        { id: '1-2', name: 'Data Science', count: 0 }
-      ]
-    },
-    {
-      id: '2',
-      name: 'Legal Documents',
-      count: 1,
-      isExpanded: false,
-      children: [
-        { id: '2-1', name: 'Contracts', count: 1 },
-        { id: '2-2', name: 'Policies', count: 0 }
-      ]
-    }
-  ]);
+
+  const [folders, setFolders] = useState([]);
+
+  useEffect(() => {
+    const fetchFolderTree = async () => {
+      try {
+        const res = await fetch(`${API_URL}/documents/tree`);
+        const data = await res.json();
+        console.log('fetchFolderTree',data);
+        
+        setFolders(data);
+      } catch (err) {
+        console.error("Failed to fetch folder tree", err);
+      }
+    };
+
+    fetchFolderTree();
+  }, []);
+
+
+
+
+  const fileInputRef = useRef(null);
+  const {
+    uploading,
+    uploadFiles,
+    message
+  } = useFileUploader();
+
 
   const toggleExpand = id => {
     setFolders(prev =>
@@ -34,19 +45,54 @@ const Sidebar = ({ selectedFolder, onFolderSelect, onUploadClick }) => {
     );
   };
 
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = async (e) => {
+    const files = Array.from(e.target.files);
+    if (files.length > 0) {
+      const uploadedTree = await uploadFiles(files);
+      setFolders(prev => mergeFolderTrees(prev, uploadedTree));
+    }
+    e.target.value = ''; // reset input
+  };
+
+
   return (
     <div className="sidebar">
       <div className="sidebar-header">
+
         <h2 className="app-title">
           <FileText size={20} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
-          PDF AI
+          ShudhLeekhan - <small>An AI Document Intelligence Platform</small>
         </h2>
-        <button className="sidebar-button" onClick={onUploadClick}>
-          <Upload size={16} /> Upload
+
+        <button className="sidebar-button" onClick={handleUploadClick}>
+          <Upload size={16} /> {uploading ? 'Uploading...' : 'Upload'}
         </button>
+
+        <input
+          type="file"
+          accept=".pdf"
+          multiple
+          webkitdirectory="true"
+          directory="true"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          style={{ display: 'none' }}
+        />
+
         <button className="sidebar-button">
           <Plus size={16} /> New Folder
         </button>
+
+        {message && (
+          <p className={`upload-message ${message.toLowerCase().includes('success') ? 'success' : 'error'}`}>
+            {message}
+          </p>
+        )}
+
       </div>
 
       <div className="folder-list">

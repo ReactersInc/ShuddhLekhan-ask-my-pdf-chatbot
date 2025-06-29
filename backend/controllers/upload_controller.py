@@ -1,5 +1,6 @@
 from flask import jsonify
 from services.upload_service import save_uploaded_file
+from services.folder_tree_service import build_folder_tree
 from extensions import celery
 
 def handle_upload_pdfs(request):
@@ -17,7 +18,12 @@ def handle_upload_pdfs(request):
         rel_path = save_uploaded_file(file_in)
         saved_files.append(rel_path)
 
-    return jsonify({"uploaded_files": saved_files}),200
+    folder_tree = build_folder_tree()
+
+    return jsonify({
+        "uploaded_files": saved_files,
+        "folder_tree": folder_tree          
+        }),200
 
 
 def check_task_status(task_id):
