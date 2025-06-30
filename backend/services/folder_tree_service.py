@@ -1,5 +1,7 @@
 import os
 from datetime import datetime
+from flask import send_file, abort
+
 UPLOAD_FOLDER = 'uploads'
 
 def build_folder_tree(base_path=UPLOAD_FOLDER):
@@ -49,3 +51,22 @@ def get_all_uploaded_files(base_path=UPLOAD_FOLDER):
                     "uploadDate": upload_date
                 })
     return files_list
+
+def get_pdf_file(relativePath):
+    
+    base_path = os.path.abspath(UPLOAD_FOLDER)
+    requested_path = os.path.abspath(os.path.join(UPLOAD_FOLDER, relativePath))
+
+    # Debuggers 
+    
+    # print("Requested:", requested_path)
+    # print("Allowed base:", base_path)
+
+    # For Security: prevents directory traversal
+    if not requested_path.startswith(base_path):
+        abort(403)
+
+    if not os.path.exists(requested_path):
+        abort(404)
+
+    return send_file(requested_path, mimetype='application/pdf')    # Uses MIME protocol
