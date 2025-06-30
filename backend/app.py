@@ -12,6 +12,8 @@ from routes.qa_routes import qa_bp
 from routes.list_routes import list_bp
 from routes.qa_routes import qa_bp
 from routes.web_summarize import web_bp
+from routes.document_route import document_bp
+
 
 
 def create_app():
@@ -44,6 +46,8 @@ def create_app():
     app.register_blueprint(qa_bp, url_prefix="/qa")
     app.register_blueprint(list_bp, url_prefix='/pdfs')
     app.register_blueprint(web_bp) #web summarize
+    app.register_blueprint(document_bp)
+
 
     return app
 
