@@ -79,3 +79,14 @@
 .summary-card:hover {
   background-color: #eef;
 }
+.clickable {
+  cursor: pointer;
+  background-color: #f5f5f5;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.clickable:hover {
+  background-color: #eaeaea;
+}
