@@ -163,3 +163,31 @@
   border: none;
 }
 
+.file-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  margin-bottom: 12px;
+}
+
+.file-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  background-color: #f9f9f9;
+}
+.file-menu {
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.file-card:hover .file-menu {
+  opacity: 1;
+}

@@ -180,7 +180,9 @@ function UploadPDF() {
                     const matchingFile = originalFiles.find(
                       f => f.webkitRelativePath.replace(/^\.?\/*/, "").trim() === normalizedFilename
                     );
-
+                    console.log(matchingFile);
+                    console.log(normalizedFilename);
+                    
                     if (matchingFile) {
                       const url = URL.createObjectURL(matchingFile);
                       setSelectedPDFUrl(url);

@@ -5,7 +5,7 @@ from services.summarize_service import summarize_from_indexed_pdf
 from extensions import celery
 import os
 
-@celery.task(rate_limit="15/m")
+@celery.task(rate_limit="30/m")
 def process_pdf_task(filename, filepath, base_name ,relative_path=None):
     try:
         embedding_model = get_embedding_model()

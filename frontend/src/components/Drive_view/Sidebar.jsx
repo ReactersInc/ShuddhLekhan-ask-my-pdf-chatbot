@@ -1,4 +1,4 @@
-import React, { useState, useRef , useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FileText, Folder, Plus, Upload, Search, ChevronDown, ChevronRight } from 'lucide-react';
 import './Sidebar.css';
 import useFileUploader from '../../hooks/useFileUploader'
@@ -15,8 +15,8 @@ const Sidebar = ({ selectedFolder, onFolderSelect, onUploadClick }) => {
       try {
         const res = await fetch(`${API_URL}/documents/tree`);
         const data = await res.json();
-        console.log('fetchFolderTree',data);
-        
+        console.log('fetchFolderTree', data);
+
         setFolders(data);
       } catch (err) {
         console.error("Failed to fetch folder tree", err);
@@ -53,10 +53,18 @@ const Sidebar = ({ selectedFolder, onFolderSelect, onUploadClick }) => {
     const files = Array.from(e.target.files);
     if (files.length > 0) {
       const uploadedTree = await uploadFiles(files);
-      setFolders(prev => mergeFolderTrees(prev, uploadedTree));
+
+      if (uploadedTree && uploadedTree.length > 0) {
+        alert("Files uploaded and embedded successfully!");
+        setFolders(prev => mergeFolderTrees(prev, uploadedTree));
+      } else {
+        alert("Upload failed or embedding did not complete.");
+      }
     }
-    e.target.value = ''; // reset input
+
+    e.target.value = ''; // reset file input
   };
+
 
 
   return (

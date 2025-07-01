@@ -11,9 +11,9 @@ def get_embedding_model():
         if not torch.cuda.is_available():
             raise RuntimeError("CUDA GPU is required but not available. Aborting embedding initialization.")
 
-        print("Loading embedding model on GPU (cuda)")
+        print("Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 on GPU (cuda)")
         _embedding_model = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
             model_kwargs={"device": "cuda"}
         )
     return _embedding_model
