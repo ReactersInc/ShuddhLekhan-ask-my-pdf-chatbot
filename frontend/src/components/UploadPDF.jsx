@@ -172,11 +172,32 @@ function UploadPDF() {
             </button>
             <div>
               {summaries.map((item, index) => (
-                <div key={index} className="summary-item">
+                <div
+                  key={index}
+                  className="summary-item clickable"
+                  onClick={() => {
+                    const normalizedFilename = item.filename.replace(/^\.?\/*/, "").trim();
+                    const matchingFile = originalFiles.find(
+                      f => f.webkitRelativePath.replace(/^\.?\/*/, "").trim() === normalizedFilename
+                    );
+
+                    if (matchingFile) {
+                      const url = URL.createObjectURL(matchingFile);
+                      setSelectedPDFUrl(url);
+                      setSelectedPDFName(matchingFile.name.replace(/\.pdf$/i, ""));
+                      navigate(`/pdf/${matchingFile.name.replace(/\.pdf$/i, "")}`);
+                    } else {
+                      setMessage(`PDF not found: ${item.filename}`);
+                    }
+                  }}
+
+                >
                   <strong>{item.filename}</strong>
                   <p>{item.summary}</p>
                 </div>
               ))}
+
+
             </div>
           </div>
         )}
