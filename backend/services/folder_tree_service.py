@@ -30,6 +30,8 @@ def build_folder_tree(base_path=UPLOAD_FOLDER):
 
     return walk_dir(UPLOAD_FOLDER)
 
+
+
 def get_all_uploaded_files(base_path=UPLOAD_FOLDER):
     files_list = []
     for root , _, files in os.walk(base_path):
@@ -51,6 +53,8 @@ def get_all_uploaded_files(base_path=UPLOAD_FOLDER):
                     "uploadDate": upload_date
                 })
     return files_list
+
+
 
 def get_pdf_file(relativePath):
     

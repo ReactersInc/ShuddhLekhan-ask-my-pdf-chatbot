@@ -12,6 +12,8 @@ from routes.qa_routes import qa_bp
 from routes.list_routes import list_bp
 from routes.qa_routes import qa_bp
 from routes.document_route import document_bp
+from routes.dashboard_routes import dashboard_bp
+
 
 
 
@@ -45,6 +47,8 @@ def create_app():
     app.register_blueprint(qa_bp, url_prefix="/qa")
     app.register_blueprint(list_bp, url_prefix='/pdfs')
     app.register_blueprint(document_bp)
+    app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
+
 
 
     return app

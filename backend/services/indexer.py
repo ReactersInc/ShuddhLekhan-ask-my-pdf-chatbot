@@ -5,19 +5,25 @@ from langchain.docstore.document import Document
 
 PERSIST_ROOT = "vector_store"
 
-def index_pdf_text(pdf_name: str, full_text: str, embedding_model):
+def index_pdf_text(pdf_name: str, full_text: str, embedding_model, relative_path=None):
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     chunks = splitter.split_text(full_text)
-
+    
     docs = [Document(page_content=chunk, metadata={"source": pdf_name}) for chunk in chunks]
 
-    persist_dir = os.path.join(PERSIST_ROOT, pdf_name)
+    if relative_path:
+        vector_rel_path = os.path.splitext(relative_path)[0]  # Remove .pdf
+        persist_dir = os.path.join(PERSIST_ROOT, vector_rel_path)
+    else:
+        persist_dir = os.path.join(PERSIST_ROOT, pdf_name)
+
     os.makedirs(persist_dir, exist_ok=True)
 
     vectordb = Chroma.from_documents(
         documents=docs,
-        embedding=embedding_model,  # passed model, no global import
+        embedding=embedding_model,      # passed model, no global import
         persist_directory=persist_dir
     )
 
     return True
+
