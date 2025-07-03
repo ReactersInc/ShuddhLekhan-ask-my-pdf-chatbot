@@ -10,7 +10,7 @@ def embed_pdf_task(filename, filepath, base_name,relative_path=None):
         embedding_model = get_embedding_model()
 
         text = extract_text_from_pdf(filepath)
-        index_pdf_text(base_name,text,embedding_model=embedding_model)
+        index_pdf_text(base_name,text,embedding_model=embedding_model, relative_path=relative_path)
 
         return{
             "status":"completed",

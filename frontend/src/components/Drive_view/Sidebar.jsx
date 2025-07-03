@@ -6,6 +6,48 @@ import { mergeFolderTrees } from '../../utils/mergeFolderTrees';
 import { API_URL } from '../../config';
 
 
+
+const FolderNode = ({ node, selectedFolder, onFolderSelect, toggleExpand, level = 0 }) => {
+  return (
+    <div style={{ marginLeft: `${level * 12}px` }}>
+      <div
+        className={`folder-item ${selectedFolder === node.id ? 'active' : ''}`}
+        onClick={() => onFolderSelect(node.id)}
+      >
+        {node.children?.length > 0 && (
+          <span
+            className="chevron"
+            onClick={e => {
+              e.stopPropagation();
+              toggleExpand(node.id);
+            }}
+          >
+            {node.isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+          </span>
+        )}
+        <Folder size={16} />
+        <span>{node.name}</span>
+        <span className="count">{node.count}</span>
+      </div>
+
+      {/* Recursively render children */}
+      {node.isExpanded && node.children?.map(child => (
+        <FolderNode
+          key={child.id}
+          node={child}
+          selectedFolder={selectedFolder}
+          onFolderSelect={onFolderSelect}
+          toggleExpand={toggleExpand}
+          level={level + 1} // indent deeper
+        />
+      ))}
+    </div>
+  );
+};
+
+
+
+
 const Sidebar = ({ selectedFolder, onFolderSelect, onUploadClick }) => {
 
   const [folders, setFolders] = useState([]);
@@ -113,41 +155,15 @@ const Sidebar = ({ selectedFolder, onFolderSelect, onUploadClick }) => {
         </div>
 
         {folders.map(folder => (
-          <div key={folder.id}>
-            <div
-              className={`folder-item ${selectedFolder === folder.id ? 'active' : ''}`}
-              onClick={() => onFolderSelect(folder.id)}
-            >
-              {folder.children?.length > 0 && (
-                <span
-                  className="chevron"
-                  onClick={e => {
-                    e.stopPropagation();
-                    toggleExpand(folder.id);
-                  }}
-                >
-                  {folder.isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
-                </span>
-              )}
-              <Folder size={16} />
-              <span>{folder.name}</span>
-              <span className="count">{folder.count}</span>
-            </div>
-
-            {folder.isExpanded &&
-              folder.children?.map(child => (
-                <div
-                  key={child.id}
-                  className={`folder-sub ${selectedFolder === child.id ? 'active' : ''}`}
-                  onClick={() => onFolderSelect(child.id)}
-                >
-                  <Folder size={14} />
-                  <span>{child.name}</span>
-                  <span className="count">{child.count}</span>
-                </div>
-              ))}
-          </div>
+          <FolderNode
+            key={folder.id}
+            node={folder}
+            selectedFolder={selectedFolder}
+            onFolderSelect={onFolderSelect}
+            toggleExpand={toggleExpand}
+          />
         ))}
+
       </div>
     </div>
   );
