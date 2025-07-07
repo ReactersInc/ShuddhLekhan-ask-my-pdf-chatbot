@@ -75,8 +75,8 @@ function UploadPDF() {
       const data = await res.json();
 
       if (res.ok) {
-        data.forEach(({ task_id, filename }, index) => {
-          pollTaskStatus(task_id, filename, index);
+        data.forEach(({ task_id, filename, processing_method }, index) => {
+          pollTaskStatus(task_id, filename, index, processing_method);
         });
       } else {
         setMessage("Processing failed");
@@ -86,7 +86,7 @@ function UploadPDF() {
     }
   };
 
-  const pollTaskStatus = async (taskId, filename, index) => {
+  const pollTaskStatus = async (taskId, filename, index, processingMethod = "standard") => {
     try {
       const res = await fetch(`${API_URL}/upload/task_status/${taskId}`);
       const data = await res.json();
@@ -94,15 +94,31 @@ function UploadPDF() {
       if (data.status === "completed") {
         setSummaries((prev) => [
           ...prev,
-          { filename, summary: data.summary || "No summary found" }
+          { 
+            filename, 
+            summary: data.summary || "No summary found",
+            language: data.detected_language || "english",
+            processingMethod: data.processing_method || processingMethod,
+            chunksProcessed: data.chunks_processed,
+            processingTime: data.processing_time
+          }
         ]);
       } else if (data.status === "failed") {
         setSummaries((prev) => [
           ...prev,
-          { filename, summary: `Task failed: ${data.error}` }
+          { 
+            filename, 
+            summary: `Task failed: ${data.error}`,
+            language: "english",
+            processingMethod: processingMethod
+          }
         ]);
+      } else if (data.status === "processing") {
+        // Show progress message for agentic processing
+        setMessage(`Processing ${filename}: ${data.message || "In progress..."} (${data.progress || 0}%)`);
+        setTimeout(() => pollTaskStatus(taskId, filename, index, processingMethod), 1000);
       } else {
-        setTimeout(() => pollTaskStatus(taskId, filename, index), 2000);
+        setTimeout(() => pollTaskStatus(taskId, filename, index, processingMethod), 2000);
       }
     } catch {
       setMessage("Error fetching task status");
@@ -192,8 +208,12 @@ function UploadPDF() {
                   }}
 
                 >
-                  <strong>{item.filename}</strong>
-                  <p>{item.summary}</p>
+                  <div className="summary-header">
+                    <strong>{item.filename}</strong>
+                  </div>
+                  <p className={`summary-content ${item.language === 'hindi' ? 'hindi-text' : ''}`}>
+                    {item.summary}
+                  </p>
                 </div>
               ))}
 
