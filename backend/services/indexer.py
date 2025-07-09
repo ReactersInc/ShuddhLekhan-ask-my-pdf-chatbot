@@ -1,18 +1,36 @@
 import os
+import json
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS, Chroma
 from langchain.docstore.document import Document
+from transformers import AutoTokenizer
 
 PERSIST_ROOT = "vector_store"
+VECTOR_STORE_TYPE = "faiss"  # or "chroma"
 
-# Switch between "faiss" or "chroma" here
-VECTOR_STORE_TYPE = "faiss"  # Change to "chroma" when needed
+# Load tokenizer once
+tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+
+def count_tokens(text):
+    return len(tokenizer.encode(text, add_special_tokens=False))
 
 def index_pdf_text(pdf_name: str, full_text: str, embedding_model, relative_path=None):
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     chunks = splitter.split_text(full_text)
 
-    docs = [Document(page_content=chunk, metadata={"source": pdf_name}) for chunk in chunks]
+    docs = []
+    total_tokens = 0
+
+    for chunk in chunks:
+        tokens = count_tokens(chunk)
+        total_tokens += tokens
+        docs.append(Document(
+            page_content=chunk,
+            metadata={
+                "source": pdf_name,
+                "tokens": tokens
+            }
+        ))
 
     # Create persist directory path
     if relative_path:
@@ -24,10 +42,10 @@ def index_pdf_text(pdf_name: str, full_text: str, embedding_model, relative_path
 
     os.makedirs(persist_dir, exist_ok=True)
 
+    # Save vector store
     if VECTOR_STORE_TYPE == "faiss":
-        faiss_db = FAISS.from_documents(documents=docs, embedding=embedding_model)
+        faiss_db = FAISS.from_documents(docs, embedding_model)
         faiss_db.save_local(persist_dir)
-        
     elif VECTOR_STORE_TYPE == "chroma":
         vectordb = Chroma.from_documents(
             documents=docs,
@@ -36,5 +54,14 @@ def index_pdf_text(pdf_name: str, full_text: str, embedding_model, relative_path
         )
     else:
         raise ValueError("Unsupported vector store type: " + VECTOR_STORE_TYPE)
+
+    # Save metadata.json
+    metadata = {
+        "pdf_name": pdf_name,
+        "total_tokens": total_tokens,
+        "num_chunks": len(docs)
+    }
+    with open(os.path.join(persist_dir, "metadata.json"), "w", encoding="utf-8") as f:
+        json.dump(metadata, f)
 
     return True
