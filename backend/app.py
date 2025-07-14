@@ -19,7 +19,6 @@ from routes.document_route import document_bp
 def create_app():
     app = Flask(__name__)
     CORS(app)
-
     # Ensuring required folders exist(otherwise system fails if any of the folder is missing)
     os.makedirs("uploads", exist_ok=True)
     os.makedirs("summaries", exist_ok=True)
