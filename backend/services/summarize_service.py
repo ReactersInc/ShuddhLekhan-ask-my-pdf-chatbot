@@ -20,11 +20,15 @@ SUMMARY_PROMPT = PromptTemplate(
 def summarize_from_indexed_pdf(pdf_name, embedding_model, llm_model, query=None, top_k=3):
     persist_dir = os.path.join(PERSIST_ROOT, pdf_name)
 
-    vectordb = Chroma(persist_directory=persist_dir, embedding_function=embedding_model)  # use passed embedding
+    vectordb = Chroma(persist_directory=persist_dir, embedding_function=embedding_model) 
 
-    docs = vectordb.similarity_search(query or "", k=top_k)
+    docs = vectordb.similarity_search(
+        query or "",
+        k=top_k,
+        filter={"type": "text"}           
+    )
 
-    chain = LLMChain(llm=llm_model, prompt=SUMMARY_PROMPT)  # use passed LLM
+    chain = LLMChain(llm=llm_model, prompt=SUMMARY_PROMPT)  
 
     combined_text = "\n".join([doc.page_content for doc in docs])
     summary = chain.run(text=combined_text)
