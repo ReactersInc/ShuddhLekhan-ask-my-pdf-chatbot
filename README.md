@@ -30,8 +30,12 @@ venv\Scripts\activate
 #### Installing Python Dependencies
 
 ```
-cd backend
+# Install GPU-compatible PyTorch
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# Then install remaining dependencies
 pip install -r requirements.txt
+
 ```
 
 ### 3. Booting Up The Software

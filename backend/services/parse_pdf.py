@@ -1,16 +1,10 @@
-import pdfplumber
-
-import pdfplumber
+import fitz 
 
 def extract_text_from_pdf(filepath):
-    text = ''
     try:
-        with pdfplumber.open(filepath) as pdf:
-            for page in pdf.pages:
-                page_text = page.extract_text()
-                if page_text:
-                    text += page_text
+        doc = fitz.open(filepath)
+        text = "\n".join([page.get_text() for page in doc])
+        return text.strip()
     except Exception as e:
-        print(f"PDF parsing error: {e}")
-        raise e
-    return text.strip()
+        print(f"Error extracting text: {e}")
+        return ""

@@ -6,11 +6,16 @@ from flask import Flask
 from flask_cors import CORS
 
 from extensions import celery
-from routes.upload import upload_bp
-from routes.summarize import summarize_bp
-from routes.qa import qa_bp
-from routes.pdf_list import list_bp
-from routes.qa import qa_bp
+from routes.upload_routes import upload_bp
+from routes.retrieve_summarize import summarize_bp
+from routes.qa_routes import qa_bp
+from routes.list_routes import list_bp
+from routes.qa_routes import qa_bp
+from routes.web_summarize import web_bp
+from routes.document_route import document_bp
+from routes.dashboard_routes import dashboard_bp
+
+
 
 
 def create_app():
@@ -42,6 +47,11 @@ def create_app():
     app.register_blueprint(summarize_bp, url_prefix='/summarize')
     app.register_blueprint(qa_bp, url_prefix="/qa")
     app.register_blueprint(list_bp, url_prefix='/pdfs')
+    app.register_blueprint(web_bp) #web summarize
+    app.register_blueprint(document_bp)
+    app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
+
+
 
     return app
 

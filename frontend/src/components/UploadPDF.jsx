@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { API_URL } from "../config.js";
+import { API_URL } from "../config/config.js";
 import { saveAs } from "file-saver";
 import { Document, Packer, Paragraph, TextRun } from "docx";
 import { useNavigate } from "react-router-dom";
@@ -15,13 +15,7 @@ function UploadPDF() {
   const [message, setMessage] = useState("");
   const [summaries, setSummaries] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  const handleOpenPDF = (file) => {
-    const url = URL.createObjectURL(file);
-    setSelectedPDFUrl(url);
-    setSelectedPDFName(file.name.replace(/\.pdf$/i, ""));
-    navigate("/pdf");
-  };
+  const [uploadedPaths, setUploadedPaths] = useState([]);
 
   const handleFileChange = (e) => {
     const fileArray = Array.from(e.target.files);
@@ -29,6 +23,7 @@ function UploadPDF() {
     setOriginalFiles(fileArray);
     setMessage("");
     setSummaries([]);
+    setUploadedPaths([]);
   };
 
   const handleUpload = async () => {
@@ -53,13 +48,10 @@ function UploadPDF() {
       const data = await res.json();
 
       if (res.ok) {
-        setMessage("Files uploaded successfully. Processing...");
+        setMessage("Files uploaded successfully. Click 'Start Processing' to begin.");
         setFiles([]);
+        setUploadedPaths(data.uploaded_files);
         document.querySelector('input[type="file"]').value = null;
-
-        data.forEach(({ task_id, filename }, index) => {
-          pollTaskStatus(task_id, filename, index);
-        });
       } else {
         setMessage(data.error || "File upload failed");
       }
@@ -70,23 +62,45 @@ function UploadPDF() {
     }
   };
 
+  const handleStartProcessing = async () => {
+    try {
+      const res = await fetch(`${API_URL}/upload/start_processing`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({})
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        data.forEach(({ task_id, filename }, index) => {
+          pollTaskStatus(task_id, filename, index);
+        });
+      } else {
+        setMessage("Processing failed");
+      }
+    } catch {
+      setMessage("Error starting processing");
+    }
+  };
+
   const pollTaskStatus = async (taskId, filename, index) => {
     try {
       const res = await fetch(`${API_URL}/upload/task_status/${taskId}`);
       const data = await res.json();
 
       if (data.status === "completed") {
-        setSummaries((prev) => {
-          const newSummaries = [...prev];
-          newSummaries[index] = { filename, summary: data.summary || "No summary found" };
-          return newSummaries;
-        });
+        setSummaries((prev) => [
+          ...prev,
+          { filename, summary: data.summary || "No summary found" }
+        ]);
       } else if (data.status === "failed") {
-        setSummaries((prev) => {
-          const newSummaries = [...prev];
-          newSummaries[index] = { filename, summary: `Task failed: ${data.error}` };
-          return newSummaries;
-        });
+        setSummaries((prev) => [
+          ...prev,
+          { filename, summary: `Task failed: ${data.error}` }
+        ]);
       } else {
         setTimeout(() => pollTaskStatus(taskId, filename, index), 2000);
       }
@@ -119,10 +133,23 @@ function UploadPDF() {
     <div className="upload-container">
       <div className="upload-box">
         <h2>Upload PDF(s)</h2>
-        <input type="file" accept=".pdf" multiple onChange={handleFileChange} />
+        <input
+          type="file"
+          accept=".pdf"
+          multiple
+          webkitdirectory="true"
+          directory="true"
+          onChange={handleFileChange}
+        />
         <button onClick={handleUpload} disabled={loading}>
           {loading ? "Uploading..." : "Upload"}
         </button>
+
+        {uploadedPaths.length > 0 && (
+          <button onClick={handleStartProcessing} style={{ marginTop: "10px" }}>
+            Start Processing
+          </button>
+        )}
 
         {message && (
           <p className={message.toLowerCase().includes("success") ? "success" : "error"}>{message}</p>
@@ -130,15 +157,9 @@ function UploadPDF() {
 
         {files.length > 0 && (
           <div>
-            <h3>Uploaded files:</h3>
+            <h3>Selected files:</h3>
             {files.map((file, i) => (
-              <div
-                key={i}
-                onClick={() => handleOpenPDF(file)}
-                className="file-item"
-              >
-                {file.name}
-              </div>
+              <div key={i} className="file-item">{file.webkitRelativePath || file.name}</div>
             ))}
           </div>
         )}
@@ -149,28 +170,37 @@ function UploadPDF() {
             <button onClick={handleDownloadWord} style={{ marginBottom: "1rem" }}>
               Download All as Word Document
             </button>
-
-            {summaries.map((item, idx) =>
-              item ? (
+            <div>
+              {summaries.map((item, index) => (
                 <div
-                  key={idx}
-                  className="summary-card"
+                  key={index}
+                  className="summary-item clickable"
                   onClick={() => {
-                    const blob = originalFiles.find(f => f.name === item.filename);
-                    if (blob) {
-                      const url = URL.createObjectURL(blob);
-                      sessionStorage.setItem(item.filename.replace(/\.pdf$/i, ""), url);
+                    const normalizedFilename = item.filename.replace(/^\.?\/*/, "").trim();
+                    const matchingFile = originalFiles.find(
+                      f => f.webkitRelativePath.replace(/^\.?\/*/, "").trim() === normalizedFilename
+                    );
+                    console.log(matchingFile);
+                    console.log(normalizedFilename);
+                    
+                    if (matchingFile) {
+                      const url = URL.createObjectURL(matchingFile);
                       setSelectedPDFUrl(url);
-                      setSelectedPDFName(item.filename.replace(/\.pdf$/i, ""));
-                      navigate(`/pdf/${item.filename.replace(/\.pdf$/i, "")}`);
+                      setSelectedPDFName(matchingFile.name.replace(/\.pdf$/i, ""));
+                      navigate(`/pdf/${matchingFile.name.replace(/\.pdf$/i, "")}`);
+                    } else {
+                      setMessage(`PDF not found: ${item.filename}`);
                     }
                   }}
+
                 >
                   <strong>{item.filename}</strong>
                   <p>{item.summary}</p>
                 </div>
-              ) : null
-            )}
+              ))}
+
+
+            </div>
           </div>
         )}
       </div>

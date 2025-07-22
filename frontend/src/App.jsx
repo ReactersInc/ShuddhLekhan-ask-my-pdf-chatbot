@@ -1,24 +1,21 @@
-import React from "react";
-import UploadPDF from "./components/UploadPDF";
-import PDFList from "./components/PDFList";
-import AskQuestion from "./components/AskQuestion";
+// src/App.jsx
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import Dashboard from './pages/Dashboard';
+import PDFviewerPage from './pages/PDFviewerPage';
+import AuthPage from './pages/AuthPage';
 
-function App() {
-    return (
-      <div >
-        <h1>AI PDF Summarizer Chatbot</h1>
-        <section>
-          <UploadPDF />
-        </section>
-        <section>
-          <PDFList />
-        </section>
-        {/* <section>
-          <AskQuestion />
-        </section> */}
-      </div>
-    );
-  }
-  
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/auth" element={<AuthPage />}/>
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/pdf/:fileId" element={<PDFviewerPage />} />
+      <Route path="*" element={<div>404 - Page Not Found</div>} />
+    </Routes>
+  );
+};
 
 export default App;
