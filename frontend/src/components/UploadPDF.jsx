@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { API_URL } from "../config.js";
+import { API_URL } from "../config/config.js";
 import { saveAs } from "file-saver";
 import { Document, Packer, Paragraph, TextRun } from "docx";
 import { useNavigate } from "react-router-dom";

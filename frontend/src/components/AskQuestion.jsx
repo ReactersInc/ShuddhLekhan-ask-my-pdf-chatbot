@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
-import { API_URL } from "../config";
+import { API_URL } from "../config/config";
 import "./AskQuestion.css";
 
 function AskQuestion({ pdfName }) {

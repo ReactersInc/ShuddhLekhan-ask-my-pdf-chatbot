@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { API_URL } from "../config"
+import { API_URL } from "../config/config"
 import { buildFolderTreeFromFiles } from '../utils/folderTreeBuilder';
 
 const useFileUploader = () => {

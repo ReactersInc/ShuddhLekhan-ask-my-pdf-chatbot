@@ -5,6 +5,14 @@ from langchain.prompts import PromptTemplate
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from services.llm import get_gemini_flash_llm
 
+from transformers import AutoTokenizer
+
+# Initializing tokenizer once
+tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+
+def count_tokens(text: str) -> int:
+    return len(tokenizer.encode(text, truncation=False))
+
 PERSIST_ROOT = "vector_store"
 VECTOR_STORE_TYPE = "faiss"  # change to "chroma" to switch
 
@@ -34,7 +42,13 @@ def summarize_from_indexed_pdf(pdf_name, embedding_model, llm_model, query=None,
     chain = LLMChain(llm=llm_model, prompt=SUMMARY_PROMPT)
 
     combined_text = "\n".join([doc.page_content for doc in docs])
+    total_tokens = count_tokens(combined_text)
+    
     summary = chain.run(text=combined_text)
+
+    # Log to file
+    with open("token_log.txt", "a") as f:
+        f.write(f"{pdf_name}: {total_tokens} input tokens, {len(tokenizer.encode(summary))} output tokens\n")
 
     return summary
 

@@ -3,7 +3,7 @@ import { FileText, Folder, Plus, Upload, Search, ChevronDown, ChevronRight } fro
 import './Sidebar.css';
 import useFileUploader from '../../hooks/useFileUploader'
 import { mergeFolderTrees } from '../../utils/mergeFolderTrees';
-import { API_URL } from '../../config';
+import { API_URL } from '../../config/config';
 
 
 
