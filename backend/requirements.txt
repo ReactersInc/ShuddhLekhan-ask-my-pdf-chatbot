@@ -18,3 +18,9 @@ redis
 flask-cors
 bs4
 readability-lxml
+
+# Enhanced LLM Router dependencies
+together
+groq
+requests
+asyncio
