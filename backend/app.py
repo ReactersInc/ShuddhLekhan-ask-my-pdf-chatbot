@@ -1,7 +1,8 @@
+import os
 from dotenv import load_dotenv
 load_dotenv()
 
-import os
+
 from flask import Flask
 from flask_cors import CORS
 
@@ -14,14 +15,15 @@ from routes.qa_routes import qa_bp
 from routes.web_summarize import web_bp
 from routes.document_route import document_bp
 from routes.dashboard_routes import dashboard_bp
-
-
+from routes.auth_blueprint import auth_bp
+from routes.protected_routes import protected_bp
 
 
 def create_app():
     app = Flask(__name__)
     CORS(app)
-
+    app.config["SECRET_KEY"] = os.getenv("FLASK_SECRET_KEY")
+    app.config["SUPABASE_JWT_SECRET"] = os.getenv("SUPABASE_JWT_SECRET")
     # Ensuring required folders exist(otherwise system fails if any of the folder is missing)
     os.makedirs("uploads", exist_ok=True)
     os.makedirs("summaries", exist_ok=True)
@@ -50,8 +52,8 @@ def create_app():
     app.register_blueprint(web_bp) #web summarize
     app.register_blueprint(document_bp)
     app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
-
-
+    app.register_blueprint(auth_bp, url_prefix="/auth")
+    app.register_blueprint(protected_bp, url_prefix="/api")
 
     return app
 
