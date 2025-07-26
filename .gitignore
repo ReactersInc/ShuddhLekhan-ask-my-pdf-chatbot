@@ -1,22 +1,29 @@
-# Ignore the .env file
+# Ignore environment variables
+.env
 /backend/.env
 
-# Ignore contents inside venv, but not the folder
-/backend/venv/*
+# Python cache
+__pycache__/
+*.pyc
+
+# Ignore virtual environment folders
+.venv/
+backend/venv/
+backend/venv/*
 !/backend/venv/.gitkeep
 
-# Ignore contents inside uploads, but not the folder
+# IDE settings
+.idea/
+
+# Ignore uploads but not the folder
 /backend/uploads/*
 !/backend/uploads/.gitkeep
 
-# Ignore contents inside vector_store, but not the folder
+# Ignore vector store but not the folder
 /backend/vector_store/*
 !/backend/vector_store/.gitkeep
 
-# Ignore contents inside summaries, but not the folder
+# Ignore summaries but not the folder
 /backend/summaries/*
 !/backend/summaries/.gitkeep
-
-__pycache__/
-*.pyc
 
