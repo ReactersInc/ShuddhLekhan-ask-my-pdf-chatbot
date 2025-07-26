@@ -18,6 +18,9 @@ redis
 flask-cors
 beautifulsoup4
 readability-lxml
-faiss-gpu
+faiss-cpu
 PyMuPDF
 langgraph
+requests
+PyJWT
+
