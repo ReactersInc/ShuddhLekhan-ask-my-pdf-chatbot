@@ -10,6 +10,7 @@ const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+  const [selectedFileForChat, setSelectedFileForChat] = useState(null);
 
   return (
     <div className="dashboard">
@@ -25,13 +26,15 @@ const Dashboard = () => {
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           onAIChatToggle={() => setIsChatOpen(true)}
+          onFileSelect={setSelectedFileForChat}
         />
       </div>
 
       {isChatOpen && (
         <AIChat 
           onClose={() => setIsChatOpen(false)} 
-          selectedFolder={selectedFolder} 
+          selectedFile={selectedFileForChat} 
+
         />
       )}
 

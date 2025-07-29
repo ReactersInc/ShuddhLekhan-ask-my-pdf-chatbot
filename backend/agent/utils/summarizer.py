@@ -1,4 +1,4 @@
-from services.llm import get_gemini_flash_llm
+from services.llm import get_gemini_flash_2_5_lite_llm
 from pathlib import Path
 
 PROMPT_PATH = Path(__file__).parent.parent / "prompts" / "summarizer_prompt.txt"
@@ -9,11 +9,11 @@ def load_prompt():
 
 SUMMARIZER_PROMPT = load_prompt()
 
-def batch_summarize_chunks(docs, chunk_token_limit=15000):
+def batch_summarize_chunks(docs, chunk_token_limit=250000):
     """
     docs: list of Document objects with .metadata['tokens']
     """
-    llm = get_gemini_flash_llm()
+    llm = get_gemini_flash_2_5_lite_llm()
     summaries = []
 
     batch_chunks = []

@@ -21,6 +21,9 @@ def route_query(state:dict)->dict:
     prompt += f"Conversation state: {json.dumps(conversation_state)}\n"
     prompt += f"User query: {query}\n"
 
+    result_raw = None
+    result = None
+    
     try:
         result_raw = llm.invoke(prompt)
         result = result_raw.content.strip()

@@ -7,6 +7,10 @@ def handle_ask_question(request):
         pdf_name = data.get("pdf_name")
         question = data.get("question")
 
+        print('pdf name' , pdf_name)
+        print('question' , question)
+
+
         if not pdf_name or not question:
             return jsonify({"error": "pdf_name and question are required"}), 400
 
@@ -14,4 +18,5 @@ def handle_ask_question(request):
         return jsonify({"answer": answer})
         
     except Exception as e:
+        print('Faillllllllll')
         return jsonify({"error": str(e)}), 500

@@ -3,13 +3,23 @@ from agent.utils.vectorstore_loader import get_all_vector_dirs_in_folder, load_v
 from agent.utils.summarizer import batch_summarize_chunks
 
 def file_topic_lookup(state: dict) -> dict:
-    topic = state.get("parameters", {}).get("topic")
-    folder_path = state.get("parameters", {}).get("folder_path")
+    parameters = state.get("parameters", {})
+    topic = parameters.get("topic")
+    folder_path = parameters.get("folder_path", "").strip()
 
-    if not topic or not folder_path:
-        return {**state, "error": "Missing topic or folder_path"}
+    if not topic:
+        return {**state, "error": "Missing topic for lookup"}
 
-    vector_dirs = get_all_vector_dirs_in_folder(folder_path)
+    # Determine root to search from
+    if folder_path:
+        search_root = os.path.join("vector_store", folder_path)
+    else:
+        search_root = "vector_store"
+
+    if not os.path.exists(search_root):
+        return {**state, "error": f"Folder path '{search_root}' does not exist"}
+
+    vector_dirs = get_all_vector_dirs_in_folder(search_root)
     results = []
 
     for vector_dir in vector_dirs:
@@ -17,13 +27,13 @@ def file_topic_lookup(state: dict) -> dict:
             vectorstore = load_vectorstore_from_path(vector_dir)
 
             retriever = vectorstore.as_retriever(
-                search_type="similarity",  # we can later switch to "mmr" or add thresholds
+                search_type="similarity",
                 search_kwargs={"k": 10}
             )
             relevant_docs = retriever.get_relevant_documents(topic)
 
             if not relevant_docs:
-                continue  # skips this file if no relevant chunks
+                continue
 
             chunks = [doc.page_content for doc in relevant_docs]
             summary = batch_summarize_chunks(chunks)

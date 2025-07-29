@@ -3,7 +3,7 @@ from langchain_community.vectorstores import FAISS  # changed from Chroma
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from services.llm import get_gemini_flash_llm
+from services.llm import get_gemma_llm
 
 from transformers import AutoTokenizer
 
@@ -56,7 +56,7 @@ def summarize_from_indexed_pdf(pdf_name, embedding_model, llm_model, query=None,
 # This stays the same — no vector store used
 def summarize_text(full_text: str, llm=None) -> str:
     if llm is None:
-        llm = get_gemini_flash_llm()
+        llm = get_gemma_llm()
         
     splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=200)
     chunks   = splitter.split_text(full_text)
