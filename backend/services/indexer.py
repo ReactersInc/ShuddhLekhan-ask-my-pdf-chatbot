@@ -15,7 +15,7 @@ def count_tokens(text):
     return len(tokenizer.encode(text, add_special_tokens=False))
 
 def index_pdf_text(pdf_name: str, full_text: str, embedding_model, relative_path=None):
-    splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=350, chunk_overlap=200 ,separators=["\n\n", "\n", ".", " ", ""], )
     chunks = splitter.split_text(full_text)
 
     docs = []
