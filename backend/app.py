@@ -14,8 +14,8 @@ from routes.qa_routes import qa_bp
 from routes.web_summarize import web_bp
 from routes.document_route import document_bp
 from routes.dashboard_routes import dashboard_bp
-
-
+from routes.auth_routes import auth_bp
+from routes.protected_routes import protected_bp
 
 
 def create_app():

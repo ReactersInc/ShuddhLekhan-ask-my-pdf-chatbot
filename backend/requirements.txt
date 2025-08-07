@@ -21,3 +21,7 @@ readability-lxml
 faiss-cpu
 PyMuPDF
 langgraph
+requests
+PyJWT
+psycopg2-binary 
+bcrypt 
