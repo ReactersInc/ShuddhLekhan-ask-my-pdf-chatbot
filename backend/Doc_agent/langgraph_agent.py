@@ -1,11 +1,11 @@
 from langgraph.graph import StateGraph, END
-from agent.nodes.router import route_query
-from agent.nodes.folder_summarizer import summarize_folder
-from agent.nodes.file_summarizer import summarize_file
-from agent.nodes.file_topic_lookup import file_topic_lookup
-from agent.nodes.path_resolver import resolve_file_path, resolve_folder_path
+from Doc_agent.nodes.router import route_query
+from Doc_agent.nodes.folder_summarizer import summarize_folder
+from Doc_agent.nodes.file_summarizer import summarize_file
+from Doc_agent.nodes.file_topic_lookup import file_topic_lookup
+from Doc_agent.nodes.path_resolver import resolve_file_path, resolve_folder_path
 
-# Define input/output schema (shared state)
+# DefiDoc_ne input/output schema (shared state)
 State = dict
 
 # Create the LangGraph

@@ -15,7 +15,8 @@ from routes.web_summarize import web_bp
 from routes.document_route import document_bp
 from routes.dashboard_routes import dashboard_bp
 from routes.auth_routes import auth_bp
-from routes.protected_routes import protected_bp
+# from routes.protected_routes import protected_bp
+from plagarism.upload_routes import plag_upload_bp 
 
 
 def create_app():
@@ -50,8 +51,7 @@ def create_app():
     app.register_blueprint(web_bp) #web summarize
     app.register_blueprint(document_bp)
     app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
-
-
+    app.register_blueprint(plag_upload_bp, url_prefix="/plagiarism")
 
     return app
 
