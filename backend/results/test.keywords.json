@@ -3,629 +3,476 @@
     "section": "Unknown",
     "keywords": [
       "TACC",
-      "accelerator",
       "AI",
-      "workloads",
-      "secure"
+      "Accelerator"
     ],
     "key_phrases": [
-      "secure accelerator enclave",
-      "trusted execution environment"
+      "Secure Accelerator Enclave",
+      "Trusted Accelerator",
+      "AI Workloads"
     ],
-    "key_paragraph": "We present a Secure Accelerator Enclave design, which includes heterogeneous accelerator running AI workloads into the protection scope of Trusted Execution Environment, called TACC (Trusted Accelerator)."
+    "key_points": [
+      "TACC is a Secure Accelerator Enclave design.",
+      "It protects AI workloads within a Trusted Execution Environment.",
+      "Supports dynamic user switching and context clearing.",
+      "Uses physical isolation of memory for full-stack isolation.",
+      "Includes a hardware AES-GCM module for memory interaction.",
+      "Prototypes implemented on an FPGA with Xilinx xc7z100-ffg900-2 chip.",
+      "Average security overhead is no more than 1.76%."
+    ]
   },
   {
     "section": "Jianping Zhu, Rui Hou∗, Dan Meng",
     "keywords": [
-      "security",
-      "information",
-      "engineering"
+      "Security",
+      "Research",
+      "Institute"
     ],
     "key_phrases": [
       "Chinese Academy of Sciences",
-      "Institute of Information Engineering",
-      "School of Cyber Security"
+      "Information Security",
+      "Institute of Information Engineering"
     ],
-    "key_paragraph": "State Key Laboratory of Information Security, Institute of Information Engineering, Chinese Academy of Sciences; School of Cyber Security, University of Chinese Academy of Sciences;"
+    "key_points": [
+      "Researchers are affiliated with the State Key Laboratory of Information Security.",
+      "They are from the Institute of Information Engineering, Chinese Academy of Sciences.",
+      "They are also associated with the School of Cyber Security, University of Chinese Academy of Sciences.",
+      "Contact email for Rui Hou is provided."
+    ]
   },
   {
     "section": "Abstract",
     "keywords": [
-      "security",
-      "accelerator",
-      "enclave",
-      "memory",
-      "isolation",
-      "AES",
-      "FPGA",
-      "AI",
-      "workloads"
+      "Security",
+      "Enclave",
+      "Isolation"
     ],
     "key_phrases": [
       "Trusted Execution Environment",
-      "secure accelerator enclave",
-      "physical isolation",
-      "hardware AES-GCM",
-      "on-chip buffer",
-      "in-package memory",
-      "off-package memory",
-      "context clearing"
+      "Secure Accelerator Enclave",
+      "Physical Isolation"
     ],
-    "key_paragraph": "We present a Secure Accelerator Enclave design, which includes heterogeneous accelerator running AI workloads into the protection scope of Trusted Execution Environment, called TACC (Trusted Accelerator). TACC supports dynamic user switching and context clearing of accelerator enclave from the microarchitecture level; The physical isolation of in-package memory (3D chip package) and off-package memory is used to realize the full stack (from hardware to software) isolation of enclave internal running memory and external ciphertext memory."
+    "key_points": [
+      "Presents TACC, a Secure Accelerator Enclave design.",
+      "Protects heterogeneous accelerators running AI workloads.",
+      "Supports dynamic user switching and context clearing.",
+      "Achieves full-stack isolation through physical memory isolation.",
+      "Uses a dedicated hardware AES-GCM module.",
+      "Implemented prototypes (FAT and SLIM) on an FPGA.",
+      "Demonstrates a low average security overhead (≤ 1.76%)."
+    ]
   },
   {
     "section": "1 Introduction",
     "keywords": [
-      "accelerator",
-      "CPU",
-      "GPU",
-      "TEE",
-      "security",
-      "AI",
-      "workloads",
-      "memory",
-      "isolation",
-      "hardware",
-      "software"
-    ],
-    "key_phrases": [
-      "Trusted Execution Environment",
-      "heterogeneous architecture",
-      "secure enclave",
-      "on-chip buffer",
-      "cache hierarchy",
-      "physical address space",
-      "Trusted Computing Base",
-      "device security controller",
-      "memory access hierarchy"
-    ],
-    "key_paragraph": "In recent years, the field of architecture has presented a situation where CPU, GPU, and accelerator are three pillars, and the accelerator architecture for AI workloads will play an increasingly important role. As small as the on-chip integrated heterogeneous architecture of the mobile phone chip (for example, the Apple A15 Bionic chip [1] is composed of 6-core CPU + 5-core GPU + 16-core Neural Engine), as large as the distributed heterogeneous computing of the cloud platform/data center Architecture (for example, Google Cloud [21] supports three types of computing resources: CPU clusters, GPU clusters and TPU clusters). Trusted Execution Environment (TEE) only based on CPU architecture can no longer meet the security requirements of the heterogeneous architecture."
-  },
-  {
-    "section": "Background",
-    "keywords": [
-      "security",
-      "confidentiality",
-      "integrity",
-      "authentication",
+      "Accelerator",
+      "Security",
       "TEE"
     ],
     "key_phrases": [
       "Trusted Execution Environment",
-      "secure channels",
-      "remote attestation"
+      "Heterogeneous Architecture",
+      "AI Workloads"
     ],
-    "key_paragraph": "Confidentiality: Secrets are invisible to the outside. The user’s sensitive data inside the enclave, as well as its calculation process, are not allowed to be observed or perceived by untrusted third parties (including privileged OS). And the communications between user and enclave are encrypted."
+    "key_points": [
+      "Accelerators are becoming increasingly important for AI workloads alongside CPUs and GPUs.",
+      "Existing TEEs based on CPU architecture are insufficient for heterogeneous architectures.",
+      "There's a need to extend secure enclave protection to accelerators.",
+      "Current research on heterogeneous isolated execution environments focuses on CPU+GPU combinations.",
+      "TACC focuses on the trusted reconstruction of the accelerator architecture itself.",
+      "TACC utilizes the memory access hierarchy of accelerators for security.",
+      "TACC adds a hardware DSC for context clearing and memory management.",
+      "Physical isolation of the chip’s 3D package is used for full-stack isolation.",
+      "TACC offers advantages over CPU+GPU TEEs due to accelerator's memory structure and customization potential."
+    ]
+  },
+  {
+    "section": "Background",
+    "keywords": [
+      "TEE",
+      "Security",
+      "Confidentiality"
+    ],
+    "key_phrases": [
+      "Trusted Execution Environment",
+      "Secure Communication",
+      "Secure Boot"
+    ],
+    "key_points": [
+      "TEE design principles include Confidentiality, Integrity, and Authentication.",
+      "Confidentiality ensures secrets are invisible to untrusted parties.",
+      "Integrity prevents tampering with data and communication.",
+      "Authentication allows secure identification and channel establishment between user and enclave.",
+      "Trusted platforms have secure boot and remote attestation mechanisms."
+    ]
   },
   {
     "section": "2.2",
     "keywords": [
       "TEE",
-      "CPU",
-      "GPU",
-      "accelerator",
       "memory",
-      "security",
-      "enclave",
-      "hardware",
-      "micro-architecture",
-      "TLB",
-      "MMU",
-      "cache",
-      "side-channels"
+      "security"
     ],
     "key_phrases": [
       "memory access hierarchy",
-      "secure data interaction",
-      "trusted computing",
-      "per-enclave page tables",
-      "unified virtual addressing memory",
-      "device security controller",
-      "hardware primitive support",
-      "security context saving",
-      "off-chip side channels",
-      "encrypted address bus"
+      "CPU TEE",
+      "per-enclave page tables"
     ],
-    "key_paragraph": "We believe that when building a heterogeneous TEE whose main goal is to protect AI workloads, it is necessary to add security primitive support from the underlying hardware to the emerging accelerator micro-architecture. The processor’s memory access hierarchy is the key underlying hardware for secure data interaction and trusted computing. Therefore, this paper will add an independent hardware Device Security Controller to the accelerator’s unique memory access hierarchy to provide security primitive support."
+    "key_points": [
+      "Building a heterogeneous TEE for AI workloads requires security primitive support in accelerator micro-architecture.",
+      "CPU TEEs (Sanctum, SGX) use per-enclave page tables for memory isolation but may share memory hierarchy components, creating side channels.",
+      "GPU memory hierarchy is managed by an untrusted OS driver, increasing security risks.",
+      "CPU TEEs may allow sharing of LLC and TLB, creating side channels.",
+      "Unencrypted address buses accessing off-chip DRAM in CPU TEEs create off-chip side channels."
+    ]
   },
   {
     "section": "Accelerator Core",
     "keywords": [
       "accelerator",
       "memory",
-      "cache",
-      "TLB",
-      "buffers",
-      "scheduler",
-      "PE",
-      "MMU",
-      "virtualization",
-      "OS",
-      "security"
+      "buffers"
     ],
     "key_phrases": [
       "on-chip buffers",
-      "double-buffering mechanism",
       "unified memory space",
-      "address space virtualization",
-      "on-demand paging",
-      "physical isolation",
-      "secure physical boundary"
+      "double-buffering mechanism"
     ],
-    "key_paragraph": "Accelerators usually do not have complex multi-level caches, TLBs, instead they use on-chip buffers to cache input and output data. Although, some local MMU designs for accelerators have recently appeared providing a unified memory space similar to GPUs, supporting address space virtualization and on-demand paging on accelerators, so as to achieve programming convenience and improve resource utilization."
+    "key_points": [
+      "Accelerators typically use on-chip buffers instead of complex caches and TLBs.",
+      "DianNao series accelerators use Synapses Buffers (SB) and Neurons Buffers (NBin/NBout) for data caching.",
+      "Accelerators employ a double-buffering mechanism to overlap memory access and PE calculations.",
+      "Some accelerators are adopting local MMU designs for unified memory spaces, but still rely on OS support.",
+      "TACC aims to isolate internal memory management from the untrusted OS."
+    ]
   },
   {
     "section": "2.3",
     "keywords": [
-      "3D",
       "packaging",
       "memory",
-      "chip",
-      "security",
-      "tamper",
-      "snooping",
-      "HBM",
-      "SRAM"
+      "security"
     ],
     "key_phrases": [
-      "3D IC packaging technology",
+      "3D IC packaging",
       "in-package memory",
-      "off-package memory",
-      "copper-based traces",
-      "silicon interconnection",
-      "performance bottleneck",
-      "memory access efficiency"
+      "off-package memory"
     ],
-    "key_paragraph": "With the advancement of 3D IC packaging technology, the integration of a considerable scale of in-package memory on heterogeneous processor chips in the foreseeable future will become the mainstream. In-package memory is different from off-package memory that uses copper-based traces on the PCB to connect to the CPU. The memory outside the package is easy to snoop and tamper with, but it is difficult for an attacker to open the chip package and snoop on the silicon interconnection between the accelerator and the stacked memory."
+    "key_points": [
+      "3D IC packaging is becoming mainstream, enabling integration of in-package memory.",
+      "In-package memory is more secure than off-package memory due to difficulty of physical snooping.",
+      "Memory access is a performance bottleneck in AI computing.",
+      "TACC utilizes the physical isolation of in-package and off-package memory for security."
+    ]
   },
   {
     "section": "TACC DESIGN",
     "keywords": [
       "TACC",
-      "enclave",
-      "accelerator",
       "security",
-      "DSC",
-      "AES-GCM",
-      "memory",
-      "MMIO",
-      "xdma",
-      "CPU",
-      "OS",
-      "key",
-      "encryption"
+      "enclave"
     ],
     "key_phrases": [
-      "secure enclave",
-      "memory access hierarchy",
       "device security control",
-      "encrypted communication channels",
-      "plaintext running memory",
-      "ciphertext communication memory",
-      "Oblivious Relay",
-      "three-party encrypted communication",
-      "secure boot",
-      "remote attestation"
+      "encrypted communication",
+      "secure enclave"
     ],
-    "key_paragraph": "Inside the TACC chip, we adopt the popular Accelerator Core. We add several critical modules for building secure enclave to the memory access hierarchy of the accelerator: DSC (device security control), Address Checker, and AES-GCM engine. Unlike the GPU unified memory management, TACC cuts off the MMIO path for the host CPU to access the accelerator."
+    "key_points": [
+      "TACC adds DSC, Address Checker, and AES-GCM engine to the accelerator's memory access hierarchy.",
+      "TACC cuts off the MMIO path for host CPU access to the accelerator.",
+      "Communication between the host and TACC is through encrypted packets via xdma.",
+      "TACC relies on a pure xdma driver and Oblivious Relay for communication.",
+      "TACC shares AES keys between Remote User, CPU enclave, and TACC enclave for secure communication."
+    ]
   },
   {
     "section": "3.2",
     "keywords": [
       "threat",
-      "model",
-      "OS",
-      "CPU",
-      "accelerator",
-      "memory",
       "security",
-      "tamper",
-      "snooping",
-      "enclave",
-      "attack",
-      "privacy",
-      "integrity"
+      "adversary"
     ],
     "key_phrases": [
-      "strong adversary",
-      "root privileged code",
+      "host OS",
       "ciphertext memory",
-      "plaintext running memory",
-      "physical leakage",
-      "denial of service",
-      "adversarial samples",
-      "poisoning attacks",
-      "evasion attacks",
-      "platform as a service"
+      "plaintext running memory"
     ],
-    "key_paragraph": "The strong adversary of this paper is the OS (and other root privileged code) running on the host CPU. The attacker will try to use the shared IOMMU mapped device xdma and shared PCIe Root Complex to snoop or even tamper with the memory and registers space of accelerator cards that connected to the CPU. Since the space exposed by our TACC to the host is only the ciphertext memory area outside the chip package, and the plaintext running memory area in the package is not visible to the host, TACC can prevent these attacks."
+    "key_points": [
+      "The primary adversary is the OS (and other root privileged code) on the host CPU.",
+      "TACC protects against attacks attempting to snoop or tamper with accelerator memory and registers.",
+      "TACC only exposes ciphertext memory to the host, keeping plaintext memory within the chip package.",
+      "Evasion and poisoning attacks on AI models are outside the scope of TACC's security guarantees.",
+      "Denial of Service attacks are also outside the scope of this paper."
+    ]
   },
   {
     "section": "3.3",
     "keywords": [
-      "secure",
-      "channels",
-      "TACC",
-      "enclave",
-      "remote",
-      "local",
-      "command",
-      "data",
-      "code",
-      "memory",
-      "AES",
-      "encryption",
-      "buffers",
-      "address",
-      "checker",
-      "allocation",
-      "reclaim"
+      "channel",
+      "security",
+      "enclave"
     ],
     "key_phrases": [
-      "secure channels",
-      "Remote User",
-      "CPU enclave",
-      "TACC enclave",
-      "memory occupancy",
-      "accelerator core",
-      "communication AES keys",
-      "sensitive information",
-      "memory access",
-      "Task-Code channel",
-      "Task-Data channel",
-      "encrypted packages",
-      "data-oblivious"
+      "remote command channel",
+      "task code channel",
+      "secure communication"
     ],
-    "key_paragraph": "The Remote-Command channel is used by the Remote User to send TACC enclave creation and destruction requests. It contains five steps. Only certified devices and runtime stacks are allowed to establish TACC enclaves, and then negotiate a three-party shared communication AES keys to construct a secure channel. Then the Remote User can transmit the code and data to the \"CPU+TACC\" joint enclave."
+    "key_points": [
+      "Four types of secure channels are supported: Remote/Local-Command, and Task-Code/Data.",
+      "Remote-Command channel is for enclave creation/destruction requests, using TACCenclaveCreate() and TACCenclaveDestory() functions.",
+      "Local-Command channel manages TACC on-chip memory using TACCmalloc and TACCfree.",
+      "TACC supports static memory allocation only.",
+      "Address Checker verifies memory access permissions based on enclave ID.",
+      "Task-Code channel transmits code instructions to the Accelerator Core.",
+      "Task-Data channel transmits data to the Accelerator Core, potentially skipping the CPU enclave step for frequent data transfers.",
+      "All channel packages are encrypted to protect sensitive information.",
+      "Communication channel sizes and timing are data-oblivious to prevent snooping attacks."
+    ]
   },
   {
     "section": "3.4",
     "keywords": [
-      "DSC",
-      "Address",
-      "Checker",
       "memory",
-      "occupancy",
-      "table",
-      "allocation",
-      "physical",
-      "addressing",
-      "chunks",
-      "enclave",
-      "ID",
-      "exception",
-      "flags"
+      "address",
+      "table"
     ],
     "key_phrases": [
-      "memory access permission check",
+      "memory occupancy table",
       "physical addressing",
-      "memory chunks",
-      "task memory occupancy table",
-      "enclave ID",
-      "allocation exception",
-      "occupied flag",
-      "memory exception",
-      "Accelerator Core"
+      "address checker"
     ],
-    "key_paragraph": "TACC maintains per-Accelerator Core memory occupancy table of the current task in the Address Checker (the DSC is responsible for set/clear the table entries), to implement the memory access permission check of the Accelerator Core. Unlike the virtual addressing and complex memory paging mechanism in traditional CPU/GPU, TACC uses direct physical addressing and divides the on-chip memory into larger chunks."
+    "key_points": [
+      "TACC uses a per-Accelerator Core memory occupancy table to manage memory access permissions.",
+      "Unlike traditional CPU/GPU, TACC uses direct physical addressing and larger memory chunks.",
+      "The memory occupancy table is implemented with a limited number of entries based on the number of memory chunks.",
+      "DSC manages the memory occupancy table, setting and clearing entries.",
+      "Allocation exceptions are generated if a memory chunk is already occupied.",
+      "TACCfree clears the occupied flag and enclave ID, and overwrites the physical memory with zeros.",
+      "All memory access requests are checked by the Address Checker against the occupancy table and enclave ID."
+    ]
   },
   {
     "section": "Enclave ID",
     "keywords": [
-      "table",
       "address",
       "enclave",
-      "ID"
+      "memory"
     ],
     "key_phrases": [
-      "task memory occupancy table",
-      "physical address"
+      "physical address",
+      "memory occupancy table",
+      "enclave id"
     ],
-    "key_paragraph": "Task memory occupancy table physical address ... Enclave ID 1 1"
-  },
-  {
-    "section": "Enclave ID",
-    "keywords": [
-      "DSC",
-      "TACCmalloc",
-      "TACCfree",
-      "memory",
-      "allocation",
-      "exception",
-      "enclave",
-      "ID",
-      "flags",
-      "address",
-      "checker"
-    ],
-    "key_phrases": [
-      "memory chunk",
-      "Idle state",
-      "occupied flag",
-      "allocation exception",
-      "Response package",
-      "physical memory chunk",
-      "memory access requests",
-      "enclave ID",
-      "memory exception"
-    ],
-    "key_paragraph": "When the DSC executes a TACCmalloc instruction, it first finds the entry corresponding to the required memory chunk according to the index, and checks whether its occupied flag is in the Idle state. Only memory chunks in the Idle state are allowed to be allocated, the current enclave ID is recorded in the table entry, and then occupied flag bit is set to 1."
+    "key_points": [
+      "The memory occupancy table stores the enclave ID associated with each memory chunk.",
+      "The high bits of the 32-bit physical address are used as an index into the memory occupancy table.",
+      "The Address Checker verifies that the enclave ID in the table matches the current enclave ID during memory access.",
+      "If the enclave ID does not match, a memory exception is generated."
+    ]
   },
   {
     "section": "3.5",
     "keywords": [
-      "AES",
-      "GCM",
       "encryption",
-      "decryption",
-      "integrity",
-      "MAC",
-      "replay",
-      "rollback",
-      "packets",
-      "DMA",
-      "engine",
-      "security",
-      "isolation"
+      "AES",
+      "security"
     ],
     "key_phrases": [
       "AES-GCM engine",
-      "ciphertext transfer queues",
-      "encrypted packages",
       "integrity check",
-      "replay attacks",
-      "rollback attacks",
-      "CPU enclave ID",
-      "Command package",
-      "Task package",
-      "malicious software",
-      "untrusted host OS"
+      "replay attacks"
     ],
-    "key_paragraph": "TACC currently implements a 128-bit GCM mode AES hardware encryption and decryption module. The AES-GCM module completes the integrity check while decrypting the input packages, and generates the integrity MAC check code accompanying the ciphertext packages while encrypting the output packets. The unique package ID in the decrypted packet is used to prevent replay attacks and rollback attacks, and the bound CPU enclave ID is used to check whether the packet belongs to the current TACC enclave."
+    "key_points": [
+      "TACC implements a 128-bit AES-GCM hardware encryption/decryption module.",
+      "AES-GCM performs integrity checks and generates MAC check codes.",
+      "Unique package IDs prevent replay and rollback attacks.",
+      "The AES-GCM module is the sole interface between internal and external memories.",
+      "Data packets are only forwarded if they pass the AES-GCM checks, isolating TACC from untrusted host OS."
+    ]
   },
   {
     "section": "IMPLEMENTATION",
     "keywords": [
       "FPGA",
-      "memory",
-      "PCIe",
-      "chip",
-      "ciphertext",
-      "plaintext"
+      "platform",
+      "memory"
     ],
     "key_phrases": [
+      "AX7Z100",
       "FPGA development board",
-      "Xilinx xc7z100-ffg900-2 chip",
-      "PCIe x8 end-point interface",
-      "PL side memory",
-      "in-package memory"
+      "PCIe x8 interface"
     ],
-    "key_paragraph": "AX7Z100 is a FPGA development board similar to the Xilinx ZC706, which has a Xilinx xc7z100-ffg900-2 chip on board, and a PCIe x8 end-point interface can be connected to the host PCIe slots. Although the 1 GB PL side memory of AX7Z100 is all outside the chip package, we use it half for ciphertext area, and another half for plaintext (pretending that we have in-package memory)."
+    "key_points": [
+      "AX7Z100 is used as the prototype implementation platform, similar to Xilinx ZC706.",
+      "It features a Xilinx xc7z100-ffg900-2 chip and a PCIe x8 endpoint interface.",
+      "1 GB of PL side memory is utilized, half for ciphertext and half for plaintext."
+    ]
   },
   {
     "section": "4.2",
     "keywords": [
       "RepVGG",
-      "CNN",
-      "inference",
-      "FPGA",
-      "parameters",
-      "accuracy",
-      "convolution",
-      "ReLU",
-      "memory",
-      "buffers",
-      "multipliers",
-      "SLIM",
-      "FAT",
-      "blockRAMs",
-      "LUT",
-      "FF",
-      "DSP"
+      "network",
+      "FPGA"
     ],
     "key_phrases": [
-      "Convolutional Neural Network",
-      "VGG-like inference-time body",
-      "multi-branch complex networks",
-      "network parameters",
-      "ImageNet-2012 test set",
-      "Top-1 accuracy",
-      "fixed-point processing",
-      "matrix multipliers",
-      "Accelerator Cores",
-      "on-chip buffers",
-      "blockRAMs",
-      "resource occupancy"
+      "convolutional neural network",
+      "ImageNet-2012",
+      "fixed-point processing"
     ],
-    "key_paragraph": "RepVGG [17] is a powerful architecture of Convolutional Neural Network, which has a VGG-like inference-time body composed only a stack of 3x3 convolution and ReLU. While, it can achieve the accuracy and speed of multi-branch complex networks. For simplicity (considering the limited resources on the FPGA), we choose RepVGG-A0, which has the least network parameters in a series of RepVGG configurations, as the AI workload to evaluate our prototype TACC on the FPGA. Even so, the RepVGG-A0 network still has considerable network size and recognition accuracy (it can classify 1000 classes of images in the ImageNet-2012 test set, with a Top-1 accuracy of 72.41%)."
+    "key_points": [
+      "RepVGG-A0 is chosen as the AI workload due to its relatively small network size.",
+      "RepVGG-A0 can classify 1000 ImageNet classes with a Top-1 accuracy of 72.41%.",
+      "The network has 24 layers and approximately 8.30M parameters, requiring 16MB of storage with 16-bit fixed-point processing.",
+      "SLIM core has 36 multipliers (4x9), and FAT core has 144 multipliers (16x9).",
+      "Buffer sizes are adjusted based on core type (SLIM: 1552KB, FAT: 1600KB).",
+      "The current prototype implements only a single Accelerator Core with one PE."
+    ]
   },
   {
     "section": "4.3",
     "keywords": [
       "instructions",
-      "security",
       "memory",
-      "buffers",
-      "access",
-      "calculation",
-      "convolution",
-      "pooling",
-      "DMA",
-      "registers",
-      "opcode",
-      "mask"
+      "buffers"
     ],
     "key_phrases": [
-      "Security-related TACCmalloc",
-      "TACCenclaveCreate",
-      "Task instructions",
+      "task instructions",
       "memory access",
-      "calculation instructions",
-      "tensor load",
-      "tensor store",
-      "tensor copy",
-      "tensor clear",
-      "base address",
-      "immediate offset",
-      "buffer controller",
-      "execution unit",
-      "physical address",
-      "on-chip buffers"
+      "Cambricon instruction set"
     ],
-    "key_paragraph": "We divide TACC task instructions into two types: memory access and calculation. Since we implemented multiple buffers that can be accessed simultaneously for SB, NBin and NBout in Accelerator Core, but not all instructions need to access all buffers. Therefore, on the basis of Cambricon’s instruction format, we add field indicating the buffers mask for selective access to multiple buffers. And, since the physical address of on-chip buffers is directly open to programmers and compilers, mask allows user to flexibly choose to concurrently access all buffers, or selectively access a buffer."
+    "key_points": [
+      "TACC instructions are divided into security-related instructions (executed by DSC) and task instructions (executed by the Accelerator Core).",
+      "TACC task instructions are based on the Cambricon instruction set but simplified and modified.",
+      "Task instructions are categorized into memory access and calculation types.",
+      "Memory access instructions include TLOAD, TSTORE, TCOPY, and TCLEAR.",
+      "A 'mask' field is added to instructions for selective buffer access.",
+      "Addressing mode for memory is 'base address + immediate offset'.",
+      "Calculation instructions (TEXEC) support convolutional, fully connected, and global average pooling layers.",
+      "Instructions are executed in-order by the Scheduler."
+    ]
   },
   {
     "section": "4.4",
     "keywords": [
-      "program",
       "memory",
       "enclave",
-      "CPU",
-      "device",
-      "allocation",
-      "encryption",
-      "decryption",
-      "ECALLs",
-      "OCALLs",
-      "relay",
-      "cipher-text"
+      "security"
     ],
     "key_phrases": [
-      "Unified Memory programming model",
-      "on-chip memory",
-      "Remote Commands packages",
-      "Task Code packages",
-      "Local Commands packages",
+      "explicit memory management",
       "Oblivious-Relay",
-      "off-chip memory",
-      "ciphertext area"
+      "ECALLs functions"
     ],
-    "key_paragraph": "Unlike the Unified Memory programming model of GPU, TACC does not support direct pointer sharing between host CPU and device, and TACC device on-chip memory must be managed explicitly. That is, all memory chunks to be accessed by the current task must be manually allocated by the programmer, and then the task kernel code can access them, and finally the memory chunks need to be manually freed by the programmer. If the capacity of memory chunks used by a task kernel exceeds the capacity of TACC on-chip memory, programmers also need to manually swap memory chunks to off-chip memory (memory chunks must be encrypted and decrypted when swapping out and in)."
+    "key_points": [
+      "TACC does not support direct pointer sharing between host CPU and device.",
+      "Memory must be explicitly allocated and freed by the programmer.",
+      "Memory chunks exceeding on-chip capacity require manual swapping to off-chip memory (with encryption/decryption).",
+      "TACC requires ECALLs for transferring Remote Commands and Task Code into the CPU enclave.",
+      "OCALLs are used to transfer Local Commands and Task Code out of the CPU enclave.",
+      "Oblivious-Relay forwards ciphertext packets to the TACC device, reducing encryption/decryption overhead."
+    ]
   },
   {
     "section": "Evaluation",
     "keywords": [
-      "security",
-      "performance",
       "overhead",
-      "encryption",
-      "decryption",
-      "batch",
-      "latency",
-      "throughput",
-      "AES",
-      "DSC",
-      "Address",
-      "Checker",
-      "FPGA",
-      "ImageNet"
+      "performance",
+      "security"
     ],
     "key_phrases": [
-      "security-related hardware",
-      "baseline performance",
-      "ciphertext relay",
-      "plaintext data packets",
-      "latency overhead",
+      "encryption overhead",
       "throughput overhead",
-      "batch size",
-      "execution units",
-      "encryption bandwidth"
+      "batch size"
     ],
-    "key_paragraph": "In the following, we will show the impact of security-related hardware (such as AES-GCM, DSC, and Address Checker) on the execution performance of the Accelerator Core. For comparison, in the absence of AES-GCM, DSC, and Address Checker, we provide the LaunchPlianPacket( ) and GetPlainPacket( ) functions for Oblivious-Relay on the host, which can directly relay plaintext data packets to TACC on-chip memory, and thus get baseline performance. Compared with the performance obtained by the ciphertext relay functions LaunchCipherPacket( ) and GetCipherPacket( ), the increased overhead of security-related hardware can be obtained."
+    "key_points": [
+      "The impact of security-related hardware (AES-GCM, DSC, Address Checker) on performance is evaluated.",
+      "Baseline performance is established using plaintext relay functions.",
+      "Latency overhead is about 40x higher when network weights need to be temporarily loaded.",
+      "Maximum latency overhead is 1.76%.",
+      "Throughput overhead is 3.5x higher for the FAT core compared to the SLIM core.",
+      "Batch size = 16 is a turning point for minimizing overhead.",
+      "Overhead is expected to remain below 1.76% with future expansion of accelerator resources and AES engines."
+    ]
   },
   {
     "section": "Security Analysis",
     "keywords": [
-      "memory",
-      "ciphertext",
-      "adversary",
-      "encryption",
-      "communication",
-      "key",
-      "data",
       "security",
-      "TACC"
+      "encryption",
+      "memory"
     ],
     "key_phrases": [
-      "memory management",
-      "privileged adversary",
-      "symmetric secret key",
       "ciphertext area",
-      "data-oblivious",
-      "secure communication",
-      "host OS",
-      "remote user",
-      "exception information"
+      "symmetric secret key",
+      "data-oblivious"
     ],
-    "key_paragraph": "Therefore, our TACC system can protect against the adversary’s attack described in our threat model."
+    "key_points": [
+      "The TACC chip's on-chip memory is inaccessible to a privileged adversary like the host OS.",
+      "The TACC system prevents host CPU access to device registers and on-chip memory via MMIO.",
+      "TACC handles exceptions internally by encrypting information and sending it to the CPU enclave/Remote User, avoiding untrusted OS interruption.",
+      "All communication between TACC, CPU, and Remote User is encrypted using a shared symmetric key.",
+      "Ciphertext data packet timing and size are data-oblivious to prevent attacks."
+    ]
   },
   {
     "section": "Related Work",
     "keywords": [
       "TEE",
-      "CPU",
       "GPU",
-      "security",
-      "enclave",
-      "hardware",
-      "accelerator",
-      "data",
-      "integrity",
-      "confidentiality"
+      "enclave"
     ],
     "key_phrases": [
       "CPU TEE",
-      "GPU TEE",
-      "data-oblivious streams",
-      "secure channels",
       "hardware-independent Security Controller",
-      "distributed heterogeneous computing",
-      "trusted reconstruction",
-      "AI pipeline",
-      "network layer",
-      "feature map",
-      "hardware accelerators"
+      "trusted reconstruction"
     ],
-    "key_paragraph": "However, none of the above studies involved the trusted reconstruction of the emerging accelerator architecture itself."
+    "key_points": [
+      "Early Trusted Execution Environment (TEE) research focused on CPUs like SGX and TrustZone.",
+      "Recent work extends CPU TEEs to GPUs, such as Graviton and HIX.",
+      "Telekine provides data-oblivious streams to enhance security in GPU TEE interactions.",
+      "HETEE uses a Security Controller for secure channel management, but reduces resource utilization.",
+      "Existing solutions do not address the trusted reconstruction of the accelerator architecture itself.",
+      "Protecting only parts of the AI pipeline may not guarantee integrity due to potential tampering outside the enclave.",
+      "TACC provides a heterogeneous enclave that protects hardware AI accelerators, unlike previous approaches."
+    ]
   },
   {
     "section": "Conclusion",
     "keywords": [
       "TACC",
       "accelerator",
-      "enclave",
-      "memory",
-      "security",
-      "FPGA",
-      "overhead",
-      "design",
-      "isolation"
+      "security"
     ],
     "key_phrases": [
       "secure accelerator enclave",
-      "internal memory management",
       "on-chip memory",
-      "hardware security mechanism",
-      "remote user",
-      "user switching",
-      "context clearing",
-      "FPGA platform"
+      "hardware security mechanism"
     ],
-    "key_paragraph": "This paper provides a secure accelerator enclave design called TACC. TACC isolates the internal memory management mechanism of the accelerator from the untrusted host OS to protect against privileged software attacks."
+    "key_points": [
+      "The paper introduces TACC, a secure accelerator enclave design.",
+      "TACC isolates the accelerator's memory management from the untrusted host OS.",
+      "Dedicated instructions (TACCmalloc/TACCfree) and commands (TACCenclaveCreate/Destroy) are designed for memory management and user switching.",
+      "Two TACC prototypes (FAT core and SLIM core) were implemented on an FPGA platform.",
+      "The maximum overhead of TACC's hardware security mechanism is 1.76%.",
+      "TACC is the first design of its kind for emerging accelerator architectures."
+    ]
   },
   {
     "section": "ACKNOWLEDGMENTS",
     "keywords": [
-      "comments",
       "funding",
-      "support",
-      "reviewers"
+      "reviewers",
+      "support"
     ],
     "key_phrases": [
       "insightful comments",
-      "Chinese National Science Foundation",
+      "National Science Foundation",
       "Distinguished Young Scholars"
     ],
-    "key_paragraph": "We thank the shepherd Prof. Christian Wressnegger and the anonymous reviewers for their insightful comments."
+    "key_points": [
+      "The authors thank Prof. Christian Wressnegger and anonymous reviewers for their feedback.",
+      "The work was supported by the Chinese National Science Foundation grant No.62125208."
+    ]
   }
 ]

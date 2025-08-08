@@ -17,9 +17,7 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(RESULT_DIR, exist_ok=True)
 
 
-
-# Utility: Safe JSON Parsing
-
+# --- Utility: Safe JSON Parsing ---
 def safe_json_parse(llm_output):
     """
     Cleans up LLM output and safely parses JSON.
@@ -27,12 +25,9 @@ def safe_json_parse(llm_output):
     If parsing fails, returns None.
     """
     text = llm_output.strip()
-
-    # Removes markdown code fences like ```json ... ```
     text = re.sub(r"^```(json)?", "", text.strip(), flags=re.IGNORECASE)
     text = re.sub(r"```$", "", text.strip())
 
-    # Extracts the first JSON array/object found
     match = re.search(r"\[.*\]|\{.*\}", text, re.DOTALL)
     if match:
         text = match.group(0)
@@ -43,9 +38,7 @@ def safe_json_parse(llm_output):
         return None
 
 
-
-# Keyword Extraction
-
+# --- Keyword Extraction ---
 def extract_keywords_from_sections(sections):
     llm = get_gemma_llm()
 
@@ -64,16 +57,16 @@ def extract_keywords_from_sections(sections):
 
         prompt = (
             "You are a research assistant. For each section below, extract:\n"
-            "1. A list of important **keywords** (single words)\n"
-            "2. A list of important **key phrases** (multi-word)\n"
-            "3. All the important **key points (can be more than one, include all)** \n\n"
+            "1. **Top 3 most relevant keywords** (single words, directly tied to the section context)\n"
+            "2. **Top 3 most relevant key phrases** (multi-word, directly tied to the section context)\n"
+            "3. **All important key points** (bullet points, capturing every crucial idea or fact in the section)\n\n"
             "Return ONLY valid JSON in the format:\n"
             "[\n"
             "  {\n"
             '    "section": "section name",\n'
-            '    "keywords": [...],\n'
-            '    "key_phrases": [...],\n'
-            '    "key_paragraph": "..." \n'
+            '    "keywords": ["word1", "word2", "word3"],\n'
+            '    "key_phrases": ["phrase1", "phrase2", "phrase3"],\n'
+            '    "key_points": ["point 1", "point 2", "point 3"]\n'
             "  }\n"
             "]\n"
             f"Sections:\n{batch_text}"
@@ -83,10 +76,8 @@ def extract_keywords_from_sections(sections):
         parsed = safe_json_parse(response.content)
 
         if parsed is not None and isinstance(parsed, list):
-            # Append parsed results as they are
             results.extend(parsed)
         else:
-            # Stores raw output for each section in the batch
             for sec in batch:
                 results.append({
                     "section": sec["section"],
@@ -97,10 +88,7 @@ def extract_keywords_from_sections(sections):
     return results
 
 
-
-
-# Upload Route
-
+# --- Upload Route ---
 @plag_upload_bp.route("/upload", methods=["POST"])
 def upload_file():
     if "file" not in request.files:
@@ -121,7 +109,7 @@ def upload_file():
         chunks_json_path = os.path.join(RESULT_DIR, Path(filename).stem + ".chunks.json")
         save_sections_as_json(sections, chunks_json_path)
 
-        # Step 2: Extract keywords for the tool (Arxiv and Tavily)
+        # Step 2: Extract keywords & key points
         keyword_results = extract_keywords_from_sections(sections)
         keywords_json_path = os.path.join(RESULT_DIR, Path(filename).stem + ".keywords.json")
         with open(keywords_json_path, "w", encoding="utf-8") as f:
