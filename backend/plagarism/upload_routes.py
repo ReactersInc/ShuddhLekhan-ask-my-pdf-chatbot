@@ -66,7 +66,7 @@ def extract_keywords_from_sections(sections):
             "You are a research assistant. For each section below, extract:\n"
             "1. A list of important **keywords** (single words)\n"
             "2. A list of important **key phrases** (multi-word)\n"
-            "3. All the important **key sentences (can be more than one sentence include all)** \n\n"
+            "3. All the important **key points (can be more than one, include all)** \n\n"
             "Return ONLY valid JSON in the format:\n"
             "[\n"
             "  {\n"
