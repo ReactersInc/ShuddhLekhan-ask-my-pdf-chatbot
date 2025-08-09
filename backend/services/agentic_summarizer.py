@@ -8,6 +8,22 @@ from services.smart_api_manager import SmartAPIManager
 from services.llm_routing_engine import LLMRoutingEngine
 
 class AgenticSummarizer:
+    """
+    Advanced Agentic Summarizer with LLM Router Integration
+    
+    This summarizer uses specialized AI agents to process different parts of documents:
+    - Introduction Agent: Analyzes opening sections, identifies thesis and context
+    - Content Agent: Processes main content, extracts key points and details  
+    - Conclusion Agent: Handles endings, captures outcomes and implications
+    - Synthesis: Combines all agent outputs into coherent final summary
+    
+    Features:
+    - Intelligent LLM routing across 5 APIs (Gemma, GROQ, Together AI, OpenRouter)
+    - Reactive rate limit handling with automatic fallbacks
+    - Complexity-aware agent assignment
+    - Semantic chunking with paragraph boundary respect
+    - Production-ready error handling and recovery
+    """
     def __init__(self):
         self.chunk_size = 4000  # Larger chunks = fewer API calls
         self.max_workers = 1    # Sequential processing for free tier
@@ -113,24 +129,42 @@ class AgenticSummarizer:
             else:
                 analysis = {"complexity": "medium", "language": "en", "priority": "medium"}
             
-            # Assign different roles based on chunk position
+            # Assign different roles based on chunk position with enhanced prompts
             if i == 0:
                 agent_type = "introduction_agent"
-                prompt = """You are an expert at identifying main topics and introductions. 
-                Summarize the main topic, purpose, and key themes introduced in this text. 
-                Focus on what this document is about and its primary objectives."""
+                prompt = """You are an Introduction Analysis Specialist. Your role is to analyze the beginning portion of documents and create compelling introductory summaries. You excel at identifying the main thesis, purpose, and setting the context for the entire document.
+
+                Analyze this introductory section and create a concise summary that:
+                1. Captures the main purpose and thesis
+                2. Identifies key context and background
+                3. Sets up the reader for what follows
+                4. Maintains the original tone and intent
+
+                Create a well-structured introduction summary:"""
                 
             elif i == len(chunks) - 1:
                 agent_type = "conclusion_agent"
-                prompt = """You are an expert at extracting conclusions and key outcomes. 
-                Summarize the conclusions, results, findings, and final takeaways from this text. 
-                Focus on what was achieved or concluded."""
+                prompt = """You are a Conclusion Analysis Specialist. Your role is to analyze concluding sections and synthesize final summaries that capture outcomes, results, and final thoughts. You excel at identifying implications and wrap-up elements.
+
+                Analyze this concluding section and create a final summary that:
+                1. Captures main conclusions and outcomes
+                2. Identifies key findings and results
+                3. Notes implications and future directions
+                4. Provides proper closure to the content
+
+                Create a comprehensive conclusion summary:"""
                 
             else:
                 agent_type = "content_agent"
-                prompt = """You are an expert at extracting key information and main points. 
-                Summarize the important details, methodologies, concepts, and significant information in this text. 
-                Focus on the core content and valuable insights."""
+                prompt = """You are a Content Analysis Specialist. Your role is to analyze main content sections and extract the core information, key points, and essential details. You excel at distilling complex content into clear, informative summaries.
+
+                Analyze this content section and create a comprehensive summary that:
+                1. Extracts all key points and main ideas
+                2. Preserves important details and data
+                3. Maintains logical flow and structure
+                4. Keeps technical accuracy intact
+
+                Create a detailed content summary:"""
             
             tasks.append({
                 "agent_type": agent_type,
@@ -277,23 +311,24 @@ class AgenticSummarizer:
                 if "Error" not in summary:  # Skip error summaries
                     combined_content += f"Section {i+1} Summary:\n{summary}\n\n"
             
-            # Create synthesis prompt
-            synthesis_prompt = f"""You are an expert at creating coherent, well-structured summaries. 
+            # Create enhanced synthesis prompt
+            synthesis_prompt = f"""You are a Document Synthesis Specialist. Your role is to combine multiple section summaries into one coherent, comprehensive document summary. You excel at creating unified narratives from diverse content pieces.
+
             You have been given multiple section summaries from the document "{filename}". 
-            Your task is to combine them into one unified, comprehensive summary that flows naturally.
-            
-            Instructions:
-            - Create a single, coherent summary that covers all important points
-            - Maintain logical flow and structure
-            - Remove redundancy while preserving key information
-            - Make it readable and well-organized
-            - Keep the essential details from each section
-            
-            Section summaries to combine:
+            Your task is to synthesize them into a single, comprehensive document summary.
+
+            Create a unified summary that:
+            1. Flows logically from introduction to conclusion
+            2. Maintains all key information from each section
+            3. Eliminates redundancy while preserving completeness
+            4. Creates a coherent narrative structure
+            5. Preserves the document's original intent and tone
+
+            Section summaries to synthesize:
             
             {combined_content}
             
-            Please provide a unified summary:"""
+            Final comprehensive summary:"""
             
             # Use router for synthesis
             loop = asyncio.new_event_loop()
