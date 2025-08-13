@@ -37,7 +37,11 @@ def summarize_from_indexed_pdf(pdf_name, embedding_model, llm_model, query=None,
     else:
         raise ValueError(f"Unsupported VECTOR_STORE_TYPE: {VECTOR_STORE_TYPE}")
 
-    docs = vectordb.similarity_search(query or "", k=top_k)
+    docs = vectordb.similarity_search(
+        query or "",
+        k=top_k,
+        filter={"type": "text"}           
+    )
 
     chain = LLMChain(llm=llm_model, prompt=SUMMARY_PROMPT)
 
