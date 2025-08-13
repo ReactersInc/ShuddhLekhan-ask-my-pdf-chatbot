@@ -1,3 +1,4 @@
+print('calling plagarism')
 import os
 import re
 import json
@@ -10,8 +11,8 @@ from services.llm import get_gemma_llm
 
 plag_upload_bp = Blueprint("plagiarism_upload_bp", __name__)
 
-UPLOAD_DIR = "uploads"
-RESULT_DIR = "results"
+UPLOAD_DIR = "./plagarism/uploads"
+RESULT_DIR = "./plagarism/results"
 
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(RESULT_DIR, exist_ok=True)

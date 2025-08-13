@@ -1,0 +1,127 @@
+[
+  {
+    "section": "Unknown",
+    "keywords": [
+      "digital twin",
+      "visualization",
+      "HPC"
+    ],
+    "key_phrases": [
+      "digital twin",
+      "High Performance Computing",
+      "augmented reality"
+    ],
+    "key_points": [
+      "Digital twins are valuable for modeling, visualizing, and simulating complex systems.",
+      "The work focuses on the challenges of real-time visualization of a digital twin of the Frontier supercomputer.",
+      "Augmented reality is explored as a primary interface for interacting with and extracting information from the digital twin.",
+      "The goal is to combine telemetry with simulation for a holistic understanding of HPC systems.",
+      "The prototype uses Unreal Engine 5 and has over 150,000 actors.",
+      "Challenges include large scale, big data, and visualization performance."
+    ]
+  },
+  {
+    "section": "INTRODUCTION",
+    "keywords": [
+      "twin",
+      "HPC",
+      "simulation"
+    ],
+    "key_phrases": [
+      "digital twin",
+      "High Performance Computing",
+      "operational data analytics"
+    ],
+    "key_points": [
+      "A digital twin is an evolving digital representation of a physical object or process.",
+      "Simulations for digital twins are often run on HPC systems.",
+      "Modeling HPC systems *with* digital twins is a relatively new area.",
+      "Digital twins promise a holistic understanding of HPC systems by combining telemetry and simulation.",
+      "Visualization is crucial for human interaction with a digital twin.",
+      "The work aims to improve overall system efficiency through digital twin insights."
+    ]
+  },
+  {
+    "section": "BACKGROUND",
+    "keywords": [
+      "Frontier",
+      "compute",
+      "telemetry"
+    ],
+    "key_phrases": [
+      "Frontier supercomputer",
+      "compute nodes",
+      "cooling distribution unit"
+    ],
+    "key_points": [
+      "The Oak Ridge Leadership Computing Facility (OLCF) installed the Frontier supercomputer, achieving 1.1 ExaFlops.",
+      "Frontier consists of 9,472 compute nodes with 9,472 CPUs and 37,888 GPUs.",
+      "The system is comprised of seven rows of HPE Cray EX cabinets, each supported by Cooling Distribution Units (CDUs).",
+      "Each compute cabinet contains eight chassis, each with eight blades and two compute nodes.",
+      "Nodes contain one AMD EPYC CPU and four AMD Instinct GPUs.",
+      "The system generates one million data points each second."
+    ]
+  },
+  {
+    "section": "CONSIDERATIONS",
+    "keywords": [
+      "UE5",
+      "telemetry",
+      "simulation"
+    ],
+    "key_phrases": [
+      "digital twin",
+      "Unreal Engine 5",
+      "augmented reality"
+    ],
+    "key_points": [
+      "The goal is to allow users and system engineers to interact with the virtual representation of the system and understand its behavior.",
+      "The prototype was re-implemented in Unreal Engine 5 (UE5) for AR/VR capabilities.",
+      "The system hierarchy is built using UE5 blueprints, mirroring the physical system layout.",
+      "The current prototype has over 150,000 UE5 actors.",
+      "Data is represented by changing material colors based on telemetry values.",
+      "Telemetry data is queried from a service and distributed to relevant actors.",
+      "Thermo-fluid simulations are integrated using the Functional Mock-up Interface (FMI)."
+    ]
+  },
+  {
+    "section": "CHALLENGES",
+    "keywords": [
+      "scale",
+      "data",
+      "visualization"
+    ],
+    "key_phrases": [
+      "large scale systems",
+      "big data",
+      "visualization performance"
+    ],
+    "key_points": [
+      "The system's extreme scale (components, data, and domain interactions) presents a significant challenge.",
+      "The volume, velocity, variety, and veracity of telemetry data are major concerns.",
+      "Visualizing a large number of actors (over 150,000) impacts performance, especially in AR.",
+      "Balancing detail and performance is crucial for interactive visualization."
+    ]
+  },
+  {
+    "section": "OPPORTUNITIES",
+    "keywords": [
+      "interaction",
+      "correlation",
+      "simulation"
+    ],
+    "key_phrases": [
+      "spatial correlation",
+      "temporal correlation",
+      "interactive level of detail"
+    ],
+    "key_points": [
+      "Combining telemetry and simulation in the same 3D scene enables unique capabilities.",
+      "Spatial and temporal correlation of information provides a deeper understanding of system behavior.",
+      "Adaptive layout of information is needed to avoid information overload.",
+      "Interactive Level of Detail (LoD) can improve performance and focus.",
+      "Integrating AR with web-based dashboards can bridge the gap between data analysis and spatial context.",
+      "The digital twin can be used for facility design, operations, and what-if scenario analysis."
+    ]
+  }
+]

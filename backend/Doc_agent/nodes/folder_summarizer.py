@@ -1,7 +1,7 @@
 import os
 import json
-from agent.utils.vectorstore_loader import load_vectorstore_from_path, get_all_vector_dirs_in_folder
-from agent.utils.summarizer import batch_summarize_chunks
+from Doc_agent.utils.vectorstore_loader import load_vectorstore_from_path, get_all_vector_dirs_in_folder
+from Doc_agent.utils.summarizer import batch_summarize_chunks
 
 def summarize_folder(state: dict) -> dict:
     folder_path = state.get("parameters", {}).get("folder_path")

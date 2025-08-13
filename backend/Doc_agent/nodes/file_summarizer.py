@@ -1,7 +1,7 @@
 import os
 import json
-from agent.utils.vectorstore_loader import load_vectorstore_from_path
-from agent.utils.summarizer import batch_summarize_chunks
+from Doc_agent.utils.vectorstore_loader import load_vectorstore_from_path
+from Doc_agent.utils.summarizer import batch_summarize_chunks
 
 def summarize_file(state: dict) -> dict:
     file_path = state.get("parameters", {}).get("file_path")

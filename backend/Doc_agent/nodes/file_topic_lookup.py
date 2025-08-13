@@ -1,6 +1,6 @@
 import os
-from agent.utils.vectorstore_loader import get_all_vector_dirs_in_folder, load_vectorstore_from_path
-from agent.utils.summarizer import batch_summarize_chunks
+from Doc_agent.utils.vectorstore_loader import get_all_vector_dirs_in_folder, load_vectorstore_from_path
+from Doc_agent.utils.summarizer import batch_summarize_chunks
 
 def file_topic_lookup(state: dict) -> dict:
     parameters = state.get("parameters", {})

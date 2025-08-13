@@ -1,5 +1,5 @@
 import json 
-from services.llm import get_gemini_flash_llm
+from services.llm import get_gemma_llm
 from pathlib import Path
 
 PROMPT_PATH = Path(__file__).parent.parent / "prompts" / "router_prompt.txt"
@@ -14,7 +14,7 @@ def route_query(state:dict)->dict:
     query = state.get("query" , "")
     conversation_state = state.get("conversation_state", {})
 
-    llm = get_gemini_flash_llm()
+    llm = get_gemma_llm()
 
     #Build Prompt with conversation state and user query
     prompt = ROUTER_PROMPT + "\n\n"
