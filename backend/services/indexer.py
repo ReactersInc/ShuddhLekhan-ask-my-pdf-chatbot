@@ -42,6 +42,11 @@ def index_pdf_text(pdf_name: str, full_text: str, embedding_model, relative_path
 
     os.makedirs(persist_dir, exist_ok=True)
 
+    # text
+    splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    chunks = splitter.split_text(full_text)
+    text_docs = [Document(page_content=chunk, metadata={"source": pdf_name, "type": "text"}) for chunk in chunks]
+
     # Save vector store
     if VECTOR_STORE_TYPE == "faiss":
         faiss_db = FAISS.from_documents(docs, embedding_model)

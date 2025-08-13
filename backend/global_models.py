@@ -7,6 +7,10 @@ _MODEL_INSTANCE_ID = uuid.uuid4()
 
 
 _embedding_model = None
+# _table_embedding_model = None
+# _image_embedding_model = None
+# _caption_processor = None
+# _caption_model = None  
 _llm_model = None
 
 def get_embedding_model():
@@ -23,6 +27,17 @@ def get_embedding_model():
     else:
         print(f" Reusing embedding model [{_MODEL_INSTANCE_ID}]")
     return _embedding_model
+
+# def get_image_embedding_model():
+#     global _image_embedding_model
+#     if _image_embedding_model is None:
+#         _image_embedding_model = HuggingFaceEmbeddings(
+#             model_name="sentence-transformers/clip-ViT-B-32",
+#             encode_kwargs={"encode_method": "image"},
+#         )
+
+#     return _image_embedding_model
+
 
 def get_llm_model():
     global _llm_model
