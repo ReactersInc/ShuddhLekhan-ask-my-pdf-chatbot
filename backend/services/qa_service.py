@@ -1,32 +1,45 @@
 import os
-from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain.chains.question_answering import load_qa_chain  # Correct import
+from langchain_community.vectorstores import FAISS
 from langchain.prompts import PromptTemplate
-from services.llm import get_gemini_flash_llm
+from langchain_core.runnables import RunnableSequence
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from services.llm import get_gemma_llm
+from services.query_embedder import get_query_embedding
+from langchain_core.embeddings import Embeddings  # for DummyEmbeddings
 
-PERSIST_ROOT = "vector_store"
+PERSIST_ROOT = "vector_store/exascale"
 
-# This prompt is not required, we are using "refined chain-type" , 
-# which internally makes the Required Two prompts if not provided by us , 
-# to give a finer and better answer based on the context
+# Dummy Embeddings object to satisfy FAISS load
+class DummyEmbeddings(Embeddings):
+    def embed_documents(self, texts):
+        raise NotImplementedError("Not used in this context.")
 
-# Initial Prompt: Used for the first chunk of documents to generate an initial answer.
-# Refine Prompt: Used for all subsequent chunks to refine or update that answer.
+    def embed_query(self, text):
+        raise NotImplementedError("Not used in this context.")
+
 
 QA_PROMPT = PromptTemplate(
-    input_variables=["context", "question"],
+    input_variables=["input_documents", "question"],
     template="""
-You are an intelligent AI. Use the context to infer the best possible answer, even if it's not explicitly stated.
+You are an intelligent and helpful AI assistant.
 
-Steps:
-1. Understand the question.
-2. Identify relevant context facts.
-3. Make logical inferences.
-4. Answer clearly.
+Use the following input documents to answer the user's question as clearly and informatively as possible. 
+You are allowed to **explain, summarize, infer, and reason** — but only using information found in the input documents. Do not use outside knowledge or make assumptions.
 
-Context:
-{context}
+If the documents do **not** contain enough information to answer the question, respond **exactly** with:
+    NOT FOUND IN DOCUMENT
+
+Your job:
+- Carefully read the documents.
+- Understand what the user is asking.
+- Extract relevant details.
+- Explain the answer in simple, clear language.
+- If unsure, do not guess — return: NOT FOUND IN DOCUMENT
+
+---
+
+Input Documents:
+{input_documents}
 
 Question:
 {question}
@@ -35,18 +48,53 @@ Answer:
 """
 )
 
+
+def is_not_in_doc(answer: str) -> bool:
+    return answer.strip().upper() == "NOT FOUND IN DOCUMENT"
+
+
 def answer_question_from_pdf(pdf_name: str, question: str, top_k=6):
-    persist_dir = os.path.join(PERSIST_ROOT, pdf_name)
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    vectordb = Chroma(persist_directory=persist_dir, embedding_function=embeddings)
+    pdf_name = os.path.splitext(pdf_name)[0]
+    persist_path = os.path.join(PERSIST_ROOT, pdf_name)
 
-    docs = vectordb.similarity_search(question, k=top_k)
+    if not os.path.exists(persist_path):
+        raise ValueError(f"No vector index found for: {pdf_name}")
 
-    llm = get_gemini_flash_llm()
+    vectordb = FAISS.load_local(
+        persist_path,
+        embeddings=DummyEmbeddings(),
+        allow_dangerous_deserialization=True
+    )
 
-    # Removed the prompt argument here
-    chain = load_qa_chain(llm=llm, chain_type="refine")
+    query_embedding = get_query_embedding(question)
 
-    answer = chain.run(input_documents=docs, question=question)
-    return answer
+    docs = vectordb.max_marginal_relevance_search_by_vector(
+        query_embedding,
+        k=top_k,
+        fetch_k=15,
+        lambda_mult=0.8
+    )
 
+    if not docs:
+        return "Sorry, no relevant content was found in this document."
+
+    llm = get_gemma_llm()
+
+    chain = create_stuff_documents_chain(
+        llm=llm,
+        prompt=QA_PROMPT,
+        document_variable_name="input_documents"
+    )
+
+    response = chain.invoke({
+        "input_documents": docs,
+        "question": question
+    })
+
+    if is_not_in_doc(response if isinstance(response, str) else str(response)):
+        fallback_raw = llm.invoke(f"Answer the following question using your general knowledge:\n{question}")
+        fallback_answer = fallback_raw.content if hasattr(fallback_raw, "content") else str(fallback_raw)
+
+        return f"(Note: This answer is based on general AI knowledge, not your uploaded document.)\n\n{fallback_answer}"
+
+    return response

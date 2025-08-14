@@ -1,67 +1,113 @@
-import React, { useState } from 'react';
-import { X, Send, Bot, User } from 'lucide-react';
-import './AIChat.css'
+import React, { useState } from "react";
+import { X, Send, Bot, User } from "lucide-react";
+import "./AIChat.css";
+import { API_URL } from "../../config/config";
+import ReactMarkdown from "react-markdown";
 
-const AIChat = ({ onClose, selectedFolder }) => {
+const AIChat = ({ onClose, selectedFile }) => {
   const [messages, setMessages] = useState([
     {
-      id: '1',
-      type: 'ai',
-      content: 'Hello! Ask me anything about your documents.',
-      timestamp: new Date()
-    }
+      id: "1",
+      type: "ai",
+      content: "Hello! Ask me anything about your documents.",
+      timestamp: new Date(),
+    },
   ]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (!input.trim()) return;
+
     const userMsg = {
       id: Date.now().toString(),
-      type: 'user',
+      type: "user",
       content: input,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
-    setMessages(prev => [...prev, userMsg]);
-    setInput('');
+
+    setMessages((prev) => [...prev, userMsg]);
+    setInput("");
     setLoading(true);
 
-    setTimeout(() => {
+    try {
+      // Extract the PDF name from selectedFolder
+      const pdfName = selectedFile?.name
+      console.log('selected' ,pdfName);
+      
+
+      if (!pdfName) {
+        throw new Error("No PDF found in selected folder.");
+      }
+
+      const res = await fetch(`${API_URL}/qa/ask`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          pdf_name: pdfName,
+          question: userMsg.content,
+        }),
+      });
+
+      const data = await res.json();
+
       const aiResponse = {
         id: Date.now().toString(),
-        type: 'ai',
-        content: `Responding to: "${userMsg.content}" (from ${selectedFolder || 'all folders'})`,
-        timestamp: new Date()
+        type: "ai",
+        content:
+          data.answer || data.error || "Sorry, I couldn't understand that.",
+        timestamp: new Date(),
       };
-      setMessages(prev => [...prev, aiResponse]);
+      setMessages((prev) => [...prev, aiResponse]);
+    } catch (err) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now().toString(),
+          type: "ai",
+          content: `Error: ${err.message}`,
+          timestamp: new Date(),
+        },
+      ]);
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   };
 
   return (
     <div className="ai-chat">
       <div className="ai-header">
-        <div><Bot size={18} /> AI Assistant</div>
-        <button onClick={onClose}><X size={16} /></button>
+        <div>
+          <Bot size={18} /> AI Assistant
+        </div>
+        <button onClick={onClose}>
+          <X size={16} />
+        </button>
       </div>
 
       <div className="ai-body">
-        {messages.map(msg => (
+        {messages.map((msg) => (
           <div key={msg.id} className={`ai-msg ${msg.type}`}>
             <div className="ai-icon">
-              {msg.type === 'user' ? <User size={14} /> : <Bot size={14} />}
+              {msg.type === "user" ? <User size={14} /> : <Bot size={14} />}
             </div>
             <div className="ai-bubble">
-              <p>{msg.content}</p>
+              <ReactMarkdown>{msg.content}</ReactMarkdown>
               <small>{msg.timestamp.toLocaleTimeString()}</small>
             </div>
           </div>
         ))}
         {loading && (
           <div className="ai-msg ai">
-            <div className="ai-icon"><Bot size={14} /></div>
+            <div className="ai-icon">
+              <Bot size={14} />
+            </div>
             <div className="ai-bubble loading">
-              <div className="dots"><span>.</span><span>.</span><span>.</span></div>
+              <div className="dots">
+                <span>.</span>
+                <span>.</span>
+                <span>.</span>
+              </div>
             </div>
           </div>
         )}
@@ -70,8 +116,8 @@ const AIChat = ({ onClose, selectedFolder }) => {
       <div className="ai-footer">
         <input
           value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && sendMessage()}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
           placeholder="Ask about your documents..."
         />
         <button onClick={sendMessage} disabled={!input.trim() || loading}>

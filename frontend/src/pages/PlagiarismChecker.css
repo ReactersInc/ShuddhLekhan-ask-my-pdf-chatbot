@@ -1,0 +1,161 @@
+.pc-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.pc-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pc-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.pc-header p {
+  color: #555;
+}
+
+.pc-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+}
+
+.pc-desc {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.pc-dropzone {
+  border: 2px dashed #ccc;
+  padding: 30px;
+  text-align: center;
+  border-radius: 8px;
+  margin-top: 10px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.pc-dropzone.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.pc-icon {
+  color: #999;
+}
+
+.pc-icon-red { color: #dc2626; }
+.pc-icon-green { color: #16a34a; }
+.pc-icon-orange { color: #f97316; }
+
+.pc-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pc-btn-outline {
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.pc-btn-ghost {
+  background: none;
+  border: none;
+  color: #2563eb;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.pc-file-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pc-filename {
+  font-weight: bold;
+}
+
+.pc-filesize {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.pc-progress {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pc-progress-bar {
+  height: 100%;
+  background: #2563eb;
+  transition: width 0.3s ease;
+}
+
+.pc-progress-text {
+  text-align: center;
+  margin-top: 8px;
+  color: #555;
+}
+
+.pc-report-stats {
+  display: flex;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.pc-stat {
+  flex: 1;
+  text-align: center;
+}
+
+.pc-stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.pc-blue { color: #2563eb; }
+.pc-purple { color: #7c3aed; }
+.pc-green { color: #16a34a; }
+
+.pc-btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pc-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.pc-alert-title {
+  font-weight: bold;
+  color: #9a3412;
+}

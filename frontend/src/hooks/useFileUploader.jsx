@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { API_URL } from "../config"
+import { API_URL } from "../config/config"
 import { buildFolderTreeFromFiles } from '../utils/folderTreeBuilder';
 
 const useFileUploader = () => {
@@ -21,7 +21,7 @@ const useFileUploader = () => {
         files.forEach(file => formData.append('files', file))
 
         try {
-            const res = await fetch(`${API_URL}/upload/`, {
+            const res = await fetch(`${API_URL}/dashboard/upload`, {
                 method: 'POST',
                 body: formData,
             })

@@ -1,8 +1,16 @@
 from langchain_huggingface import HuggingFaceEmbeddings
-from services.llm import get_gemini_flash_llm
+from services.llm import get_gemma_llm
+from celery.signals import worker_process_init
 import torch
+import uuid
+_MODEL_INSTANCE_ID = uuid.uuid4()
+
 
 _embedding_model = None
+# _table_embedding_model = None
+# _image_embedding_model = None
+# _caption_processor = None
+# _caption_model = None  
 _llm_model = None
 
 def get_embedding_model():
@@ -11,15 +19,33 @@ def get_embedding_model():
         if not torch.cuda.is_available():
             raise RuntimeError("CUDA GPU is required but not available. Aborting embedding initialization.")
 
-        print("Loading embedding model on GPU (cuda)")
+        print(f" Loading embedding model [{_MODEL_INSTANCE_ID}] on GPU (cuda)")
         _embedding_model = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
             model_kwargs={"device": "cuda"}
         )
+    else:
+        print(f" Reusing embedding model [{_MODEL_INSTANCE_ID}]")
     return _embedding_model
+
+# def get_image_embedding_model():
+#     global _image_embedding_model
+#     if _image_embedding_model is None:
+#         _image_embedding_model = HuggingFaceEmbeddings(
+#             model_name="sentence-transformers/clip-ViT-B-32",
+#             encode_kwargs={"encode_method": "image"},
+#         )
+
+#     return _image_embedding_model
+
 
 def get_llm_model():
     global _llm_model
     if _llm_model is None:
-        _llm_model = get_gemini_flash_llm()
+        _llm_model = get_gemma_llm()
     return _llm_model
+
+@worker_process_init.connect
+def preload_models(**kwargs):
+    print("🔥 Preloading embedding model once at worker startup")
+    get_embedding_model()

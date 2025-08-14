@@ -16,5 +16,12 @@ langchain-chroma
 celery
 redis
 flask-cors
-bs4
+beautifulsoup4
 readability-lxml
+faiss-cpu
+PyMuPDF
+langgraph
+requests
+PyJWT
+psycopg2-binary 
+bcrypt 

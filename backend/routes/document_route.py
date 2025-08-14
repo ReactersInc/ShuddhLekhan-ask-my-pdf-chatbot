@@ -1,7 +1,7 @@
 from flask import Blueprint
-from controllers.document_controller import get_document_tree
-from controllers.document_controller import list_uploaded_files
-from controllers.document_controller import get_document_tree, list_uploaded_files, view_pdf_file
+from controllers.dashboard.document_controller import get_document_tree
+from controllers.dashboard.document_controller import list_uploaded_files
+from controllers.dashboard.document_controller import get_document_tree, list_uploaded_files, view_pdf_file
 
 document_bp = Blueprint('documents', __name__)
 

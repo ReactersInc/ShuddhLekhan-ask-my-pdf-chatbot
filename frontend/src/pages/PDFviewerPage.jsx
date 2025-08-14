@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { API_URL } from "../config";
+import { API_URL } from "../config/config";
 import AskQuestion from "../components/AskQuestion";
 import { SelectedPDFContext } from "../context/selectedPDFContext";
 import "./PDFViewerPage.css";

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { API_URL } from "../config.js";
+import { API_URL } from "../config/config.js";
 import { saveAs } from "file-saver";
 import { Document, Packer, Paragraph, TextRun } from "docx";
 import { useNavigate } from "react-router-dom";
@@ -196,7 +196,9 @@ function UploadPDF() {
                     const matchingFile = originalFiles.find(
                       f => f.webkitRelativePath.replace(/^\.?\/*/, "").trim() === normalizedFilename
                     );
-
+                    console.log(matchingFile);
+                    console.log(normalizedFilename);
+                    
                     if (matchingFile) {
                       const url = URL.createObjectURL(matchingFile);
                       setSelectedPDFUrl(url);
