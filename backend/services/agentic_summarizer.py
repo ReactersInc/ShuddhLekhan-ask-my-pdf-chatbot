@@ -1,13 +1,13 @@
 import time
 from typing import List, Dict
 from concurrent.futures import ThreadPoolExecutor
-from services.llm import get_gemini_flash_llm
+from services.llm import get_gemma_llm
 
 class AgenticSummarizer:
     def __init__(self):
         self.chunk_size = 4000  # Larger chunks = fewer API calls
         self.max_workers = 1    # Sequential processing for free tier
-        self.llm = get_gemini_flash_llm()
+        self.llm = get_gemma_llm()
         self.delay_between_calls = 2  # Seconds between API calls
     
     def fast_summarize(self, pdf_content: str, filename: str) -> Dict:

@@ -1,10 +1,6 @@
 from flask import jsonify
-<<<<<<< HEAD
 from pdf_tasks import process_pdf_task, process_pdf_task_agentic
 from services.task_router import TaskRouter
-=======
-from celery_tasks.process_pdf_tasks import process_pdf_task
->>>>>>> 888e8f66d4df950616db023e2b4bf9ebc7ce98c1
 import os
 
 UPLOAD_FOLDER = "uploads"

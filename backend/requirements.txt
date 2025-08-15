@@ -25,3 +25,4 @@ requests
 PyJWT
 psycopg2-binary 
 bcrypt 
+trafilatura

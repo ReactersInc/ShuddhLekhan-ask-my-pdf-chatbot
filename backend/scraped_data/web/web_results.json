@@ -1,0 +1,56 @@
+{
+  "search_metadata": {
+    "chunks_processed": 1,
+    "total_searches": 1,
+    "unique_urls_found": 2,
+    "content_extracted": 2,
+    "extraction_date": "2025-08-16T05:09:11.566335"
+  },
+  "content_summary": {
+    "total_word_count": 8534,
+    "quality_distribution": {
+      "high": 2,
+      "medium": 0,
+      "low": 0
+    },
+    "average_content_length": 4267
+  },
+  "search_results": [
+    {
+      "url": "https://arxiv.org/abs/2506.22659",
+      "title": "Dark Matter Induced Neutron Production Search Limits",
+      "content": "Image 2: arxiv logo>hep-ex> arXiv:2506.22659  **arXiv:2506.22659** (hep-ex)  View a PDF of the paper titled Dark Matter Induced Neutron Production Search Limits, by Haichuan Cao and 1 other authors > Abstract:An independent indirect detection search for Dark Matter-Matter (DM-M) interactions is undertaken to set cross section limits based on neutron production data collected by the NMDS-II detector for 1440 hours at 1166 m.w.e. and 6504 hours at 583 m.w.e.. View a PDF of the paper titled Dark Matter Induced Neutron Production Search Limits, by Haichuan Cao and 1 other authors - [x] Bibliographic Explorer Toggle  - [x] Connected Papers Toggle  - [x] alphaXiv Toggle  - [x] Links to Code Toggle  - [x] Links to Code Toggle  - [x] ScienceCast Toggle ",
+      "score": 0.93295,
+      "raw_content": null,
+      "source_chunk": 1
+    },
+    {
+      "url": "https://arxiv.org/html/2506.22659v1",
+      "title": "Dark Matter Induced Neutron Production Search Limits",
+      "content": "An independent indirect detection search for Dark Matter-Matter (DM-M) interactions is undertaken to set cross section limits based on neutron production data collected by the NMDS-II detector for 1440 hours at 1166 m.w.e. and 6504 hours at 583 m.w.e.. Limits are set based on the background neutron number spectrum comparing the two NMDS-II data sets with Geant4 simulations of cosmic ray muon induced neutron production, both directly by muons passing through the detector as well as by interactions in the detector from associated muon induced shower particles produced in the surrounding rock. Filges, *et al.*, Neutron production in bombardments of thin and thick w, hg, pb targets by 0.4, 0.8, 1.2, 1.8 and 2.5 gev protons, Nuclear Instruments and Methods in Physics Research Section B: Beam Interactions with Materials and Atoms 170, 299 (2000).",
+      "score": 0.91936076,
+      "raw_content": null,
+      "source_chunk": 1
+    }
+  ],
+  "extracted_content": [
+    {
+      "url": "https://arxiv.org/abs/2506.22659",
+      "quality": "high",
+      "quality_score": 1.0,
+      "word_count": 414,
+      "cached": false,
+      "content_file": "9d3f491083672a321f6facf3b395dd53.json",
+      "metadata_file": "9d3f491083672a321f6facf3b395dd53.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2506.22659v1",
+      "quality": "high",
+      "quality_score": 1.0,
+      "word_count": 8120,
+      "cached": false,
+      "content_file": "3f6646b17e5f6aca6afe08a913341412.json",
+      "metadata_file": "3f6646b17e5f6aca6afe08a913341412.json"
+    }
+  ]
+}

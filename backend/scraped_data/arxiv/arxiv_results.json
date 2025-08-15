@@ -1,0 +1,65 @@
+{
+  "search_metadata": {
+    "final_query": "dark matter-matter interactions neutron production neutron cross section dark matter",
+    "keywords_extracted": 3,
+    "phrases_extracted": 5,
+    "search_strategies": 3,
+    "search_date": "2025-08-16T05:09:05.657724"
+  },
+  "papers_found": 10,
+  "papers_downloaded": 5,
+  "papers_failed": 0,
+  "download_results": [
+    {
+      "arxiv_id": "2506.22659v1",
+      "title": "Dark Matter Induced Neutron Production Search Limits",
+      "relevance_score": 168,
+      "published_year": "2025",
+      "download_success": true,
+      "pdf_path": "./scraped_data\\arxiv\\pdfs\\2506.22659v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "1201.2400v4",
+      "title": "On the capture of dark matter by neutron stars",
+      "relevance_score": 138,
+      "published_year": "2012",
+      "download_success": true,
+      "pdf_path": "./scraped_data\\arxiv\\pdfs\\1201.2400v4.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2104.02700v2",
+      "title": "Detecting Bosonic Dark Matter with Neutron Stars",
+      "relevance_score": 138,
+      "published_year": "2021",
+      "download_success": true,
+      "pdf_path": "./scraped_data\\arxiv\\pdfs\\2104.02700v2.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "1301.0036v2",
+      "title": "Constraints on Bosonic Dark Matter From Observations of Old Neutron\n  Stars",
+      "relevance_score": 138,
+      "published_year": "2013",
+      "download_success": true,
+      "pdf_path": "./scraped_data\\arxiv\\pdfs\\1301.0036v2.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2001.09140v2",
+      "title": "Heating neutron stars with GeV dark matter",
+      "relevance_score": 138,
+      "published_year": "2020",
+      "download_success": true,
+      "pdf_path": "./scraped_data\\arxiv\\pdfs\\2001.09140v2.pdf",
+      "error": null
+    }
+  ],
+  "storage_paths": {
+    "base_dir": "./scraped_data",
+    "arxiv_dir": "./scraped_data\\arxiv",
+    "pdfs_dir": "./scraped_data\\arxiv\\pdfs",
+    "metadata_dir": "./scraped_data\\arxiv\\metadata"
+  }
+}
