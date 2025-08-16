@@ -3,7 +3,6 @@ from sentence_transformers import SentenceTransformer
 from indicnlp.tokenize.indic_tokenize import trivial_tokenize #for tf-idf tokenization
 from sklearn.feature_extraction.text import TfidfVectorizer #for tf-idf vectorization
 from sklearn.metrics.pairwise import cosine_similarity #for calculating tf-idf vectro similarity
-
 from nltk.tokenize import word_tokenize #for eng tokenization
 from nltk.corpus import stopwords 
 
