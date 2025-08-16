@@ -2,7 +2,7 @@ import requests
 import json
 
 url = "http://127.0.0.1:5000/plagiarism/upload"
-file_path = r"C:\Users\infin\Documents\CDAC_TU\CheckPLG1\plagarism\uploads\2506.22659v1.pdf"
+file_path = r"C:\Users\infin\Documents\CDAC_TU\CheckPLG1\plagarism\uploads\High_Performance_Optimization_at_the_Door_of_the_Exascale.pdf"
 
 try:
     print("Uploading PDF and starting ArXiv integration...")

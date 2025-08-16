@@ -1,0 +1,20 @@
+{
+  "arxiv_id": "2401.10018v1",
+  "title": "Parabolic optimal control problems with combinatorial switching\n  constraints -- Part III: Branch-and-bound algorithm",
+  "abstract": "We present a branch-and-bound algorithm for globally solving parabolic\noptimal control problems with binary switches that have bounded variation and\npossibly need to satisfy further combinatorial constraints. More precisely, for\na given tolerance $\\varepsilon>0$, we show how to compute in finite time an\n$\\varepsilon$-optimal solution in function space, independently of any prior\ndiscretization. The main ingredients in our approach are an appropriate\nbranching strategy in infinite dimension, an a posteriori error estimation in\norder to obtain safe dual bounds, and an adaptive refinement strategy in order\nto allow arbitrary switching points in the limit. The performance of our\napproach is demonstrated by extensive experimental results.",
+  "authors": [
+    "Christoph Buchheim",
+    "Alexandra Grütering",
+    "Christian Meyer"
+  ],
+  "published": "2024-01-18T14:40:33Z",
+  "categories": [
+    "math.OC"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2401.10018v1",
+  "url": "http://arxiv.org/abs/2401.10018v1",
+  "download_date": "2025-08-16T05:36:24.348725",
+  "pdf_path": "./scraped_data\\arxiv\\pdfs\\2401.10018v1.pdf",
+  "file_size": 762083,
+  "relevance_score": 107
+}
