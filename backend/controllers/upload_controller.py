@@ -32,6 +32,13 @@ def check_task_status(task_id):
     if task.state == 'PENDING':
         return jsonify({"status": "pending"})
 
+    elif task.state == 'PROGRESS':
+        return jsonify({
+            "status": "processing",
+            "progress": task.info.get("progress", 0),
+            "message": task.info.get("status", "Processing..."),
+        })
+
     elif task.state == 'SUCCESS':
         result = task.result or {}
         return jsonify({
@@ -39,6 +46,9 @@ def check_task_status(task_id):
             "filename": result.get("filename"),
             "summary": result.get("summary_text"),
             "summary_path": result.get("summary_path"),
+            "processing_method": result.get("processing_method", "standard"),
+            "chunks_processed": result.get("chunks_processed"),
+            "processing_time": result.get("processing_time")
         })
 
     elif task.state == 'FAILURE':

@@ -1,0 +1,20 @@
+{
+  "arxiv_id": "1301.0036v2",
+  "title": "Constraints on Bosonic Dark Matter From Observations of Old Neutron\n  Stars",
+  "abstract": "Baryon interactions with bosonic dark matter are constrained by the potential\nfor dark matter-rich neutron stars to collapse into black holes. We consider\nthe effect of dark matter self-interactions and dark matter annihilation on\nthese bounds, and treat the evolution of the black hole after formation. We\nshow that, for non-annihilating dark matter, these bounds extend up to $m_X\n\\sim 10^{5-7}$ GeV, depending on the strength of self-interactions. However,\nthese bounds are completely unconstraining for annihilating bosonic dark matter\nwith an annihilation cross-section of $<\\sigma_a v> \\gtrsim 10^{-38} {\\rm cm^3\n/s}$. Dark matter decay does not significantly affect these bounds. We thus\nshow that bosonic dark matter accessible to near-future direct detection\nexperiments must participate in an annihilation or self-interaction process to\navoid black hole collapse constraints from very old neutron stars.",
+  "authors": [
+    "Joseph Bramante",
+    "Keita Fukushima",
+    "Jason Kumar"
+  ],
+  "published": "2013-01-01T01:38:40Z",
+  "categories": [
+    "hep-ph"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/1301.0036v2",
+  "url": "http://arxiv.org/abs/1301.0036v2",
+  "download_date": "2025-08-16T05:08:58.897314",
+  "pdf_path": "./scraped_data\\arxiv\\pdfs\\1301.0036v2.pdf",
+  "file_size": 642608,
+  "relevance_score": 138
+}

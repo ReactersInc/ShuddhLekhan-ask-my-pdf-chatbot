@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "url": "https://arxiv.org/abs/2506.22659",
+    "title": "# High Energy Physics - Experiment [Submitted on 27 Jun 2025] # Title:Dark Matter Induced Neutron Pr...",
+    "domain": "arxiv.org",
+    "extraction_date": "2025-08-16T05:09:11.025313",
+    "content_quality": "high",
+    "quality_score": 1.0,
+    "content_type": "academic"
+  },
+  "content": {
+    "title": "# High Energy Physics - Experiment [Submitted on 27 Jun 2025] # Title:Dark Matter Induced Neutron Pr...",
+    "summary": "# High Energy Physics - Experiment [Submitted on 27 Jun 2025] # Title:Dark Matter Induced Neutron Production Search Limits View PDF HTML (experimental)Abstract:An independent indirect detection search for Dark Matter-Matter (DM-M) interactions is undertaken to set cross section limits based on neutron production data collected by the NMDS-II detector for 1440 hours at 1166 m.w.e. and 6504 hours at 583 m.w.e.. The detector system consists of a 30 cm cube Pb-target instrumented with 60 $^3$He neut...",
+    "full_text": "# High Energy Physics - Experiment [Submitted on 27 Jun 2025] # Title:Dark Matter Induced Neutron Production Search Limits View PDF HTML (experimental)Abstract:An independent indirect detection search for Dark Matter-Matter (DM-M) interactions is undertaken to set cross section limits based on neutron production data collected by the NMDS-II detector for 1440 hours at 1166 m.w.e. and 6504 hours at 583 m.w.e.. The detector system consists of a 30 cm cube Pb-target instrumented with 60 $^3$He neutron counters. The neutron detector system calibrated with a $^{252}$Cf source yields a single particle detection efficiency of 23.2\\%$\\pm$1.2\\%. During data collection, the highest neutron multiplicity event observed 54 neutrons. The neutron multiplicity, n, distribution, fits well to a power law $k \\times n^{-p}$, for both the data and cosmic ray muon induced neutron production in Geant4 simulations. Two DM-M interaction models were used to set limits. The first, a spallation model, assumes a single proton with kinetic energy equal to the DM-M interaction energy. The other, a fire-ball model assumes an annihilation between DM-M producing pions with a limiting Hagedorn temperature. The two extreme models produce similar upper DM-M cross section limits over the DM mass range between 300 MeV to 100 GeV. Limits assume all the DM energy is deposited in the Pb-target. Spin independent limits, proportional to A$^{-2}$, are at the level ~10$^{-45}~ cm^2$. Spin dependent limits, proportional to A$^{-1}$, are at the level, $2\\times 10^{-42}~cm^2$. Current browse context: hep-ex Change to browse by: ### References & Citations # Bibliographic and Citation Tools Bibliographic Explorer *(What is the Explorer?)* Connected Papers *(What is Connected Papers?)* Litmaps *(What is Litmaps?)* scite Smart Citations *(What are Smart Citations?)*# Code, Data and Media Associated with this Article alphaXiv *(What is alphaXiv?)* CatalyzeX Code Finder for Papers *(What is CatalyzeX?)* DagsHub *(What is DagsHub?)* Gotit.pub *(What is GotitPub?)* Hugging Face *(What is Huggingface?)* Papers with Code *(What is Papers with Code?)* ScienceCast *(What is ScienceCast?)*# Demos # Recommenders and Search Tools Influence Flower *(What are Influence Flowers?)* CORE Recommender *(What is CORE?)*# arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? **Learn more about arXivLabs**.",
+    "sections": {
+      "abstract": "Jun 2025] # Title:Dark Matter Induced Neutron Production Search Limits View PDF HTML (experimental)Abstract:An independent indirect detection search for Dark Matter-Matter (DM-M) interactions is undertaken to set cross section limits based on neutron production data collected by the NMDS-II detector for 1440 hours at 1166 m.w.e. and 6504 hours at 583 m.w.e.. The detector system consists of a 30 cm cube Pb-target instrumented with 60 $^3$He neutron counters. The neutron detector system calibrated with a $^{252}$Cf source yields a single particle detection efficiency of 23.2\\%$\\pm$1.2\\%. During"
+    },
+    "word_count": 414,
+    "sentence_count": 31,
+    "sentences": [
+      "# High Energy Physics - Experiment [Submitted on 27 Jun 2025] # Title:Dark Matter Induced Neutron Production Search Limits View PDF HTML (experimental)Abstract:An independent indirect detection search for Dark Matter-Matter (DM-M) interactions is undertaken to set cross section limits based on neutron production data collected by the NMDS-II detector for 1440 hours at 1166 m",
+      "and 6504 hours at 583 m",
+      "The detector system consists of a 30 cm cube Pb-target instrumented with 60 $^3$He neutron counters",
+      "The neutron detector system calibrated with a $^{252}$Cf source yields a single particle detection efficiency of 23",
+      "During data collection, the highest neutron multiplicity event observed 54 neutrons",
+      "The neutron multiplicity, n, distribution, fits well to a power law $k \\times n^{-p}$, for both the data and cosmic ray muon induced neutron production in Geant4 simulations",
+      "Two DM-M interaction models were used to set limits",
+      "The first, a spallation model, assumes a single proton with kinetic energy equal to the DM-M interaction energy",
+      "The other, a fire-ball model assumes an annihilation between DM-M producing pions with a limiting Hagedorn temperature",
+      "The two extreme models produce similar upper DM-M cross section limits over the DM mass range between 300 MeV to 100 GeV",
+      "Limits assume all the DM energy is deposited in the Pb-target",
+      "Spin independent limits, proportional to A$^{-2}$, are at the level ~10$^{-45}~ cm^2$",
+      "Spin dependent limits, proportional to A$^{-1}$, are at the level, $2\\times 10^{-42}~cm^2$",
+      "Current browse context: hep-ex Change to browse by: ### References & Citations # Bibliographic and Citation Tools Bibliographic Explorer *(What is the Explorer",
+      ")* Connected Papers *(What is Connected Papers",
+      ")* Litmaps *(What is Litmaps",
+      ")* scite Smart Citations *(What are Smart Citations",
+      ")*# Code, Data and Media Associated with this Article alphaXiv *(What is alphaXiv",
+      ")* CatalyzeX Code Finder for Papers *(What is CatalyzeX",
+      ")* DagsHub *(What is DagsHub"
+    ],
+    "character_count": 2812
+  },
+  "embedding_metadata": {
+    "content_type": "academic",
+    "relevance_score": 1.0,
+    "language": "en",
+    "source_type": "web",
+    "processing_version": "2.0",
+    "extraction_method": "trafilatura"
+  }
+}

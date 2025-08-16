@@ -17,8 +17,12 @@ This service does not store results to disk — the calling function is
 responsible for saving. It also delegates JSON parsing to `utils.py`.
 """
 
+# Fix imports - remove 'plagarism.' prefix
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from services.llm import get_gemma_llm
-from plagarism.utils import safe_json_parse
+from .utils import safe_json_parse
 
 def extract_keywords_from_sections(sections):
     llm = get_gemma_llm()
@@ -41,17 +45,25 @@ def extract_keywords_from_sections(sections):
             f"Sections:\n{batch_text}"
         )
 
-        response = llm.invoke(prompt)
-        parsed = safe_json_parse(response.content)
+        try:
+            response = llm.invoke(prompt)
+            parsed = safe_json_parse(response.content)
 
-        if parsed and isinstance(parsed, list):
-            results.extend(parsed)
-        else:
+            if parsed and isinstance(parsed, list):
+                results.extend(parsed)
+            else:
+                for sec in batch:
+                    results.append({
+                        "section": sec["section"],
+                        "error": "Failed to parse LLM output",
+                        "raw_output": response.content
+                    })
+        except Exception as e:
             for sec in batch:
                 results.append({
                     "section": sec["section"],
-                    "error": "Failed to parse LLM output",
-                    "raw_output": response.content
+                    "error": f"LLM error: {str(e)}",
+                    "raw_output": ""
                 })
 
     return results

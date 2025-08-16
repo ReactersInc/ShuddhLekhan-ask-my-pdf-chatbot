@@ -1,0 +1,65 @@
+{
+  "search_metadata": {
+    "final_query": "high performance optimization branch and bound combinatorial supercomputing location",
+    "keywords_extracted": 15,
+    "phrases_extracted": 21,
+    "search_strategies": 3,
+    "search_date": "2025-08-16T05:36:40.510175"
+  },
+  "papers_found": 10,
+  "papers_downloaded": 5,
+  "papers_failed": 0,
+  "download_results": [
+    {
+      "arxiv_id": "2311.00185v1",
+      "title": "Branch-and-Bound versus Lift-and-Project Relaxations in Combinatorial\n  Optimization",
+      "relevance_score": 121,
+      "published_year": "2023",
+      "download_success": true,
+      "pdf_path": "./scraped_data\\arxiv\\pdfs\\2311.00185v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2401.10018v1",
+      "title": "Parabolic optimal control problems with combinatorial switching\n  constraints -- Part III: Branch-and-bound algorithm",
+      "relevance_score": 107,
+      "published_year": "2024",
+      "download_success": true,
+      "pdf_path": "./scraped_data\\arxiv\\pdfs\\2401.10018v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2206.06965v1",
+      "title": "Deep Reinforcement Learning for Exact Combinatorial Optimization:\n  Learning to Branch",
+      "relevance_score": 103,
+      "published_year": "2022",
+      "download_success": true,
+      "pdf_path": "./scraped_data\\arxiv\\pdfs\\2206.06965v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "1206.4973v1",
+      "title": "An Adaptative Multi-GPU based Branch-and-Bound. A Case Study: the\n  Flow-Shop Scheduling Problem",
+      "relevance_score": 93,
+      "published_year": "2012",
+      "download_success": true,
+      "pdf_path": "./scraped_data\\arxiv\\pdfs\\1206.4973v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2406.09740v2",
+      "title": "Deep Symbolic Optimization for Combinatorial Optimization: Accelerating\n  Node Selection by Discovering Potential Heuristics",
+      "relevance_score": 88,
+      "published_year": "2024",
+      "download_success": true,
+      "pdf_path": "./scraped_data\\arxiv\\pdfs\\2406.09740v2.pdf",
+      "error": null
+    }
+  ],
+  "storage_paths": {
+    "base_dir": "./scraped_data",
+    "arxiv_dir": "./scraped_data\\arxiv",
+    "pdfs_dir": "./scraped_data\\arxiv\\pdfs",
+    "metadata_dir": "./scraped_data\\arxiv\\metadata"
+  }
+}

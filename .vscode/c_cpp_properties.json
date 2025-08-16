@@ -1,23 +1,24 @@
 {
-    "configurations": [
-        {
-            "name": "Win32",
-            "includePath": [
-                "${default}",
-                "C:/Program Files/Python312/include",
-                "C:/Users/San Ju/OneDrive/Documents/OneDrive/Desktop/askpdf/ask-my-pdf-chatbot/backend/venv/Include"
-            ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "windowsSdkVersion": "10.0.26100.0",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:/MinGW/bin/gcc.exe"
-        }
-    ],
-    "version": 4
+  "configurations": [
+    {
+      "name": "windows-gcc-x86",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "${default}",
+        "C:/Program Files/Python312/include",
+        "C:/Users/San Ju/OneDrive/Documents/OneDrive/Desktop/askpdf/ask-my-pdf-chatbot/backend/venv/Include"
+      ],
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+      ],
+      "windowsSdkVersion": "10.0.26100.0",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-gcc-x86",
+      "compilerPath": "C:/MinGW/bin/gcc.exe"
+    }
+  ],
+  "version": 4
 }

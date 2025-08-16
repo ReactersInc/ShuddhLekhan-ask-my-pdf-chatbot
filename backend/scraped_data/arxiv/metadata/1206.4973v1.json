@@ -1,0 +1,20 @@
+{
+  "arxiv_id": "1206.4973v1",
+  "title": "An Adaptative Multi-GPU based Branch-and-Bound. A Case Study: the\n  Flow-Shop Scheduling Problem",
+  "abstract": "Solving exactly Combinatorial Optimization Problems (COPs) using a\nBranch-and-Bound (B&B) algorithm requires a huge amount of computational\nresources. Therefore, we recently investigated designing B&B algorithms on top\nof graphics processing units (GPUs) using a parallel bounding model. The\nproposed model assumes parallelizing the evaluation of the lower bounds on\npools of sub-problems. The results demonstrated that the size of the evaluated\npool has a significant impact on the performance of B&B and that it depends\nstrongly on the problem instance being solved. In this paper, we design an\nadaptative parallel B&B algorithm for solving permutation-based combinatorial\noptimization problems such as FSP (Flow-shop Scheduling Problem) on GPU\naccelerators. To do so, we propose a dynamic heuristic for parameter\nauto-tuning at runtime. Another challenge of this work is to exploit larger\ndegrees of parallelism by using the combined computational power of multiple\nGPU devices. The approach has been applied to the permutation flow-shop\nproblem. Extensive experiments have been carried out on well-known FSP\nbenchmarks using an Nvidia Tesla S1070 Computing System equipped with two Tesla\nT10 GPUs. Compared to a CPU-based execution, accelerations up to 105 are\nachieved for large problem instances.",
+  "authors": [
+    "Imen Chakroun",
+    "Nouredine Melab"
+  ],
+  "published": "2012-06-21T18:59:34Z",
+  "categories": [
+    "cs.DC",
+    "cs.RO"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/1206.4973v1",
+  "url": "http://arxiv.org/abs/1206.4973v1",
+  "download_date": "2025-08-16T05:36:33.167726",
+  "pdf_path": "./scraped_data\\arxiv\\pdfs\\1206.4973v1.pdf",
+  "file_size": 212055,
+  "relevance_score": 93
+}

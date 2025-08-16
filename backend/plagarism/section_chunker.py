@@ -42,12 +42,26 @@ def extract_blocks_with_layout(pdf_path):
                 text = "".join([span["text"] for span in line["spans"]]).strip()
                 if not text:
                     continue
-                font_sizes = [span["size"] for span in line["spans"]]
-                avg_font = mean(font_sizes)
+                # Safely convert font sizes to float
+                font_sizes = []
+                for span in line["spans"]:
+                    try:
+                        font_sizes.append(float(span["size"]))
+                    except (ValueError, TypeError):
+                        font_sizes.append(12.0)  # default font size
+                
+                avg_font = mean(font_sizes) if font_sizes else 12.0
+                
+                # Safely convert y0 to float
+                try:
+                    y0 = float(block["bbox"][1])
+                except (ValueError, TypeError):
+                    y0 = 0.0
+                
                 all_blocks.append({
                     "text": text,
                     "font_size": avg_font,
-                    "y0": block["bbox"][1],  # Top Y-coordinate of the block
+                    "y0": y0,  # Top Y-coordinate of the block
                     "page": page_num
                 })
     return all_blocks
@@ -72,15 +86,28 @@ def compute_scores(blocks):
     Gives each text block a 'heading-likelihood' score
     based on font size, capitalization, numbering, and spacing.
     """
-    font_sizes = [b["font_size"] for b in blocks]
-    avg_font = mean(font_sizes)
+    # Safely extract font sizes and ensure they are floats
+    font_sizes = []
+    for b in blocks:
+        try:
+            font_sizes.append(float(b["font_size"]))
+        except (ValueError, TypeError):
+            font_sizes.append(12.0)
+    
+    avg_font = mean(font_sizes) if font_sizes else 12.0
 
     for i, block in enumerate(blocks):
         score = 0
 
-        # Bigger font than average → more likely a heading
-        if block["font_size"] >= avg_font * 1.15:
-            score += 3
+        # Safely convert font_size to float before comparison
+        try:
+            font_size = float(block["font_size"])
+            # Bigger font than average → more likely a heading
+            if font_size >= avg_font * 1.15:
+                score += 3
+        except (ValueError, TypeError):
+            # If font_size conversion fails, skip this scoring
+            pass
 
         # ALL CAPS or Title Case gives extra points
         if is_all_caps(block["text"]):
@@ -94,9 +121,13 @@ def compute_scores(blocks):
 
         # Extra vertical gap before this block → might be a heading
         if i > 0:
-            y_gap = block["y0"] - blocks[i - 1]["y0"]
-            if y_gap > 20:  # tweak as needed per document style
-                score += 1
+            try:
+                y_gap = float(block["y0"]) - float(blocks[i - 1]["y0"])
+                if y_gap > 20:  # tweak as needed per document style
+                    score += 1
+            except (ValueError, TypeError):
+                # If y0 conversion fails, skip gap scoring
+                pass
 
         block["score"] = score
     return blocks
@@ -104,11 +135,27 @@ def compute_scores(blocks):
 # =========================
 # Step 4: Turn scored blocks into structured sections
 # =========================
-def process_pdf_to_sections(pdf_path, threshold=4):
+def process_pdf_to_sections(pdf_path, output_dir=None, threshold=4):
     """
     Goes through the PDF, figures out where headings are,
     and groups the text under each heading into a clean JSON structure.
+    
+    Args:
+        pdf_path: Path to the PDF file
+        output_dir: Directory to save the chunks JSON (optional)
+        threshold: Score threshold for identifying headings
+    
+    Returns:
+        tuple: (sections, chunks_path) if output_dir provided, else just sections
     """
+    # Handle the case where output_dir is passed as second parameter
+    if isinstance(output_dir, (int, float)):
+        # output_dir is actually threshold, no output_dir provided
+        threshold = int(output_dir)
+        output_dir = None
+    elif isinstance(output_dir, str) and threshold == 4:
+        # output_dir is provided as string, keep default threshold
+        pass
     blocks = extract_blocks_with_layout(pdf_path)
     scored_blocks = compute_scores(blocks)
 
@@ -117,7 +164,11 @@ def process_pdf_to_sections(pdf_path, threshold=4):
 
     for block in scored_blocks:
         text = block["text"]
-        score = block["score"]
+        # Safely convert score to int
+        try:
+            score = int(block["score"])
+        except (ValueError, TypeError):
+            score = 0
 
         if score >= threshold:
             # Found a new heading → save previous section if it exists
@@ -147,6 +198,23 @@ def process_pdf_to_sections(pdf_path, threshold=4):
     if current_section and current_section["text"].strip():
         sections.append(current_section)
 
+    # If output_dir is provided, save to file and return path
+    if output_dir:
+        from pathlib import Path
+        import os
+        
+        pdf_name = Path(pdf_path).stem
+        chunks_filename = f"{pdf_name}.chunks.json"
+        chunks_path = os.path.join(output_dir, chunks_filename)
+        
+        # Ensure output directory exists
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Save sections to JSON file
+        save_sections_as_json(sections, chunks_path)
+        
+        return sections, chunks_path
+    
     return sections
 
 # =========================
