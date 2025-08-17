@@ -17,6 +17,12 @@
 /backend/summaries/*
 !/backend/summaries/.gitkeep
 
+/backend/plagarism/uploads/*
+/backend/plagarism/results/*
+/backend/plagarism/scraped_data/*
+
+
+
 __pycache__/
 *.pyc
 
