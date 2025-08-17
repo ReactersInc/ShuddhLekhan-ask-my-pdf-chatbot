@@ -1,0 +1,129 @@
+{
+  "search_metadata": {
+    "chunks_processed": 5,
+    "total_searches": 5,
+    "unique_urls_found": 10,
+    "content_extracted": 3,
+    "extraction_date": "2025-08-17T19:45:47.519294"
+  },
+  "content_summary": {
+    "total_word_count": 7562,
+    "quality_distribution": {
+      "high": 2,
+      "medium": 1,
+      "low": 0
+    },
+    "average_content_length": 2520
+  },
+  "search_results": [
+    {
+      "url": "https://web.cels.anl.gov/projects/argo/publications/2015-woc-zounmevo.pdf",
+      "title": "[PDF] A Container-Based Approach to OS Specialization for Exascale ...",
+      "content": "Abstract—Future exascale systems will impose several con- flicting challenges on the operating system (OS) running on the compute nodes of such machines.",
+      "score": 0.84215075,
+      "raw_content": null,
+      "source_chunk": 1
+    },
+    {
+      "url": "https://www.exascaleproject.org/wp-content/uploads/2018/07/ECP-ST-CAR-Public-2018-07-01.pdf",
+      "title": "[PDF] ECP Software Technology Capability Assessment Report",
+      "content": "A container-based approach to OS specialization for exascale computing. In Containers, 1st Workshop on (WoC), 2015. [228] Swann Perarnau",
+      "score": 0.79542017,
+      "raw_content": null,
+      "source_chunk": 1
+    },
+    {
+      "url": "https://www.researchgate.net/publication/365681707_Experimentation_on_Usage_of_PQC_Algorithms_for_eSign",
+      "title": "Experimentation on Usage of PQC Algorithms for eSign",
+      "content": "... IEEE | DOI: 10.1109/PKIA56009.2022.9952354. Authorized licensed use limited to: CENTRE FOR DEVELOPMENT OF ADVANCED COMPUTING - CDAC - PUNE. Downloaded on",
+      "score": 0.91156644,
+      "raw_content": null,
+      "source_chunk": 2
+    },
+    {
+      "url": "https://www.researchgate.net/profile/Pravin-Pawar-2/publication/325074794_Addressing_security_aspects_for_HPC_infrastructure/links/664321ba08aa54017a0806ff/Addressing-security-aspects-for-HPC-infrastructure.pdf",
+      "title": "Addressing security aspects for HPC infrastructure",
+      "content": "Authorized licensed use limited to: CENTRE FOR DEVELOPMENT OF ADVANCED COMPUTING - CDAC - PUNE. Downloaded on May 14,2024 at 08:31:12 UTC from IEEE Xplore.",
+      "score": 0.82082915,
+      "raw_content": null,
+      "source_chunk": 2
+    },
+    {
+      "title": "LEAN - OSDev Wiki",
+      "url": "https://wiki.osdev.org/LEAN",
+      "content": "The creators of LEAN have a reference implementation and binaries of a LEAN file manager (Windows/Debian/ Linux ) available on their website. See this page for more information. More Information The specification, linked below, details these structures and their members in more detail, as well as information on other aspects of the file system",
+      "score": 0.3355473,
+      "raw_content": null,
+      "source_chunk": 3
+    },
+    {
+      "title": "如何评价 Lean 4 编程语言？ - 知乎",
+      "url": "https://www.zhihu.com/question/607821811",
+      "content": "配置命令行窗口编码 运行MIL的Demo 4.学习mathematics_in_lean可以自己去改原来的开头import的内容，免得又被奇怪的路径问题困扰，压缩包里已经有了一个例子，能用lean的帅哥 …",
+      "score": 0.08261607,
+      "raw_content": null,
+      "source_chunk": 3
+    },
+    {
+      "url": "https://cycle.io/blog/2024/07/shortlist-history-of-containers",
+      "title": "The Shortlist: History of Containers",
+      "content": "While `chroot` was primarily used for testing new environments, it laid the groundwork for the concept of process isolation. This was a pivotal",
+      "score": 0.59880555,
+      "raw_content": null,
+      "source_chunk": 4
+    },
+    {
+      "url": "https://www.quora.com/How-does-LXC-virtualization-work-under-the-hood",
+      "title": "How does LXC virtualization work (under the hood)?",
+      "content": "The concept is to use a part of the host's or the main resource to provide an isolated environment for the new system. That is, for a virtual",
+      "score": 0.53531766,
+      "raw_content": null,
+      "source_chunk": 4
+    },
+    {
+      "url": "https://ts2.tech/en/high-performance-computing-highlights-june-july-2025-exascale-era-hpc-ai-convergence-and-global-supercomputing-advances/",
+      "title": "High-Performance Computing Highlights (June–July 2025)",
+      "content": "Meanwhile, NVIDIA’s **Grace Hopper** CPU-GPU technology also found adoption in smaller systems: several new HPC installations in early 2025 used Grace CPU + H100 GPU nodes (such as the **Isambard-AI** system in the UK) to accelerate AI research nextplatform.com. **Scott Atchley**, ORNL’s HPC operations manager, noted during ISC that the challenge now is looking “*beyond Frontier, beyond exascale*” to architectures that can handle **AI at even larger scales** (like models with trillions of parameters) without sacrificing simulation performance facebook.com. As Mark Papermaster aptly noted, *“HPC and AI are converging in a way that will reshape much of the industry in the coming years.”* isc-hpc.com The achievements of June–July 2025 – from hitting new performance records to achieving breakthrough research results – are concrete evidence of this transformation.",
+      "score": 0.13245869,
+      "raw_content": null,
+      "source_chunk": 5
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3514245",
+      "title": "A Case For Intra-rack Resource Disaggregation in HPC",
+      "content": "Future high-performance computing (HPC) systems are driven toward heterogeneity of compute and memory resources in response to the expected halt of traditional",
+      "score": 0.12899646,
+      "raw_content": null,
+      "source_chunk": 5
+    }
+  ],
+  "extracted_content": [
+    {
+      "url": "https://www.exascaleproject.org/wp-content/uploads/2018/07/ECP-ST-CAR-Public-2018-07-01.pdf",
+      "quality": "medium",
+      "quality_score": 0.8,
+      "word_count": 886,
+      "cached": false,
+      "content_file": "9ab1f1ce30dd96584a621b0ad9048526.json",
+      "metadata_file": "9ab1f1ce30dd96584a621b0ad9048526.json"
+    },
+    {
+      "url": "https://cycle.io/blog/2024/07/shortlist-history-of-containers",
+      "quality": "high",
+      "quality_score": 0.9,
+      "word_count": 843,
+      "cached": false,
+      "content_file": "a76a58362f1bc18b6767f770725307e6.json",
+      "metadata_file": "a76a58362f1bc18b6767f770725307e6.json"
+    },
+    {
+      "url": "https://ts2.tech/en/high-performance-computing-highlights-june-july-2025-exascale-era-hpc-ai-convergence-and-global-supercomputing-advances/",
+      "quality": "high",
+      "quality_score": 1.0,
+      "word_count": 5833,
+      "cached": false,
+      "content_file": "87980614fdd6e3691114cb3e6dc7b641.json",
+      "metadata_file": "87980614fdd6e3691114cb3e6dc7b641.json"
+    }
+  ]
+}

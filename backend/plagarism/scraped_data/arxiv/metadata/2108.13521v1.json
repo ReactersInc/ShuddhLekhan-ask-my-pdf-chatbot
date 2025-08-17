@@ -1,0 +1,32 @@
+{
+  "arxiv_id": "2108.13521v1",
+  "title": "ExaWorks: Workflows for Exascale",
+  "abstract": "Exascale computers will offer transformative capabilities to combine\ndata-driven and learning-based approaches with traditional simulation\napplications to accelerate scientific discovery and insight. These software\ncombinations and integrations, however, are difficult to achieve due to\nchallenges of coordination and deployment of heterogeneous software components\non diverse and massive platforms. We present the ExaWorks project, which can\naddress many of these challenges: ExaWorks is leading a co-design process to\ncreate a workflow software development Toolkit (SDK) consisting of a wide range\nof workflow management tools that can be composed and interoperate through\ncommon interfaces. We describe the initial set of tools and interfaces\nsupported by the SDK, efforts to make them easier to apply to complex science\nchallenges, and examples of their application to exemplar cases. Furthermore,\nwe discuss how our project is working with the workflows community, large\ncomputing facilities as well as HPC platform vendors to sustainably address the\nrequirements of workflows at the exascale.",
+  "authors": [
+    "Aymen Al-Saadi",
+    "Dong H. Ahn",
+    "Yadu Babuji",
+    "Kyle Chard",
+    "James Corbett",
+    "Mihael Hategan",
+    "Stephen Herbein",
+    "Shantenu Jha",
+    "Daniel Laney",
+    "Andre Merzky",
+    "Todd Munson",
+    "Michael Salim",
+    "Mikhail Titov",
+    "Matteo Turilli",
+    "Justin M. Wozniak"
+  ],
+  "published": "2021-08-30T21:04:30Z",
+  "categories": [
+    "cs.DC"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2108.13521v1",
+  "url": "http://arxiv.org/abs/2108.13521v1",
+  "download_date": "2025-08-17T19:45:04.391824",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2108.13521v1.pdf",
+  "file_size": 1131413,
+  "relevance_score": 31
+}

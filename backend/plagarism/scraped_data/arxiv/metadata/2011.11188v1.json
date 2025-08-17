@@ -1,0 +1,28 @@
+{
+  "arxiv_id": "2011.11188v1",
+  "title": "Integrating Deep Learning in Domain Sciences at Exascale",
+  "abstract": "This paper presents some of the current challenges in designing deep learning\nartificial intelligence (AI) and integrating it with traditional\nhigh-performance computing (HPC) simulations. We evaluate existing packages for\ntheir ability to run deep learning models and applications on large-scale HPC\nsystems efficiently, identify challenges, and propose new asynchronous\nparallelization and optimization techniques for current large-scale\nheterogeneous systems and upcoming exascale systems. These developments, along\nwith existing HPC AI software capabilities, have been integrated into MagmaDNN,\nan open-source HPC deep learning framework. Many deep learning frameworks are\ntargeted at data scientists and fall short in providing quality integration\ninto existing HPC workflows. This paper discusses the necessities of an HPC\ndeep learning framework and how those needs can be provided (e.g., as in\nMagmaDNN) through a deep integration with existing HPC libraries, such as MAGMA\nand its modular memory management, MPI, CuBLAS, CuDNN, MKL, and HIP.\nAdvancements are also illustrated through the use of algorithmic enhancements\nin reduced- and mixed-precision, as well as asynchronous optimization methods.\nFinally, we present illustrations and potential solutions for enhancing\ntraditional compute- and data-intensive applications at ORNL and UTK with AI.\nThe approaches and future challenges are illustrated in materials science,\nimaging, and climate applications.",
+  "authors": [
+    "Rick Archibald",
+    "Edmond Chow",
+    "Eduardo D'Azevedo",
+    "Jack Dongarra",
+    "Markus Eisenbach",
+    "Rocco Febbo",
+    "Florent Lopez",
+    "Daniel Nichols",
+    "Stanimire Tomov",
+    "Kwai Wong",
+    "Junqi Yin"
+  ],
+  "published": "2020-11-23T03:09:58Z",
+  "categories": [
+    "cs.LG"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2011.11188v1",
+  "url": "http://arxiv.org/abs/2011.11188v1",
+  "download_date": "2025-08-17T19:44:59.724391",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2011.11188v1.pdf",
+  "file_size": 1065360,
+  "relevance_score": 31
+}

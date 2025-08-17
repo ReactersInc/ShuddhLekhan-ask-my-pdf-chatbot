@@ -1,0 +1,25 @@
+{
+  "arxiv_id": "1501.04557v2",
+  "title": "Precision-Aware application execution for Energy-optimization in HPC\n  node system",
+  "abstract": "Power consumption is a critical consideration in high performance computing\nsystems and it is becoming the limiting factor to build and operate Petascale\nand Exascale systems. When studying the power consumption of existing systems\nrunning HPC workloads, we find that power, energy and performance are closely\nrelated which leads to the possibility to optimize energy consumption without\nsacrificing (much or at all) the performance. In this paper, we propose a HPC\nsystem running with a GNU/Linux OS and a Real Time Resource Manager (RTRM) that\nis aware and monitors the healthy of the platform. On the system, an\napplication for disaster management runs. The application can run with\ndifferent QoS depending on the situation. We defined two main situations.\nNormal execution, when there is no risk of a disaster, even though we still\nhave to run the system to look ahead in the near future if the situation\nchanges suddenly. In the second scenario, the possibilities for a disaster are\nvery high. Then the allocation of more resources for improving the precision\nand the human decision has to be taken into account. The paper shows that at\ndesign time, it is possible to describe different optimal points that are going\nto be used at runtime by the RTOS with the application. This environment helps\nto the system that must run 24/7 in saving energy with the trade-off of losing\nprecision. The paper shows a model execution which can improve the precision of\nresults by 65% in average by increasing the number of iterations from 1e3 to\n1e4. This also produces one order of magnitude longer execution time which\nleads to the need to use a multi-node solution. The optimal trade-off between\nprecision vs. execution time is computed by the RTOS with the time overhead\nless than 10% against a native execution.",
+  "authors": [
+    "Radim Vavřík",
+    "Antoni Portero",
+    "Štěpán Kuchař",
+    "Martin Golasowski",
+    "Simone Libutti",
+    "Giuseppe Massari",
+    "William Fornaciari",
+    "Vít Vondrák"
+  ],
+  "published": "2015-01-19T16:56:10Z",
+  "categories": [
+    "cs.DC"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/1501.04557v2",
+  "url": "http://arxiv.org/abs/1501.04557v2",
+  "download_date": "2025-08-17T19:43:30.081375",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1501.04557v2.pdf",
+  "file_size": 639506,
+  "relevance_score": 29
+}

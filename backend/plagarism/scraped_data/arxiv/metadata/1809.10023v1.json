@@ -1,0 +1,18 @@
+{
+  "arxiv_id": "1809.10023v1",
+  "title": "Programming at Exascale: Challenges and Innovations",
+  "abstract": "Supercomputers become faster as hardware and software technologies continue\nto evolve. Current supercomputers are capable of 1015 floating point operations\nper second (FLOPS) that called Petascale system. The High Performance Computer\n(HPC) community is Looking forward to the system with capability of 1018\n(FLOPS) that is called Exascale. Having a system to thousand times faster than\nthe previous one produces challenges to the high performance computer (HPC)\ncommunity. These challenges require innovation in software and hardware. In\nthis paper, the challenges posed for programming at Exascale systems are\nreviewed and the developments in the main programming models and systems are\nsurveyed.",
+  "authors": [
+    "Jalal Abdulbaqi"
+  ],
+  "published": "2018-09-24T23:27:01Z",
+  "categories": [
+    "cs.DC"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/1809.10023v1",
+  "url": "http://arxiv.org/abs/1809.10023v1",
+  "download_date": "2025-08-17T19:44:47.000106",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1809.10023v1.pdf",
+  "file_size": 326096,
+  "relevance_score": 31
+}

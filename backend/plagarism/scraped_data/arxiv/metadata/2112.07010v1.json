@@ -1,0 +1,23 @@
+{
+  "arxiv_id": "2112.07010v1",
+  "title": "Slowing Down for Performance and Energy: An OS-Centric Study in Network\n  Driven Workloads",
+  "abstract": "This paper studies three fundamental aspects of an OS that impact the\nperformance and energy efficiency of network processing: 1) batching, 2)\nprocessor energy settings, and 3) the logic and instructions of the OS\nnetworking paths. A network device's interrupt delay feature is used to induce\nbatching and processor frequency is manipulated to control the speed of\ninstruction execution. A baremetal library OS is used to explore OS path\nspecialization. This study shows how careful use of batching and interrupt\ndelay results in 2X energy and performance improvements across different\nworkloads. Surprisingly, we find polling can be made energy efficient and can\nresult in gains up to 11X over baseline Linux. We developed a methodology and a\nset of tools to collect system data in order to understand how energy is\nimpacted at a fine-grained granularity. This paper identifies a number of other\nnovel findings that have implications in OS design for networked applications\nand suggests a path forward to consider energy as a focal point of systems\nresearch.",
+  "authors": [
+    "Han Dong",
+    "Sanjay Arora",
+    "Yara Awad",
+    "Tommy Unger",
+    "Orran Krieger",
+    "Jonathan Appavoo"
+  ],
+  "published": "2021-12-13T21:04:26Z",
+  "categories": [
+    "cs.OS"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2112.07010v1",
+  "url": "http://arxiv.org/abs/2112.07010v1",
+  "download_date": "2025-08-17T19:44:13.499505",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2112.07010v1.pdf",
+  "file_size": 2693529,
+  "relevance_score": 8
+}

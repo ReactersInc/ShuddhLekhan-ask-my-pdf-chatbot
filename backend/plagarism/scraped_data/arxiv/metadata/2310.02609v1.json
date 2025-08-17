@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "2310.02609v1",
+  "title": "RLTrace: Synthesizing High-Quality System Call Traces for OS Fuzz\n  Testing",
+  "abstract": "Securing operating system (OS) kernel is one central challenge in today's\ncyber security landscape. The cutting-edge testing technique of OS kernel is\nsoftware fuzz testing. By mutating the program inputs with random variations\nfor iterations, fuzz testing aims to trigger program crashes and hangs caused\nby potential bugs that can be abused by the inputs. To achieve high OS code\ncoverage, the de facto OS fuzzer typically composes system call traces as the\ninput seed to mutate and to interact with OS kernels. Hence, quality and\ndiversity of the employed system call traces become the prominent factor to\ndecide the effectiveness of OS fuzzing. However, these system call traces to\ndate are generated with hand-coded rules, or by analyzing system call logs of\nOS utility programs. Our observation shows that such system call traces can\nonly subsume common usage scenarios of OS system calls, and likely omit hidden\nbugs.\n  In this research, we propose a deep reinforcement learning-based solution,\ncalled RLTrace, to synthesize diverse and comprehensive system call traces as\nthe seed to fuzz OS kernels. During model training, the deep learning model\ninteracts with OS kernels and infers optimal system call traces w.r.t. our\nlearning goal -- maximizing kernel code coverage. Our evaluation shows that\nRLTrace outperforms other seed generators by producing more comprehensive\nsystem call traces, subsuming system call corner usage cases and subtle\ndependencies. By feeding the de facto OS fuzzer, SYZKALLER, with system call\ntraces synthesized by RLTrace, we show that SYZKALLER can achieve higher code\ncoverage for testing Linux kernels. Furthermore, RLTrace found one\nvulnerability in the Linux kernel (version 5.5-rc6), which is publicly unknown\nto the best of our knowledge by the time of writing.",
+  "authors": [
+    "Wei Chen",
+    "Huaijin Wang",
+    "Weixi Gu",
+    "Shuai Wang"
+  ],
+  "published": "2023-10-04T06:46:00Z",
+  "categories": [
+    "cs.CR"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2310.02609v1",
+  "url": "http://arxiv.org/abs/2310.02609v1",
+  "download_date": "2025-08-17T19:43:46.940873",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2310.02609v1.pdf",
+  "file_size": 1074050,
+  "relevance_score": 10
+}

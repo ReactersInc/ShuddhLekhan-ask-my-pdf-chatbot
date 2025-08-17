@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "2411.08448v1",
+  "title": "In Serverless, OS Scheduler Choice Costs Money: A Hybrid Scheduling\n  Approach for Cheaper FaaS",
+  "abstract": "In Function-as-a-Service (FaaS) serverless, large applications are split into\nshort-lived stateless functions. Deploying functions is mutually profitable:\nusers need not be concerned with resource management, while providers can keep\ntheir servers at high utilization rates running thousands of functions\nconcurrently on a single machine. It is exactly this high concurrency that\ncomes at a cost. The standard Linux Completely Fair Scheduler (CFS) switches\noften between tasks, which leads to prolonged execution times. We present\nevidence that relying on the default Linux CFS scheduler increases serverless\nworkloads cost by up to 10X.\n  In this article, we raise awareness and make a case for rethinking the\nOS-level scheduling in Linux for serverless workloads composed of many\nshort-lived processes. To make serverless more affordable we introduce a hybrid\ntwo-level scheduling approach that relies on FaaS characteristics.\nShort-running functions are executed in FIFO fashion without preemption, while\nlonger-running functions are passed to CFS after a certain time period. We show\nthat tailor-made OS scheduling is able to significantly reduce user-facing\ncosts without adding any provider-facing overhead.",
+  "authors": [
+    "Yuxuan Zhao",
+    "Weikang Weng",
+    "Rob van Nieuwpoort",
+    "Alexandru Uta"
+  ],
+  "published": "2024-11-13T09:11:23Z",
+  "categories": [
+    "cs.DC"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2411.08448v1",
+  "url": "http://arxiv.org/abs/2411.08448v1",
+  "download_date": "2025-08-17T19:43:57.527718",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2411.08448v1.pdf",
+  "file_size": 1555864,
+  "relevance_score": 10
+}

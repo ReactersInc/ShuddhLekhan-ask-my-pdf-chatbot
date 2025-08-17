@@ -1,0 +1,25 @@
+{
+  "arxiv_id": "2309.15996v1",
+  "title": "Loupe: Driving the Development of OS Compatibility Layers",
+  "abstract": "Supporting mainstream applications is fundamental for a new OS to have\nimpact. It is generally achieved by developing a layer of compatibility\nallowing applications developed for a mainstream OS like Linux to run\nunmodified on the new OS. Building such a layer, as we show, results in large\nengineering inefficiencies due to the lack of efficient methods to precisely\nmeasure the OS features required by a set of applications.\n  We propose Loupe, a novel method based on dynamic analysis that determines\nthe OS features that need to be implemented in a prototype OS to bring support\nfor a target set of applications and workloads. Loupe guides and boosts OS\ndevelopers as they build compatibility layers, prioritizing which features to\nimplement in order to quickly support many applications as early as possible.\nWe apply our methodology to 100+ applications and several OSes currently under\ndevelopment, demonstrating high engineering effort savings vs. existing\napproaches: for example, for the 62 applications supported by the OSv kernel,\nwe show that using Loupe, would have required implementing only 37 system calls\nvs. 92 for the non-systematic process followed by OSv developers.\n  We study our measurements and extract novel key insights. Overall, we show\nthat the burden of building compatibility layers is significantly less than\nwhat previous works suggest: in some cases, only as few as 20% of system calls\nreported by static analysis, and 50% of those reported by naive dynamic\nanalysis need an implementation for an application to successfully run standard\nbenchmarks.",
+  "authors": [
+    "Hugo Lefeuvre",
+    "Gaulthier Gain",
+    "Vlad-Andrei Bădoiu",
+    "Daniel Dinca",
+    "Vlad-Radu Schiller",
+    "Costin Raiciu",
+    "Felipe Huici",
+    "Pierre Olivier"
+  ],
+  "published": "2023-09-27T20:21:37Z",
+  "categories": [
+    "cs.OS"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2309.15996v1",
+  "url": "http://arxiv.org/abs/2309.15996v1",
+  "download_date": "2025-08-17T19:43:52.912523",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2309.15996v1.pdf",
+  "file_size": 1787556,
+  "relevance_score": 10
+}

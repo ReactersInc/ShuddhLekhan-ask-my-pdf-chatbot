@@ -1,0 +1,24 @@
+{
+  "arxiv_id": "2210.08728v2",
+  "title": "Fault Injection based Failure Analysis of three CentOS-like Operating\n  Systems",
+  "abstract": "The reliability of operating system (OS) has always been a major concern in\nthe academia and industry. This paper studies how to perform OS failure\nanalysis by fault injection based on the fault mode library. Firstly, we use\nthe fault mode generation method based on Linux abstract hierarchy structure\nanalysis to systematically define the Linux-like fault modes, construct a Linux\nfault mode library and develop a fault injection tool based on the fault mode\nlibrary (FIFML). Then, fault injection experiments are carried out on three\ncommercial Linux distributions, CentOS, Anolis OS and openEuler, to identify\ntheir reliability problems and give improvement suggestions. We also use the\nvirtual file systems of these three OSs as experimental objects, to perform\nfault injection at levels of Light and Normal, measure the performance of 13\ncommon file operations before and after fault injection.",
+  "authors": [
+    "Hao Xu",
+    "Yuxi Hu",
+    "Bolong Tan",
+    "Xiaohai Shi",
+    "Zhangjun Lu",
+    "Wei Zhang",
+    "Jianhui Jiang"
+  ],
+  "published": "2022-10-17T03:50:21Z",
+  "categories": [
+    "cs.SE"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2210.08728v2",
+  "url": "http://arxiv.org/abs/2210.08728v2",
+  "download_date": "2025-08-17T19:44:17.824524",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2210.08728v2.pdf",
+  "file_size": 705277,
+  "relevance_score": 8
+}

@@ -1,0 +1,19 @@
+{
+  "arxiv_id": "2412.07370v1",
+  "title": "Multiplant Nonlinear System Identification by Block-Structured\n  Multikernel Neural Networks in Applications of Interference Cancellation",
+  "abstract": "Problems of linear system identification have closed-form solutions, e.g.,\nusing least-squares or maximum-likelihood methods on input-output data.\nHowever, already the seemingly simplest problems of nonlinear system\nidentification present more difficulties related to the optimisation of the\nfurrowed error surface. Those cases include the Hammerstein plant with\ntypically a bilinear model representation based on polynomial or Fourier\nexpansion of its nonlinear element. Wiener plants induce actual nonlinearity in\nthe parameters, which further complicates the optimisation. Neural network\nmodels and related optimisers are, however, well-prepared to represent and\nsolve nonlinear problems. Unfortunately, the available data for nonlinear\nsystem identification might be too diverse to support accurate and consistent\nmodel representation. This diversity may refer to different impulse responses\nand nonlinear functions that arise in different measurements of (different)\nplants. We therefore propose multikernel neural network models to represent\nnonlinear plants with a subset of trainable weights shared between different\nmeasurements and another subset of plant-specific (i.e., multikernel) weights\nto adhere to the characteristics of specific measurements. We demonstrate that\nin this way we can fit neural network models to the diverse data which cannot\nbe done with some standard methods of nonlinear system identification. For\nmodel testing, the subset of shared weights of the entire trained model is\nreused to support the identification and representation of unseen plant\nmeasurements, while the plant-specific model weights are readjusted to\nspecifically meet the test data.",
+  "authors": [
+    "Svantje Voit",
+    "Gerald Enzner"
+  ],
+  "published": "2024-12-10T10:10:06Z",
+  "categories": [
+    "eess.SP"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2412.07370v1",
+  "url": "http://arxiv.org/abs/2412.07370v1",
+  "download_date": "2025-08-17T19:43:25.779439",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2412.07370v1.pdf",
+  "file_size": 1135843,
+  "relevance_score": 30
+}

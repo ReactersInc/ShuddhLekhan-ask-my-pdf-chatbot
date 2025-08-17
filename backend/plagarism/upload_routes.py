@@ -111,8 +111,8 @@ from .keyword_extractor import extract_keywords_from_sections
 from .arxiv_service import ArxivService
 from .tavily_service import TavilyWebService
 
-UPLOAD_DIR = "./uploads"
-RESULT_DIR = "./results"
+UPLOAD_DIR = "./plagarism/uploads"
+RESULT_DIR = "./plagarism/results"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(RESULT_DIR, exist_ok=True)
 
@@ -153,14 +153,14 @@ def upload_file():
         # Step 3: ArXiv Data Collection (Your addition)
         print("Starting ArXiv search and download...")
         arxiv_service = ArxivService()
-        arxiv_results = arxiv_service.search_and_download_from_keywords(keywords_path, max_papers=5)
+        arxiv_results = arxiv_service.search_and_download_from_keywords(keywords_path, max_papers=25)
         print("ArXiv collection completed.")
 
         # Step 4: Web Data Collection using Tavily (Your addition)
         print("Starting web data collection with Tavily...")
         
         # Create scraped_data structure
-        scraped_base_dir = "scraped_data"
+        scraped_base_dir = "./plagarism/scraped_data"
         os.makedirs(scraped_base_dir, exist_ok=True)
         
         # Create web directory

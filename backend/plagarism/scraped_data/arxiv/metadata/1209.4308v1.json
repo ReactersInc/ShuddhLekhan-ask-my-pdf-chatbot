@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "1209.4308v1",
+  "title": "New Methods for Solving Large Scale Linear Programming Problems in the\n  Windows and Linux computer operating systems",
+  "abstract": "In this study, calculations necessary to solve the large scale linear\nprogramming problems in two operating systems, Linux and Windows 7 (Win), are\ncompared using two different methods. Relying on the interior-point methods,\nlinear-programming interior point solvers (LIPSOL) software was used for the\nfirst method and relying on an augmented Lagrangian method-based algorithm, the\nsecond method used the generalized derivative. The performed calculations for\nvarious problems show the produced random in the Linux operating system (OS)\nand Win OS indicate the efficiency of the performed calculations in the Linux\nOS in terms of the accuracy and using of the optimum memory.",
+  "authors": [
+    "Saeed Ketabchi",
+    "Hossein Moosaei",
+    "Hossein Sahleh",
+    "Mohammad Hedayati"
+  ],
+  "published": "2012-09-19T17:05:32Z",
+  "categories": [
+    "math.OC"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/1209.4308v1",
+  "url": "http://arxiv.org/abs/1209.4308v1",
+  "download_date": "2025-08-17T19:43:34.078109",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1209.4308v1.pdf",
+  "file_size": 115168,
+  "relevance_score": 28
+}

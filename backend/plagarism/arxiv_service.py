@@ -30,7 +30,7 @@ class ArxivService:
         })
         
         # Set up directory structure
-        self.base_dir = "./scraped_data"
+        self.base_dir = "./plagarism/scraped_data"
         self.arxiv_dir = os.path.join(self.base_dir, "arxiv")
         self.pdfs_dir = os.path.join(self.arxiv_dir, "pdfs")
         self.metadata_dir = os.path.join(self.arxiv_dir, "metadata")

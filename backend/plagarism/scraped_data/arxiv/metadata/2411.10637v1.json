@@ -1,0 +1,29 @@
+{
+  "arxiv_id": "2411.10637v1",
+  "title": "Exascale Workflow Applications and Middleware: An ExaWorks Retrospective",
+  "abstract": "Exascale computers offer transformative capabilities to combine data-driven\nand learning-based approaches with traditional simulation applications to\naccelerate scientific discovery and insight. However, these software\ncombinations and integrations are difficult to achieve due to the challenges of\ncoordinating and deploying heterogeneous software components on diverse and\nmassive platforms. We present the ExaWorks project, which addresses many of\nthese challenges. We developed a workflow Software Development Toolkit (SDK), a\ncurated collection of workflow technologies that can be composed and\ninteroperated through a common interface, engineered following current best\npractices, and specifically designed to work on HPC platforms. ExaWorks also\ndeveloped PSI/J, a job management abstraction API, to simplify the construction\nof portable software components and applications that can be used over various\nHPC schedulers. The PSI/J API is a minimal interface for submitting and\nmonitoring jobs and their execution state across multiple and commonly used HPC\nschedulers. We also describe several leading and innovative workflow examples\nof ExaWorks tools used on DOE leadership platforms. Furthermore, we discuss how\nour project is working with the workflow community, large computing facilities,\nand HPC platform vendors to address the requirements of workflows sustainably\nat the exascale.",
+  "authors": [
+    "Aymen Alsaadi",
+    "Mihael Hategan-Marandiuc",
+    "Ketan Maheshwari",
+    "Andre Merzky",
+    "Mikhail Titov",
+    "Matteo Turilli",
+    "Andreas Wilke",
+    "Justin M. Wozniak",
+    "Kyle Chard",
+    "Rafael Ferreira da Silva",
+    "Shantenu Jha",
+    "Daniel Laney"
+  ],
+  "published": "2024-11-16T00:10:53Z",
+  "categories": [
+    "cs.SE"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2411.10637v1",
+  "url": "http://arxiv.org/abs/2411.10637v1",
+  "download_date": "2025-08-17T19:44:43.744191",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2411.10637v1.pdf",
+  "file_size": 304502,
+  "relevance_score": 33
+}

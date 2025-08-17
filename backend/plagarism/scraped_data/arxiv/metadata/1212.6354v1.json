@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "1212.6354v1",
+  "title": "LNOS - Live Network Operating System",
+  "abstract": "Operating Systems exists since existence of computers, and have been evolving\ncontinuously from time to time. In this paper we have reviewed a relatively new\nor unexplored topic of Live OS. From networking perspective, Live OS is used\nfor establishing Clusters, Firewalls and as Network security assessment tool\netc. Our proposed concept is that a Live OS can be established or configured\nfor an organizations specific network requirements with respect to their\nservers. An important server failure due to hardware or software could take\ntime for remedy of the problem, so for that situation a preconfigured server in\nthe form of Live OS on CD/DVD/USB can be used as an immediate solution. In a\nnetwork of ten nodes, we stopped the server machine and with necessary\nadjustments, Live OS replaced the server in less than five minutes. Live OS in\na network environment is a quick replacement of the services that are failed\ndue to server failure (hardware or software). It is a cost effective solution\nfor low budget networks. The life of Live OS starts when we boot it from\nCD/DVD/USB and remains in action for that session. As soon as the machine is\nrebooted, any work done for that session is gone, (in case we do not store any\ninformation on permanent storage media). Live CD/DVD/USB is normally used on\nsystems where we do not have Operating Systems installed. A Live OS can also be\nused on systems where we already have an installed OS. On the basis of\nfunctionality a Live OS can be used for many purposes and has some typical\nadvantages that are not available on other operating systems. Vendors are\nreleasing different distributions of Live OS and is becoming their sole\nidentity in a particular domain like Networks, Security, Education or\nEntertainment etc. There can be many aspects of Live OS, but Linux based Live\nOS and their use in the field of networks is the main focus of this paper.",
+  "authors": [
+    "Sajjad Haider",
+    "Mehboob Yasin",
+    "Naveed Hussain",
+    "Muhammad Imran"
+  ],
+  "published": "2012-12-27T11:55:43Z",
+  "categories": [
+    "cs.NI",
+    "cs.OS"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/1212.6354v1",
+  "url": "http://arxiv.org/abs/1212.6354v1",
+  "download_date": "2025-08-17T19:44:07.042762",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1212.6354v1.pdf",
+  "file_size": 40085,
+  "relevance_score": 8
+}
