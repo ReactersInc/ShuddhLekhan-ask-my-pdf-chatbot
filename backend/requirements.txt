@@ -23,4 +23,7 @@ PyMuPDF
 langgraph
 requests
 PyJWT
-
+pillow
+lxml
+lxml_html_clean
+readability-lxml

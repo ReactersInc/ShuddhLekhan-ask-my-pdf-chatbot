@@ -27,3 +27,7 @@ backend/venv/*
 /backend/summaries/*
 !/backend/summaries/.gitkeep
 
+# macOS junk files
+.DS_Store
+*/.DS_Store
+
