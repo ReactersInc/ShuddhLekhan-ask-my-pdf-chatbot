@@ -2535,7 +2535,7 @@ static const char __pyx_k_sentence_transformers[] = "sentence_transformers";
 static const char __pyx_k_sklearn_metrics_pairwise[] = "sklearn.metrics.pairwise";
 static const char __pyx_k_81_Qa_q_1D_G1_s_1_G1_1_3e1A[] = "\320\000\033\2308\2401\330\004\r\320\r\035\230Q\230a\330\004\007\200q\330\010\023\2201\220D\230\004\230G\2401\330\024\027\220s\230&\240\001\330\024\030\230\013\2401\330\024\030\230\004\230G\2401\340\010\023\2201\330\004\013\2103\210e\2201\220A";
 static const char __pyx_k_XQ_1_q_6_D_wc_HCt3fCwVW_3e1A[] = "\320\000\035\230X\240Q\330\004\r\210]\230!\2301\330\004\017\210q\220\003\2206\230\023\230D\240\007\240w\250c\260\023\260H\270C\270t\3003\300f\310C\310w\320VW\330\004\013\2103\210e\2201\220A";
-static const char __pyx_k_a_A_A_1A_1A__A_D_Q_6_q_Q_AU_2Q[] = "\200\016\210a\340\004\014\210A\360\n\000\005\r\210A\360\n\000\005\n\320\t\033\2301\230A\330\004\t\320\t\033\2301\230A\360\006\000\005\016\210_\230A\230]\250\"\250D\260\r\270Q\330\004\013\2106\220\036\230q\240\001\240\024\240Q\330\004\023\320\023$\240A\240U\250!\2502\250Q\360\006\000\005\r\320\014\037\230q\240\001\330\004\r\210U\220'\230\021\230!\2306\240\021\330\004\022\320\022#\2401\240A\240V\2501\250E\260\021\260&\270\001\270\024\270Q\270b\300\001\340\004\022\220$\220b\230\r\240R\240t\2502\250Q\330\004\t\210\021\210\"\210O\320\0335\3205R\320RS\360\006\000\005\r\210A\330\004\014\210A\330\004\t\320\t\031\230\021\230!\330\004\t\320\t\031\230\021\230!\360\006\000\005\016\210_\230A\230]\250\"\250D\260\r\270Q\330\004\013\2106\220\036\230q\240\001\240\024\240Q\330\004\023\320\023$\240A\240U\250!\2502\250Q\360\006\000\005\016\210U\220'\230\021\230!\2307\240!\330\004\022\320\022#\2401\240A\240V\2501\250E\260\021\260&\270\001\270\024\270Q\270b\300\001\340\004\022\220$\220b\230\r\240R\240t\2502\250Q\330\004\t\210\021\210\"\210O\320\0335\3205R\320RS";
+static const char __pyx_k_a_A_A_1A_1A__A_D_Q_6_q_Q_AU_2Q[] = "\200\016\210a\330\004\014\210A\360\n\000\005\r\210A\360\n\000\005\n\320\t\033\2301\230A\330\004\t\320\t\033\2301\230A\340\004\r\210_\230A\230]\250\"\250D\260\r\270Q\330\004\013\2106\220\036\230q\240\001\240\024\240Q\330\004\023\320\023$\240A\240U\250!\2502\250Q\340\004\014\320\014\037\230q\240\001\330\004\r\210U\220'\230\021\230!\2306\240\021\330\004\022\320\022#\2401\240A\240V\2501\250E\260\021\260&\270\001\270\024\270Q\270b\300\001\340\004\022\220$\220b\230\r\240R\240t\2502\250Q\330\004\t\210\021\210\"\210O\320\0335\3205R\320RS\340\004\014\210A\330\004\014\210A\330\004\t\320\t\031\230\021\230!\330\004\t\320\t\031\230\021\230!\340\004\r\210_\230A\230]\250\"\250D\260\r\270Q\330\004\013\2106\220\036\230q\240\001\240\024\240Q\330\004\023\320\023$\240A\240U\250!\2502\250Q\340\004\r\210U\220'\230\021\230!\2307\240!\330\004\022\320\022#\2401\240A\240V\2501\250E\260\021\260&\270\001\270\024\270Q\270b\300\001\340\004\022\220$\220b\230\r\240R\240t\2502\250Q\330\004\t\210\021\210\"\210O\320\0335\3205R\320RS";
 static const char __pyx_k_The_Industrial_Revolution_which[] = "The Industrial Revolution, which began in Britain in the late eighteenth century, marked a profound shift from agrarian economies to industrialized societies. Fueled by innovations such as the steam engine and mechanized textile looms, factories sprang up across the countryside, enabling mass production at unprecedented scales. This rapid transformation not only increased output but also fundamentally altered patterns of work and daily life: people migrated from rural villages to burgeoning urban centers in search of steady wages. Nonetheless, the era laid the groundwork for modern infrastructure, with railways and canals weaving together once-isolated regions. By the mid\342\200\223nineteenth century, the Industrial Revolution had swept beyond Britain\342\200\231s borders, reshaping societies across Europe and North America. Its legacy endures in today\342\200\231s global manufacturing networks and the very structure of modern cities.";
 static const char __pyx_k_preprocess_hindi_locals_genexpr[] = "preprocess_hindi.<locals>.genexpr";
 static const char __pyx_k_sklearn_feature_extraction_text[] = "sklearn.feature_extraction.text";
@@ -2817,7 +2817,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
 /* #### Code section: module_code ### */
 
 /* "similarity.pyx":17
- * # Use Python def with annotations
+ * 
  * 
  * def preprocess_english(text: str) -> str:             # <<<<<<<<<<<<<<
  *     tokens = word_tokenize(text)
@@ -3108,7 +3108,7 @@ static PyObject *__pyx_pf_10similarity_preprocess_english(CYTHON_UNUSED PyObject
   goto __pyx_L0;
 
   /* "similarity.pyx":17
- * # Use Python def with annotations
+ * 
  * 
  * def preprocess_english(text: str) -> str:             # <<<<<<<<<<<<<<
  *     tokens = word_tokenize(text)
@@ -3668,7 +3668,7 @@ static PyObject *__pyx_pf_10similarity_2preprocess_hindi(CYTHON_UNUSED PyObject 
  *         filtered = tokens
  *     return ' '.join(filtered)             # <<<<<<<<<<<<<<
  * 
- * # --- Main entrypoint ---
+ * 
 */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = PyUnicode_Join(__pyx_mstate_global->__pyx_kp_u_, __pyx_v_filtered); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
@@ -3703,12 +3703,12 @@ static PyObject *__pyx_pf_10similarity_2preprocess_hindi(CYTHON_UNUSED PyObject 
   return __pyx_r;
 }
 
-/* "similarity.pyx":36
- * # --- Main entrypoint ---
+/* "similarity.pyx":35
+ * 
  * 
  * def main() -> None:             # <<<<<<<<<<<<<<
- *     # English texts
  *     eng1 = ("The Industrial Revolution, which began in Britain in the late eighteenth century, marked a profound shift from agrarian economies to industrialized societies. "
+ *             "Fueled by innovations such as the steam engine and mechanized textile looms, factories sprang up across the countryside, enabling mass production at unprecedented scales. "
 */
 
 /* Python wrapper */
@@ -3765,9 +3765,9 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("main", 0);
 
-  /* "similarity.pyx":38
+  /* "similarity.pyx":36
+ * 
  * def main() -> None:
- *     # English texts
  *     eng1 = ("The Industrial Revolution, which began in Britain in the late eighteenth century, marked a profound shift from agrarian economies to industrialized societies. "             # <<<<<<<<<<<<<<
  *             "Fueled by innovations such as the steam engine and mechanized textile looms, factories sprang up across the countryside, enabling mass production at unprecedented scales. "
  *             "This rapid transformation not only increased output but also fundamentally altered patterns of work and daily life: people migrated from rural villages to burgeoning urban centers in search of steady wages. "
@@ -3775,7 +3775,7 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
   __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_The_Industrial_Revolution_which);
   __pyx_v_eng1 = __pyx_mstate_global->__pyx_kp_u_The_Industrial_Revolution_which;
 
-  /* "similarity.pyx":43
+  /* "similarity.pyx":41
  *             "Nonetheless, the era laid the groundwork for modern infrastructure, with railways and canals weaving together once-isolated regions. By the midnineteenth century, the Industrial Revolution had swept beyond Britains borders, reshaping societies across Europe and North America. "
  *             "Its legacy endures in todays global manufacturing networks and the very structure of modern cities.")
  *     eng2 = ("In the final decades of the 1700s, Great Britain experienced a dramatic metamorphosis known as the Industrial Revolution, transitioning society away from subsistence farming toward mechanized industry. "             # <<<<<<<<<<<<<<
@@ -3785,7 +3785,7 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
   __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_In_the_final_decades_of_the_1700);
   __pyx_v_eng2 = __pyx_mstate_global->__pyx_kp_u_In_the_final_decades_of_the_1700;
 
-  /* "similarity.pyx":48
+  /* "similarity.pyx":46
  *             "Despite these hardships, this period witnessed the birth of modern transport networkssteam locomotives and barges that linked raw-material sources to urban manufacturing hubs. By 1850, these innovations had propagated internationally, driving industrialization in France, Germany, and the United States. "
  *             "Todays sprawling metropolitan areas and global trade corridors trace their roots back to those early factory towns and iron rails.")
  *     e1 = preprocess_english(eng1)             # <<<<<<<<<<<<<<
@@ -3793,7 +3793,7 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
  * 
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_preprocess_english); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_preprocess_english); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3812,21 +3812,21 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_e1 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "similarity.pyx":49
+  /* "similarity.pyx":47
  *             "Todays sprawling metropolitan areas and global trade corridors trace their roots back to those early factory towns and iron rails.")
  *     e1 = preprocess_english(eng1)
  *     e2 = preprocess_english(eng2)             # <<<<<<<<<<<<<<
  * 
- *     # TF-IDF English
+ *     vec_en = TfidfVectorizer(ngram_range=(1,5), max_features=4000)
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_preprocess_english); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_preprocess_english); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3845,21 +3845,21 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_e2 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "similarity.pyx":52
+  /* "similarity.pyx":49
+ *     e2 = preprocess_english(eng2)
  * 
- *     # TF-IDF English
  *     vec_en = TfidfVectorizer(ngram_range=(1,5), max_features=4000)             # <<<<<<<<<<<<<<
  *     m_en = vec_en.fit_transform([e1, e2])
  *     tfidf_sim_en = cosine_similarity(m_en)[0,1]
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_TfidfVectorizer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_TfidfVectorizer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3875,22 +3875,22 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, NULL};
-    __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_ngram_range, __pyx_mstate_global->__pyx_tuple[0], __pyx_t_5, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_max_features, __pyx_mstate_global->__pyx_int_4000, __pyx_t_5, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_ngram_range, __pyx_mstate_global->__pyx_tuple[0], __pyx_t_5, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_max_features, __pyx_mstate_global->__pyx_int_4000, __pyx_t_5, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_3, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_vec_en = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "similarity.pyx":53
- *     # TF-IDF English
+  /* "similarity.pyx":50
+ * 
  *     vec_en = TfidfVectorizer(ngram_range=(1,5), max_features=4000)
  *     m_en = vec_en.fit_transform([e1, e2])             # <<<<<<<<<<<<<<
  *     tfidf_sim_en = cosine_similarity(m_en)[0,1]
@@ -3898,35 +3898,35 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
 */
   __pyx_t_3 = __pyx_v_vec_en;
   __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_5 = PyList_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_v_e1);
   __Pyx_GIVEREF(__pyx_v_e1);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 0, __pyx_v_e1) != (0)) __PYX_ERR(0, 53, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 0, __pyx_v_e1) != (0)) __PYX_ERR(0, 50, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_e2);
   __Pyx_GIVEREF(__pyx_v_e2);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 1, __pyx_v_e2) != (0)) __PYX_ERR(0, 53, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 1, __pyx_v_e2) != (0)) __PYX_ERR(0, 50, __pyx_L1_error);
   __pyx_t_4 = 0;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_t_5};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_fit_transform, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_m_en = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "similarity.pyx":54
+  /* "similarity.pyx":51
  *     vec_en = TfidfVectorizer(ngram_range=(1,5), max_features=4000)
  *     m_en = vec_en.fit_transform([e1, e2])
  *     tfidf_sim_en = cosine_similarity(m_en)[0,1]             # <<<<<<<<<<<<<<
  * 
- *     # BERT English
+ *     model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
 */
   __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3945,24 +3945,24 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_mstate_global->__pyx_tuple[1]); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_mstate_global->__pyx_tuple[1]); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_tfidf_sim_en = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "similarity.pyx":57
+  /* "similarity.pyx":53
+ *     tfidf_sim_en = cosine_similarity(m_en)[0,1]
  * 
- *     # BERT English
  *     model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')             # <<<<<<<<<<<<<<
  *     emb_en = model.encode([eng1, eng2])
  *     bert_sim_en = cosine_similarity([emb_en[0]], [emb_en[1]])[0,0]
 */
   __pyx_t_1 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_SentenceTransformer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_SentenceTransformer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3981,14 +3981,14 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __pyx_v_model = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "similarity.pyx":58
- *     # BERT English
+  /* "similarity.pyx":54
+ * 
  *     model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
  *     emb_en = model.encode([eng1, eng2])             # <<<<<<<<<<<<<<
  *     bert_sim_en = cosine_similarity([emb_en[0]], [emb_en[1]])[0,0]
@@ -3996,27 +3996,27 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
 */
   __pyx_t_5 = __pyx_v_model;
   __Pyx_INCREF(__pyx_t_5);
-  __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_eng1);
   __Pyx_GIVEREF(__pyx_v_eng1);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 0, __pyx_v_eng1) != (0)) __PYX_ERR(0, 58, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 0, __pyx_v_eng1) != (0)) __PYX_ERR(0, 54, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_eng2);
   __Pyx_GIVEREF(__pyx_v_eng2);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 1, __pyx_v_eng2) != (0)) __PYX_ERR(0, 58, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 1, __pyx_v_eng2) != (0)) __PYX_ERR(0, 54, __pyx_L1_error);
   __pyx_t_4 = 0;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_t_1};
     __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_encode, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __pyx_v_emb_en = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "similarity.pyx":59
+  /* "similarity.pyx":55
  *     model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
  *     emb_en = model.encode([eng1, eng2])
  *     bert_sim_en = cosine_similarity([emb_en[0]], [emb_en[1]])[0,0]             # <<<<<<<<<<<<<<
@@ -4024,21 +4024,21 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
  *     ensemble_en = 0.4 * tfidf_sim_en + 0.6 * bert_sim_en
 */
   __pyx_t_1 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_emb_en, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_emb_en, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = PyList_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_6, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 59, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_6, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 55, __pyx_L1_error);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_emb_en, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_emb_en, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = PyList_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_7 = PyList_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 59, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 55, __pyx_L1_error);
   __pyx_t_2 = 0;
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4059,48 +4059,48 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
-  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[2]); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[2]); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_bert_sim_en = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "similarity.pyx":61
+  /* "similarity.pyx":57
  *     bert_sim_en = cosine_similarity([emb_en[0]], [emb_en[1]])[0,0]
  * 
  *     ensemble_en = 0.4 * tfidf_sim_en + 0.6 * bert_sim_en             # <<<<<<<<<<<<<<
  *     print(f"EN TF-IDF: {tfidf_sim_en:.3f}, BERT: {bert_sim_en:.3f}, Ensemble: {ensemble_en:.3f}")
  * 
 */
-  __pyx_t_5 = PyNumber_Multiply(__pyx_mstate_global->__pyx_float_0_4, __pyx_v_tfidf_sim_en); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Multiply(__pyx_mstate_global->__pyx_float_0_4, __pyx_v_tfidf_sim_en); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyNumber_Multiply(__pyx_mstate_global->__pyx_float_0_6, __pyx_v_bert_sim_en); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Multiply(__pyx_mstate_global->__pyx_float_0_6, __pyx_v_bert_sim_en); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_7 = PyNumber_Add(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_Add(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_ensemble_en = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "similarity.pyx":62
+  /* "similarity.pyx":58
  * 
  *     ensemble_en = 0.4 * tfidf_sim_en + 0.6 * bert_sim_en
  *     print(f"EN TF-IDF: {tfidf_sim_en:.3f}, BERT: {bert_sim_en:.3f}, Ensemble: {ensemble_en:.3f}")             # <<<<<<<<<<<<<<
  * 
- *     # Hindi texts
+ *     text1 = "              -    "
 */
   __pyx_t_3 = NULL;
   __Pyx_INCREF(__pyx_builtin_print);
   __pyx_t_5 = __pyx_builtin_print; 
-  __pyx_t_6 = __Pyx_PyObject_Format(__pyx_v_tfidf_sim_en, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Format(__pyx_v_tfidf_sim_en, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = __Pyx_PyObject_Format(__pyx_v_bert_sim_en, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Format(__pyx_v_bert_sim_en, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Format(__pyx_v_ensemble_en, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Format(__pyx_v_ensemble_en, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_8[0] = __pyx_mstate_global->__pyx_kp_u_EN_TF_IDF;
   __pyx_t_8[1] = __pyx_t_6;
@@ -4109,7 +4109,7 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
   __pyx_t_8[4] = __pyx_mstate_global->__pyx_kp_u_Ensemble;
   __pyx_t_8[5] = __pyx_t_2;
   __pyx_t_9 = __Pyx_PyUnicode_Join(__pyx_t_8, 6, 11 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6) + 8 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1) + 12 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_2), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2));
-  if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 62, __pyx_L1_error)
+  if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4121,14 +4121,14 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 58, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "similarity.pyx":65
+  /* "similarity.pyx":60
+ *     print(f"EN TF-IDF: {tfidf_sim_en:.3f}, BERT: {bert_sim_en:.3f}, Ensemble: {ensemble_en:.3f}")
  * 
- *     # Hindi texts
  *     text1 = "              -    "             # <<<<<<<<<<<<<<
  *     text2 = "   ,                 - ( , , , )       "
  *     h1 = preprocess_hindi(text1)
@@ -4136,8 +4136,8 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
   __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__3);
   __pyx_v_text1 = __pyx_mstate_global->__pyx_kp_u__3;
 
-  /* "similarity.pyx":66
- *     # Hindi texts
+  /* "similarity.pyx":61
+ * 
  *     text1 = "              -    "
  *     text2 = "   ,                 - ( , , , )       "             # <<<<<<<<<<<<<<
  *     h1 = preprocess_hindi(text1)
@@ -4146,7 +4146,7 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
   __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__4);
   __pyx_v_text2 = __pyx_mstate_global->__pyx_kp_u__4;
 
-  /* "similarity.pyx":67
+  /* "similarity.pyx":62
  *     text1 = "              -    "
  *     text2 = "   ,                 - ( , , , )       "
  *     h1 = preprocess_hindi(text1)             # <<<<<<<<<<<<<<
@@ -4154,7 +4154,7 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
  * 
 */
   __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_preprocess_hindi); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_preprocess_hindi); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4173,21 +4173,21 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
     __pyx_t_7 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 67, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
   __pyx_v_h1 = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "similarity.pyx":68
+  /* "similarity.pyx":63
  *     text2 = "   ,                 - ( , , , )       "
  *     h1 = preprocess_hindi(text1)
  *     h2 = preprocess_hindi(text2)             # <<<<<<<<<<<<<<
  * 
- *     # TF-IDF Hindi
+ *     vec_hi = TfidfVectorizer(ngram_range=(1,5), max_features=4000)
 */
   __pyx_t_9 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_preprocess_hindi); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_preprocess_hindi); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4206,21 +4206,21 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
     __pyx_t_7 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 68, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
   __pyx_v_h2 = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "similarity.pyx":71
+  /* "similarity.pyx":65
+ *     h2 = preprocess_hindi(text2)
  * 
- *     # TF-IDF Hindi
  *     vec_hi = TfidfVectorizer(ngram_range=(1,5), max_features=4000)             # <<<<<<<<<<<<<<
  *     m_hi = vec_hi.fit_transform([h1, h2])
  *     tfidf_sim_hi = cosine_similarity(m_hi)[0,1]
 */
   __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_TfidfVectorizer); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_TfidfVectorizer); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4236,22 +4236,22 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_5, NULL};
-    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_ngram_range, __pyx_mstate_global->__pyx_tuple[0], __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_max_features, __pyx_mstate_global->__pyx_int_4000, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_ngram_range, __pyx_mstate_global->__pyx_tuple[0], __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_max_features, __pyx_mstate_global->__pyx_int_4000, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
     __pyx_t_7 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_9, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 71, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
   __pyx_v_vec_hi = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "similarity.pyx":72
- *     # TF-IDF Hindi
+  /* "similarity.pyx":66
+ * 
  *     vec_hi = TfidfVectorizer(ngram_range=(1,5), max_features=4000)
  *     m_hi = vec_hi.fit_transform([h1, h2])             # <<<<<<<<<<<<<<
  *     tfidf_sim_hi = cosine_similarity(m_hi)[0,1]
@@ -4259,35 +4259,35 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
 */
   __pyx_t_9 = __pyx_v_vec_hi;
   __Pyx_INCREF(__pyx_t_9);
-  __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v_h1);
   __Pyx_GIVEREF(__pyx_v_h1);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_v_h1) != (0)) __PYX_ERR(0, 72, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_v_h1) != (0)) __PYX_ERR(0, 66, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_h2);
   __Pyx_GIVEREF(__pyx_v_h2);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_v_h2) != (0)) __PYX_ERR(0, 72, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_v_h2) != (0)) __PYX_ERR(0, 66, __pyx_L1_error);
   __pyx_t_4 = 0;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_9, __pyx_t_3};
     __pyx_t_7 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_fit_transform, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 72, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
   __pyx_v_m_hi = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "similarity.pyx":73
+  /* "similarity.pyx":67
  *     vec_hi = TfidfVectorizer(ngram_range=(1,5), max_features=4000)
  *     m_hi = vec_hi.fit_transform([h1, h2])
  *     tfidf_sim_hi = cosine_similarity(m_hi)[0,1]             # <<<<<<<<<<<<<<
  * 
- *     # BERT Hindi
+ *     emb_hi = model.encode([text1, text2])
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4306,67 +4306,67 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
     __pyx_t_7 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 73, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
-  __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_t_7, __pyx_mstate_global->__pyx_tuple[1]); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_t_7, __pyx_mstate_global->__pyx_tuple[1]); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_tfidf_sim_hi = __pyx_t_9;
   __pyx_t_9 = 0;
 
-  /* "similarity.pyx":76
+  /* "similarity.pyx":69
+ *     tfidf_sim_hi = cosine_similarity(m_hi)[0,1]
  * 
- *     # BERT Hindi
  *     emb_hi = model.encode([text1, text2])             # <<<<<<<<<<<<<<
  *     bert_sim_hi = cosine_similarity([emb_hi[0]], [emb_hi[1]])[0,0]
  * 
 */
   __pyx_t_7 = __pyx_v_model;
   __Pyx_INCREF(__pyx_t_7);
-  __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v_text1);
   __Pyx_GIVEREF(__pyx_v_text1);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_v_text1) != (0)) __PYX_ERR(0, 76, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_v_text1) != (0)) __PYX_ERR(0, 69, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_text2);
   __Pyx_GIVEREF(__pyx_v_text2);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_v_text2) != (0)) __PYX_ERR(0, 76, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_v_text2) != (0)) __PYX_ERR(0, 69, __pyx_L1_error);
   __pyx_t_4 = 0;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_7, __pyx_t_3};
     __pyx_t_9 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_encode, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 76, __pyx_L1_error)
+    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
   }
   __pyx_v_emb_hi = __pyx_t_9;
   __pyx_t_9 = 0;
 
-  /* "similarity.pyx":77
- *     # BERT Hindi
+  /* "similarity.pyx":70
+ * 
  *     emb_hi = model.encode([text1, text2])
  *     bert_sim_hi = cosine_similarity([emb_hi[0]], [emb_hi[1]])[0,0]             # <<<<<<<<<<<<<<
  * 
  *     ensemble_hi = 0.4 * tfidf_sim_hi + 0.6 * bert_sim_hi
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_emb_hi, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_emb_hi, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_5);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 77, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 70, __pyx_L1_error);
   __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_emb_hi, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_emb_hi, 1, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_5);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 77, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 70, __pyx_L1_error);
   __pyx_t_5 = 0;
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4387,34 +4387,34 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 77, __pyx_L1_error)
+    if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
   }
-  __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_t_9, __pyx_mstate_global->__pyx_tuple[2]); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_t_9, __pyx_mstate_global->__pyx_tuple[2]); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_v_bert_sim_hi = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "similarity.pyx":79
+  /* "similarity.pyx":72
  *     bert_sim_hi = cosine_similarity([emb_hi[0]], [emb_hi[1]])[0,0]
  * 
  *     ensemble_hi = 0.4 * tfidf_sim_hi + 0.6 * bert_sim_hi             # <<<<<<<<<<<<<<
  *     print(f"HI TF-IDF: {tfidf_sim_hi:.3f}, BERT: {bert_sim_hi:.3f}, Ensemble: {ensemble_hi:.3f}")
  * 
 */
-  __pyx_t_7 = PyNumber_Multiply(__pyx_mstate_global->__pyx_float_0_4, __pyx_v_tfidf_sim_hi); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_Multiply(__pyx_mstate_global->__pyx_float_0_4, __pyx_v_tfidf_sim_hi); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_9 = PyNumber_Multiply(__pyx_mstate_global->__pyx_float_0_6, __pyx_v_bert_sim_hi); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_9 = PyNumber_Multiply(__pyx_mstate_global->__pyx_float_0_6, __pyx_v_bert_sim_hi); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_1 = PyNumber_Add(__pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_v_ensemble_hi = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "similarity.pyx":80
+  /* "similarity.pyx":73
  * 
  *     ensemble_hi = 0.4 * tfidf_sim_hi + 0.6 * bert_sim_hi
  *     print(f"HI TF-IDF: {tfidf_sim_hi:.3f}, BERT: {bert_sim_hi:.3f}, Ensemble: {ensemble_hi:.3f}")             # <<<<<<<<<<<<<<
@@ -4424,11 +4424,11 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
   __pyx_t_9 = NULL;
   __Pyx_INCREF(__pyx_builtin_print);
   __pyx_t_7 = __pyx_builtin_print; 
-  __pyx_t_2 = __Pyx_PyObject_Format(__pyx_v_tfidf_sim_hi, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Format(__pyx_v_tfidf_sim_hi, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_Format(__pyx_v_bert_sim_hi, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Format(__pyx_v_bert_sim_hi, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_Format(__pyx_v_ensemble_hi, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Format(__pyx_v_ensemble_hi, __pyx_mstate_global->__pyx_kp_u_3f); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_8[0] = __pyx_mstate_global->__pyx_kp_u_HI_TF_IDF;
   __pyx_t_8[1] = __pyx_t_2;
@@ -4437,7 +4437,7 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
   __pyx_t_8[4] = __pyx_mstate_global->__pyx_kp_u_Ensemble;
   __pyx_t_8[5] = __pyx_t_5;
   __pyx_t_6 = __Pyx_PyUnicode_Join(__pyx_t_8, 6, 11 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_2) + 8 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_3) + 12 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_3) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5));
-  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 80, __pyx_L1_error)
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4449,17 +4449,17 @@ static PyObject *__pyx_pf_10similarity_4main(CYTHON_UNUSED PyObject *__pyx_self)
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "similarity.pyx":36
- * # --- Main entrypoint ---
+  /* "similarity.pyx":35
+ * 
  * 
  * def main() -> None:             # <<<<<<<<<<<<<<
- *     # English texts
  *     eng1 = ("The Industrial Revolution, which began in Britain in the late eighteenth century, marked a profound shift from agrarian economies to industrialized societies. "
+ *             "Fueled by innovations such as the steam engine and mechanized textile looms, factories sprang up across the countryside, enabling mass production at unprecedented scales. "
 */
 
   /* function exit code */
@@ -5055,8 +5055,8 @@ __Pyx_RefNannySetupContext("PyInit_similarity", 0);
 
   /* "similarity.pyx":1
  * from sentence_transformers import SentenceTransformer             # <<<<<<<<<<<<<<
+ * 
  * from indicnlp.tokenize.indic_tokenize import trivial_tokenize
- * from sklearn.feature_extraction.text import TfidfVectorizer
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_SentenceTransformer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -5069,118 +5069,119 @@ __Pyx_RefNannySetupContext("PyInit_similarity", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "similarity.pyx":2
+  /* "similarity.pyx":3
  * from sentence_transformers import SentenceTransformer
+ * 
  * from indicnlp.tokenize.indic_tokenize import trivial_tokenize             # <<<<<<<<<<<<<<
  * from sklearn.feature_extraction.text import TfidfVectorizer
  * from sklearn.metrics.pairwise import cosine_similarity
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_trivial_tokenize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_trivial_tokenize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_indicnlp_tokenize_indic_tokenize, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_indicnlp_tokenize_indic_tokenize, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_trivial_tokenize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_trivial_tokenize); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_trivial_tokenize, __pyx_t_3) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_trivial_tokenize, __pyx_t_3) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "similarity.pyx":3
- * from sentence_transformers import SentenceTransformer
+  /* "similarity.pyx":4
+ * 
  * from indicnlp.tokenize.indic_tokenize import trivial_tokenize
  * from sklearn.feature_extraction.text import TfidfVectorizer             # <<<<<<<<<<<<<<
  * from sklearn.metrics.pairwise import cosine_similarity
- * import nltk
+ * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_TfidfVectorizer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_TfidfVectorizer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_sklearn_feature_extraction_text, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_sklearn_feature_extraction_text, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_TfidfVectorizer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_TfidfVectorizer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TfidfVectorizer, __pyx_t_2) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TfidfVectorizer, __pyx_t_2) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "similarity.pyx":4
+  /* "similarity.pyx":5
  * from indicnlp.tokenize.indic_tokenize import trivial_tokenize
  * from sklearn.feature_extraction.text import TfidfVectorizer
  * from sklearn.metrics.pairwise import cosine_similarity             # <<<<<<<<<<<<<<
- * import nltk
- * from nltk.tokenize import word_tokenize
+ * 
+ * 
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_sklearn_metrics_pairwise, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_sklearn_metrics_pairwise, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_cosine_similarity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_cosine_similarity, __pyx_t_3) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_cosine_similarity, __pyx_t_3) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "similarity.pyx":5
- * from sklearn.feature_extraction.text import TfidfVectorizer
- * from sklearn.metrics.pairwise import cosine_similarity
+  /* "similarity.pyx":8
+ * 
+ * 
  * import nltk             # <<<<<<<<<<<<<<
  * from nltk.tokenize import word_tokenize
  * from nltk.corpus import stopwords
 */
-  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_nltk, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_nltk, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_nltk, __pyx_t_2) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_nltk, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "similarity.pyx":6
- * from sklearn.metrics.pairwise import cosine_similarity
+  /* "similarity.pyx":9
+ * 
  * import nltk
  * from nltk.tokenize import word_tokenize             # <<<<<<<<<<<<<<
  * from nltk.corpus import stopwords
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_word_tokenize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_word_tokenize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_nltk_tokenize, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_nltk_tokenize, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_word_tokenize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_word_tokenize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_word_tokenize, __pyx_t_2) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_word_tokenize, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "similarity.pyx":7
+  /* "similarity.pyx":10
  * import nltk
  * from nltk.tokenize import word_tokenize
  * from nltk.corpus import stopwords             # <<<<<<<<<<<<<<
  * 
- * # load stopwords
+ * english_stopwords = set(stopwords.words('english'))
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_stopwords); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_stopwords); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_nltk_corpus, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_nltk_corpus, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_stopwords); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_stopwords); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_stopwords, __pyx_t_3) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_stopwords, __pyx_t_3) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "similarity.pyx":10
+  /* "similarity.pyx":12
+ * from nltk.corpus import stopwords
  * 
- * # load stopwords
  * english_stopwords = set(stopwords.words('english'))             # <<<<<<<<<<<<<<
  * from stopwords_hindi import hindi_sw
  * hindi_stopwords = hindi_sw.get_hindi_sw()
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_stopwords); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_stopwords); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_words); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_words); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_6 = 1;
@@ -5189,44 +5190,44 @@ __Pyx_RefNannySetupContext("PyInit_similarity", 0);
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
-  __pyx_t_5 = PySet_New(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_5 = PySet_New(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_english_stopwords, __pyx_t_5) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_english_stopwords, __pyx_t_5) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "similarity.pyx":11
- * # load stopwords
+  /* "similarity.pyx":13
+ * 
  * english_stopwords = set(stopwords.words('english'))
  * from stopwords_hindi import hindi_sw             # <<<<<<<<<<<<<<
  * hindi_stopwords = hindi_sw.get_hindi_sw()
  * 
 */
-  __pyx_t_5 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_hindi_sw); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_hindi_sw); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_stopwords_hindi, __pyx_t_5, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_stopwords_hindi, __pyx_t_5, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_hindi_sw); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_hindi_sw); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_hindi_sw, __pyx_t_5) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_hindi_sw, __pyx_t_5) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "similarity.pyx":12
+  /* "similarity.pyx":14
  * english_stopwords = set(stopwords.words('english'))
  * from stopwords_hindi import hindi_sw
  * hindi_stopwords = hindi_sw.get_hindi_sw()             # <<<<<<<<<<<<<<
  * 
- * # --- Preprocessing functions ---
+ * 
 */
   __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_hindi_sw); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_hindi_sw); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_hindi_sw); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_hindi_sw); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_6 = 1;
@@ -5235,14 +5236,14 @@ __Pyx_RefNannySetupContext("PyInit_similarity", 0);
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_hindi_stopwords, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_hindi_stopwords, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "similarity.pyx":17
- * # Use Python def with annotations
+ * 
  * 
  * def preprocess_english(text: str) -> str:             # <<<<<<<<<<<<<<
  *     tokens = word_tokenize(text)
@@ -5277,42 +5278,42 @@ __Pyx_RefNannySetupContext("PyInit_similarity", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_preprocess_hindi, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "similarity.pyx":36
- * # --- Main entrypoint ---
+  /* "similarity.pyx":35
+ * 
  * 
  * def main() -> None:             # <<<<<<<<<<<<<<
- *     # English texts
  *     eng1 = ("The Industrial Revolution, which began in Britain in the late eighteenth century, marked a profound shift from agrarian economies to industrialized societies. "
+ *             "Fueled by innovations such as the steam engine and mechanized textile looms, factories sprang up across the countryside, enabling mass production at unprecedented scales. "
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_None) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10similarity_5main, 0, __pyx_mstate_global->__pyx_n_u_main_2, NULL, __pyx_mstate_global->__pyx_n_u_similarity, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_None) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10similarity_5main, 0, __pyx_mstate_global->__pyx_n_u_main_2, NULL, __pyx_mstate_global->__pyx_n_u_similarity, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_main_2, __pyx_t_4) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_main_2, __pyx_t_4) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "similarity.pyx":82
+  /* "similarity.pyx":75
  *     print(f"HI TF-IDF: {tfidf_sim_hi:.3f}, BERT: {bert_sim_hi:.3f}, Ensemble: {ensemble_hi:.3f}")
  * 
  * if __name__ == '__main__':             # <<<<<<<<<<<<<<
  *     main()
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_main, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_main, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_7) {
 
-    /* "similarity.pyx":83
+    /* "similarity.pyx":76
  * 
  * if __name__ == '__main__':
  *     main()             # <<<<<<<<<<<<<<
 */
     __pyx_t_2 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_main_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 83, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_main_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 76, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = 1;
     {
@@ -5320,12 +5321,12 @@ __Pyx_RefNannySetupContext("PyInit_similarity", 0);
       __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 83, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "similarity.pyx":82
+    /* "similarity.pyx":75
  *     print(f"HI TF-IDF: {tfidf_sim_hi:.3f}, BERT: {bert_sim_hi:.3f}, Ensemble: {ensemble_hi:.3f}")
  * 
  * if __name__ == '__main__':             # <<<<<<<<<<<<<<
@@ -5335,8 +5336,8 @@ __Pyx_RefNannySetupContext("PyInit_similarity", 0);
 
   /* "similarity.pyx":1
  * from sentence_transformers import SentenceTransformer             # <<<<<<<<<<<<<<
+ * 
  * from indicnlp.tokenize.indic_tokenize import trivial_tokenize
- * from sklearn.feature_extraction.text import TfidfVectorizer
 */
   __pyx_t_4 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -5516,7 +5517,7 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_print); if (!__pyx_builtin_print) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_print); if (!__pyx_builtin_print) __PYX_ERR(0, 58, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -5528,36 +5529,36 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "similarity.pyx":52
+  /* "similarity.pyx":49
+ *     e2 = preprocess_english(eng2)
  * 
- *     # TF-IDF English
  *     vec_en = TfidfVectorizer(ngram_range=(1,5), max_features=4000)             # <<<<<<<<<<<<<<
  *     m_en = vec_en.fit_transform([e1, e2])
  *     tfidf_sim_en = cosine_similarity(m_en)[0,1]
 */
-  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_int_1, __pyx_mstate_global->__pyx_int_5); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_int_1, __pyx_mstate_global->__pyx_int_5); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[0]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[0]);
 
-  /* "similarity.pyx":54
+  /* "similarity.pyx":51
  *     vec_en = TfidfVectorizer(ngram_range=(1,5), max_features=4000)
  *     m_en = vec_en.fit_transform([e1, e2])
  *     tfidf_sim_en = cosine_similarity(m_en)[0,1]             # <<<<<<<<<<<<<<
  * 
- *     # BERT English
+ *     model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
 */
-  __pyx_mstate_global->__pyx_tuple[1] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_int_0, __pyx_mstate_global->__pyx_int_1); if (unlikely(!__pyx_mstate_global->__pyx_tuple[1])) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[1] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_int_0, __pyx_mstate_global->__pyx_int_1); if (unlikely(!__pyx_mstate_global->__pyx_tuple[1])) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[1]);
 
-  /* "similarity.pyx":59
+  /* "similarity.pyx":55
  *     model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
  *     emb_en = model.encode([eng1, eng2])
  *     bert_sim_en = cosine_similarity([emb_en[0]], [emb_en[1]])[0,0]             # <<<<<<<<<<<<<<
  * 
  *     ensemble_en = 0.4 * tfidf_sim_en + 0.6 * bert_sim_en
 */
-  __pyx_mstate_global->__pyx_tuple[2] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_int_0, __pyx_mstate_global->__pyx_int_0); if (unlikely(!__pyx_mstate_global->__pyx_tuple[2])) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[2] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_int_0, __pyx_mstate_global->__pyx_int_0); if (unlikely(!__pyx_mstate_global->__pyx_tuple[2])) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[2]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[2]);
   __Pyx_RefNannyFinishContext();
@@ -5624,7 +5625,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_similarity_pyx, __pyx_mstate->__pyx_n_u_preprocess_hindi, __pyx_k_81_Qa_q_1D_G1_s_1_G1_1_3e1A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 21, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 36, 344};
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 21, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 35, 334};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_eng1, __pyx_mstate->__pyx_n_u_eng2, __pyx_mstate->__pyx_n_u_e1, __pyx_mstate->__pyx_n_u_e2, __pyx_mstate->__pyx_n_u_vec_en, __pyx_mstate->__pyx_n_u_m_en, __pyx_mstate->__pyx_n_u_tfidf_sim_en, __pyx_mstate->__pyx_n_u_model, __pyx_mstate->__pyx_n_u_emb_en, __pyx_mstate->__pyx_n_u_bert_sim_en, __pyx_mstate->__pyx_n_u_ensemble_en, __pyx_mstate->__pyx_n_u_text1, __pyx_mstate->__pyx_n_u_text2, __pyx_mstate->__pyx_n_u_h1, __pyx_mstate->__pyx_n_u_h2, __pyx_mstate->__pyx_n_u_vec_hi, __pyx_mstate->__pyx_n_u_m_hi, __pyx_mstate->__pyx_n_u_tfidf_sim_hi, __pyx_mstate->__pyx_n_u_emb_hi, __pyx_mstate->__pyx_n_u_bert_sim_hi, __pyx_mstate->__pyx_n_u_ensemble_hi};
     __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_similarity_pyx, __pyx_mstate->__pyx_n_u_main_2, __pyx_k_a_A_A_1A_1A__A_D_Q_6_q_Q_AU_2Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }

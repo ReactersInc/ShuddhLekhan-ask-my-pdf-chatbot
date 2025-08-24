@@ -25,4 +25,6 @@
 
 __pycache__/
 *.pyc
-
+*.pyd
+backend/results/
+backend/scraped_data/
