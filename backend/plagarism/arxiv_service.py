@@ -256,9 +256,17 @@ class ArxivService:
             
             if not arxiv_id or not pdf_url:
                 return None
-            
-            # Create file paths
-            safe_filename = f"{arxiv_id}.pdf"
+            # Sanitize title for filename
+            def _sanitize_filename(name: str) -> str:
+                name = re.sub(r'[^\w\s-]', '', name)  # remove illegal chars
+                name = re.sub(r'\s+', '_', name)      # replace spaces with underscores
+                return name[:80]  # keep it short enough for filesystem
+
+            title = paper.get('title', 'Unknown')
+            clean_title = _sanitize_filename(title)
+
+            # Combine title + arxiv_id for uniqueness
+            safe_filename = f"{clean_title}_{arxiv_id}.pdf"
             pdf_path = os.path.join(self.pdfs_dir, safe_filename)
             metadata_path = os.path.join(self.metadata_dir, f"{arxiv_id}.json")
             
@@ -283,6 +291,7 @@ class ArxivService:
             metadata = {
                 'arxiv_id': arxiv_id,
                 'title': paper.get('title', ''),
+                'clean_title': clean_title,
                 'abstract': paper.get('abstract', ''),
                 'authors': paper.get('authors', []),
                 'published': paper.get('published', ''),
