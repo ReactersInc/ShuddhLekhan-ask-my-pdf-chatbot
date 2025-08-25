@@ -1,0 +1,23 @@
+{
+  "arxiv_id": "2507.13073v1",
+  "title": "Dual LiDAR-Based Traffic Movement Count Estimation at a Signalized\n  Intersection: Deployment, Data Collection, and Preliminary Analysis",
+  "abstract": "Traffic Movement Count (TMC) at intersections is crucial for optimizing\nsignal timings, assessing the performance of existing traffic control measures,\nand proposing efficient lane configurations to minimize delays, reduce\ncongestion, and promote safety. Traditionally, methods such as manual counting,\nloop detectors, pneumatic road tubes, and camera-based recognition have been\nused for TMC estimation. Although generally reliable, camera-based TMC\nestimation is prone to inaccuracies under poor lighting conditions during harsh\nweather and nighttime. In contrast, Light Detection and Ranging (LiDAR)\ntechnology is gaining popularity in recent times due to reduced costs and its\nexpanding use in 3D object detection, tracking, and related applications. This\npaper presents the authors' endeavor to develop, deploy and evaluate a\ndual-LiDAR system at an intersection in the city of Rialto, California, for TMC\nestimation. The 3D bounding box detections from the two LiDARs are used to\nclassify vehicle counts based on traffic directions, vehicle movements, and\nvehicle classes. This work discusses the estimated TMC results and provides\ninsights into the observed trends and irregularities. Potential improvements\nare also discussed that could enhance not only TMC estimation, but also\ntrajectory forecasting and intent prediction at intersections.",
+  "authors": [
+    "Saswat Priyadarshi Nayak",
+    "Guoyuan Wu",
+    "Kanok Boriboonsomsin",
+    "Matthew Barth"
+  ],
+  "published": "2025-07-17T12:42:28Z",
+  "categories": [
+    "eess.SY",
+    "cs.CV",
+    "cs.SY"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2507.13073v1",
+  "url": "http://arxiv.org/abs/2507.13073v1",
+  "download_date": "2025-08-22T22:11:39.434222",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2507.13073v1.pdf",
+  "file_size": 6828210,
+  "relevance_score": 5
+}

@@ -1,0 +1,20 @@
+{
+  "arxiv_id": "2007.01025v1",
+  "title": "Insights into regularity of 2D 3d transition metal monocarbides\n  formation",
+  "abstract": "Recently several theoretical predictions were made about 2D planar FeC, CoC,\nNiC, and CuC while their bulk phases still remain unknown. Here, we present\ngeneralization of 2D family of 3d transition metal monocarbides (TMC) by\nsearching their stable configurations with DFT methods and evolutionary\nalgorithm. It is found that in the TMC row (TM = Sc-Cu) a tendency of 3D\nrocksalt phase formation is monotonously interchanging by 2D phase appearance,\nnamely planar orthorhombic TMC characterized by carbon dimers inside metal\nhexagons. Among them, orthorhombic CoC and FeC monocarbides would be likely\nformed rather than any other 2D metal carbide phase or metal/graphene\ninterface.",
+  "authors": [
+    "Konstantin V. Larionov",
+    "Gotthard Seifert",
+    "Pavel B. Sorokin"
+  ],
+  "published": "2020-07-02T11:21:25Z",
+  "categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2007.01025v1",
+  "url": "http://arxiv.org/abs/2007.01025v1",
+  "download_date": "2025-08-22T22:12:14.246902",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2007.01025v1.pdf",
+  "file_size": 1182865,
+  "relevance_score": 3
+}

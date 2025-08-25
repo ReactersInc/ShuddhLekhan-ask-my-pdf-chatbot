@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "1612.05381v1",
+  "title": "Erdős-Gallai-type results for total monochromatic connection of\n  graphs",
+  "abstract": "A graph is said to be {\\it total-colored} if all the edges and the vertices\nof the graph are colored. A total-coloring of a graph is a {\\it total\nmonochromatically-connecting coloring} ({\\it TMC-coloring}, for short) if any\ntwo vertices of the graph are connected by a path whose edges and internal\nvertices have the same color. For a connected graph $G$, the {\\it total\nmonochromatic connection number}, denoted by $tmc(G)$, is defined as the\nmaximum number of colors used in a TMC-coloring of $G$. In this paper, we study\ntwo kinds of Erd\\H{o}s-Gallai-type problems for $tmc(G)$ and completely solve\nthem.",
+  "authors": [
+    "Hui Jiang",
+    "Xueliang Li",
+    "Yingying Zhang"
+  ],
+  "published": "2016-12-16T06:44:33Z",
+  "categories": [
+    "math.CO",
+    "05C15, 05C35, 05C38, 05C40"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/1612.05381v1",
+  "url": "http://arxiv.org/abs/1612.05381v1",
+  "download_date": "2025-08-22T22:11:51.141200",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1612.05381v1.pdf",
+  "file_size": 132486,
+  "relevance_score": 3
+}

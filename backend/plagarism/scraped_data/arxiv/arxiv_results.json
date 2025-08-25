@@ -1,0 +1,155 @@
+{
+  "search_metadata": {
+    "final_query": "जर्मनी भाभा पीएम मोदी विकास TMC",
+    "keywords_extracted": 17,
+    "phrases_extracted": 10,
+    "search_strategies": 3,
+    "search_date": "2025-08-22T22:12:50.450235"
+  },
+  "papers_found": 15,
+  "papers_downloaded": 15,
+  "papers_failed": 0,
+  "download_results": [
+    {
+      "arxiv_id": "2107.00423v1",
+      "title": "Evolutionary view through the starless cores in Taurus: deuteration in\n  TMC 1-C and TMC 1-CP",
+      "relevance_score": 13,
+      "published_year": "2021",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2107.00423v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2304.04547v1",
+      "title": "N,N,N-Trimethyl chitosan as a permeation enhancer for inhalation drug\n  delivery: interaction with a model pulmonary surfactant",
+      "relevance_score": 5,
+      "published_year": "2023",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2304.04547v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2507.13073v1",
+      "title": "Dual LiDAR-Based Traffic Movement Count Estimation at a Signalized\n  Intersection: Deployment, Data Collection, and Preliminary Analysis",
+      "relevance_score": 5,
+      "published_year": "2025",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2507.13073v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "1604.02242v1",
+      "title": "More on total monochromatic connection of graphs",
+      "relevance_score": 3,
+      "published_year": "2016",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1604.02242v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "1601.03241v1",
+      "title": "Total monochromatic connection of graphs",
+      "relevance_score": 3,
+      "published_year": "2016",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1601.03241v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "1612.05381v1",
+      "title": "Erdős-Gallai-type results for total monochromatic connection of\n  graphs",
+      "relevance_score": 3,
+      "published_year": "2016",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1612.05381v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2201.04788v3",
+      "title": "Trusted Media Challenge Dataset and User Study",
+      "relevance_score": 3,
+      "published_year": "2022",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2201.04788v3.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "0808.2397v2",
+      "title": "Target mass corrections for spin-dependent structure functions in\n  collinear factorization",
+      "relevance_score": 3,
+      "published_year": "2008",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/0808.2397v2.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "1210.4398v2",
+      "title": "Parton distributions in the presence of target mass corrections",
+      "relevance_score": 3,
+      "published_year": "2012",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1210.4398v2.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "1712.04624v1",
+      "title": "Theoretical Proposal for Determining Angular Momentum Compensation in\n  Ferrimagnets",
+      "relevance_score": 3,
+      "published_year": "2017",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1712.04624v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2007.01025v1",
+      "title": "Insights into regularity of 2D 3d transition metal monocarbides\n  formation",
+      "relevance_score": 3,
+      "published_year": "2020",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2007.01025v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2109.03141v1",
+      "title": "Smart Traffic Monitoring System using Computer Vision and Edge Computing",
+      "relevance_score": 3,
+      "published_year": "2021",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2109.03141v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2410.18136v1",
+      "title": "Generative Design of Functional Metal Complexes Utilizing the Internal\n  Knowledge of Large Language Models",
+      "relevance_score": 2,
+      "published_year": "2024",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2410.18136v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "2203.03894v1",
+      "title": "Towards Wafer-Scale Production of TwoDimensional Transition Metal\n  Chalcogenides",
+      "relevance_score": 0,
+      "published_year": "2022",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2203.03894v1.pdf",
+      "error": null
+    },
+    {
+      "arxiv_id": "1102.1106v2",
+      "title": "Target mass corrections to parity-violating DIS",
+      "relevance_score": 0,
+      "published_year": "2011",
+      "download_success": true,
+      "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1102.1106v2.pdf",
+      "error": null
+    }
+  ],
+  "storage_paths": {
+    "base_dir": "./plagarism/scraped_data",
+    "arxiv_dir": "./plagarism/scraped_data/arxiv",
+    "pdfs_dir": "./plagarism/scraped_data/arxiv/pdfs",
+    "metadata_dir": "./plagarism/scraped_data/arxiv/metadata"
+  }
+}

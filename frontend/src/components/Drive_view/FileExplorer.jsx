@@ -56,16 +56,64 @@ const FileExplorer = ({
     },
   ];
 
-  const handleAskAI = () => {
-    setSearchMode("ai");
-    if (searchQuery.trim().length > 0) {
-      setIsLoadingSummaries(true);
-      setTimeout(() => {
-        setSummaries(mockSummaries);
-        setIsLoadingSummaries(false);
-      }, 1200);
+const handleAskAI = async () => {
+  setSearchMode("ai");
+  if (searchQuery.trim().length > 0) {
+    setIsLoadingSummaries(true);
+    try {
+      const res = await fetch("http://localhost:5000/agent/query", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: searchQuery }),
+      });
+      const data = await res.json();
+
+      if (data.error) {
+        console.error("AI Error:", data.error);
+        setSummaries([]);
+      } else if (data.action === "summarize_folder") {
+        setSummaries(
+          data.summaries.map((s, idx) => ({
+            id: idx,
+            title: s.file,
+            summary: s.summary,
+            pages: "",
+            lastModified: "N/A",
+          }))
+        );
+      } else if (data.action === "summarize_file") {
+        setSummaries([
+          {
+            id: 1,
+            title: data.summary.file,
+            summary: data.summary.summary,
+            pages: "",
+            lastModified: "N/A",
+          },
+        ]);
+      } else if (data.action === "file_topic_lookup") {
+        setSummaries(
+          data.results.map((r, idx) => ({
+            id: idx,
+            title: r.file,
+            summary: r.summary,
+            pages: r.num_relevant_chunks || "?",
+            lastModified: "N/A",
+          }))
+        );
+      } else {
+        console.log("Raw AI Response:", data);
+        setSummaries([]);
+      }
+    } catch (err) {
+      console.error("AI request failed:", err);
+      setSummaries([]);
+    } finally {
+      setIsLoadingSummaries(false);
     }
-  };
+  }
+};
+
 
   const handleSearchFiles = () => {
     setSearchMode("search");

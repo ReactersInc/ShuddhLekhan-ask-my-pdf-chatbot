@@ -1,0 +1,20 @@
+{
+  "arxiv_id": "1712.04624v1",
+  "title": "Theoretical Proposal for Determining Angular Momentum Compensation in\n  Ferrimagnets",
+  "abstract": "This work demonstrates that the magnetization and angular momentum\ncompensation temperature (TMC and TAMC) in ferrimagnets (FiM) can be\nunambiguously determined by performing two sets of temperature dependent\ncurrent switching, with the symmetry reverses at TMC and TAMC, respectively. A\ntheoretical model based on the modified Landau-Lifshitz-Bloch equation is\ndeveloped to systematically study the spin torque effect under different\ntemperatures, and numerical simulations are performed to corroborate our\nproposal. Furthermore, we demonstrate that the recently reported linear\nrelation between TAMC and TMC can be explained using the Curie-Weiss theory.",
+  "authors": [
+    "Zhifeng Zhu",
+    "Xuanyao Fong",
+    "Gengchiau Liang"
+  ],
+  "published": "2017-12-13T06:56:19Z",
+  "categories": [
+    "cond-mat.mtrl-sci"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/1712.04624v1",
+  "url": "http://arxiv.org/abs/1712.04624v1",
+  "download_date": "2025-08-22T22:12:09.175383",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1712.04624v1.pdf",
+  "file_size": 351683,
+  "relevance_score": 3
+}

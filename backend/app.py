@@ -17,6 +17,7 @@ from routes.dashboard_routes import dashboard_bp
 from routes.auth_routes import auth_bp
 # from routes.protected_routes import protected_bp
 from plagarism.upload_routes import plag_upload_bp 
+from routes.agent import agent_bp
 
 
 def create_app():
@@ -52,6 +53,7 @@ def create_app():
     app.register_blueprint(document_bp)
     app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
     app.register_blueprint(plag_upload_bp, url_prefix="/plagiarism")
+    app.register_blueprint(agent_bp, url_prefix="/agent")
 
     return app
 

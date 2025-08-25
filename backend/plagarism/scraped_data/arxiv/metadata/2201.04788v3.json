@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "2201.04788v3",
+  "title": "Trusted Media Challenge Dataset and User Study",
+  "abstract": "The development of powerful deep learning technologies has brought about some\nnegative effects to both society and individuals. One such issue is the\nemergence of fake media. To tackle the issue, we have organized the Trusted\nMedia Challenge (TMC) to explore how Artificial Intelligence (AI) technologies\ncould be leveraged to combat fake media. To enable further research, we are\nreleasing the dataset that we had prepared from the TMC challenge, consisting\nof 4,380 fake and 2,563 real videos, with various video and/or audio\nmanipulation methods employed to produce different types of fake media. All the\nvideos in the TMC dataset are accompanied with audios and have a minimum\nresolution of 360p. The videos have various durations, background,\nillumination, and may contain perturbations that mimic transmission errors and\ncompression. We have also carried out a user study to demonstrate the quality\nof the TMC dataset and to compare the performance of humans and AI models. The\nresults showed that the TMC dataset can fool human participants in many cases,\nand the winning AI models of the Trusted Media Challenge outperformed humans.\nThe TMC dataset is available for research purpose upon request via\ntmc-dataset@aisingapore.org.",
+  "authors": [
+    "Weiling Chen",
+    "Sheng Lun Benjamin Chua",
+    "Stefan Winkler",
+    "See-Kiong Ng"
+  ],
+  "published": "2022-01-13T04:32:52Z",
+  "categories": [
+    "cs.CV"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2201.04788v3",
+  "url": "http://arxiv.org/abs/2201.04788v3",
+  "download_date": "2025-08-22T22:11:57.175115",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2201.04788v3.pdf",
+  "file_size": 2141577,
+  "relevance_score": 3
+}

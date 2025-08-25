@@ -7,7 +7,7 @@ from services.llm import get_gemma_llm
 from services.query_embedder import get_query_embedding
 from langchain_core.embeddings import Embeddings  # for DummyEmbeddings
 
-PERSIST_ROOT = "vector_store/exascale"
+PERSIST_ROOT = "vector_store/"
 
 # Dummy Embeddings object to satisfy FAISS load
 class DummyEmbeddings(Embeddings):
@@ -56,6 +56,8 @@ def is_not_in_doc(answer: str) -> bool:
 def answer_question_from_pdf(pdf_name: str, question: str, top_k=6):
     pdf_name = os.path.splitext(pdf_name)[0]
     persist_path = os.path.join(PERSIST_ROOT, pdf_name)
+
+    print("persist path",persist_path)
 
     if not os.path.exists(persist_path):
         raise ValueError(f"No vector index found for: {pdf_name}")

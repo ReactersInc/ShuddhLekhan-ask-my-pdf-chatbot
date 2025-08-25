@@ -1,0 +1,25 @@
+{
+  "arxiv_id": "2109.03141v1",
+  "title": "Smart Traffic Monitoring System using Computer Vision and Edge Computing",
+  "abstract": "Traffic management systems capture tremendous video data and leverage\nadvances in video processing to detect and monitor traffic incidents. The\ncollected data are traditionally forwarded to the traffic management center\n(TMC) for in-depth analysis and may thus exacerbate the network paths to the\nTMC. To alleviate such bottlenecks, we propose to utilize edge computing by\nequipping edge nodes that are close to cameras with computing resources (e.g.\ncloudlets). A cloudlet, with limited computing resources as compared to TMC,\nprovides limited video processing capabilities. In this paper, we focus on two\ncommon traffic monitoring tasks, congestion detection, and speed detection, and\npropose a two-tier edge computing based model that takes into account of both\nthe limited computing capability in cloudlets and the unstable network\ncondition to the TMC. Our solution utilizes two algorithms for each task, one\nimplemented at the edge and the other one at the TMC, which are designed with\nthe consideration of different computing resources. While the TMC provides\nstrong computation power, the video quality it receives depends on the\nunderlying network conditions. On the other hand, the edge processes very\nhigh-quality video but with limited computing resources. Our model captures\nthis trade-off. We evaluate the performance of the proposed two-tier model as\nwell as the traffic monitoring algorithms via test-bed experiments under\ndifferent weather as well as network conditions and show that our proposed\nhybrid edge-cloud solution outperforms both the cloud-only and edge-only\nsolutions.",
+  "authors": [
+    "Guanxiong Liu",
+    "Hang Shi",
+    "Abbas Kiani",
+    "Abdallah Khreishah",
+    "Jo Young Lee",
+    "Nirwan Ansari",
+    "Chengjun Liu",
+    "Mustafa Yousef"
+  ],
+  "published": "2021-09-07T15:15:55Z",
+  "categories": [
+    "cs.CV"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2109.03141v1",
+  "url": "http://arxiv.org/abs/2109.03141v1",
+  "download_date": "2025-08-22T22:12:20.596270",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2109.03141v1.pdf",
+  "file_size": 1526735,
+  "relevance_score": 3
+}

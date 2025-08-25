@@ -9,11 +9,11 @@ def load_prompt():
 
 SUMMARIZER_PROMPT = load_prompt()
 
-def batch_summarize_chunks(docs, chunk_token_limit=250000):
+def batch_summarize_chunks(docs, chunk_token_limit=150000):
     """
     docs: list of Document objects with .metadata['tokens']
     """
-    llm = get_gemini_flash_2_5_lite_llm()
+    llm = get_gemini_flash_2_5_lite_llm()  # returns GenerativeModel
     summaries = []
 
     batch_chunks = []
@@ -26,8 +26,9 @@ def batch_summarize_chunks(docs, chunk_token_limit=250000):
             # Summarize current batch
             batch_text = "\n\n".join(d.page_content for d in batch_chunks)
             prompt = SUMMARIZER_PROMPT.replace("{{content}}", batch_text.strip())
-            response = llm.invoke(prompt)
-            summary = response.content.strip()  # FIX: Use `.content`
+            
+            response = llm.generate_content(prompt)   # ✅ FIXED
+            summary = response.text.strip()           # ✅ use .text instead of .content
             summaries.append(summary)
 
             # Start new batch
@@ -41,8 +42,10 @@ def batch_summarize_chunks(docs, chunk_token_limit=250000):
     if batch_chunks:
         batch_text = "\n\n".join(d.page_content for d in batch_chunks)
         prompt = SUMMARIZER_PROMPT.replace("{{content}}", batch_text.strip())
-        response = llm.invoke(prompt)
-        summary = response.content.strip()  # FIX: Use `.content`
+        
+        response = llm.generate_content(prompt)   # ✅ FIXED
+        summary = response.text.strip()           # ✅ use .text instead of .content
         summaries.append(summary)
 
     return "\n".join(summaries)
+

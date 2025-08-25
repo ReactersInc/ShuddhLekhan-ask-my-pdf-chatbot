@@ -1,0 +1,24 @@
+{
+  "arxiv_id": "2304.04547v1",
+  "title": "N,N,N-Trimethyl chitosan as a permeation enhancer for inhalation drug\n  delivery: interaction with a model pulmonary surfactant",
+  "abstract": "N,N,N-Trimethyl chitosan (TMC), a biocompatible and biodegradable derivative\nof chitosan, is currently used as a permeation enhancer to increase the\ntranslocation of drugs to the bloodstream in the lungs. This article discusses\nthe effect of TMC on a mimetic pulmonary surfactant, Curosurf, a low-viscosity\nlipid formulation administered to preterm infants with acute respiratory\ndistress syndrome. Curosurf exhibits a strong interaction with TMC, resulting\nin the formation of aggregates at electrostatic charge stoichiometry. At\nnanoscale, Curosurf undergoes a profound reorganization of its lipid vesicles\nin terms of size and lamellarity. The initial micron-sized vesicles (average\nsize 4.8 microns) give way to a froth-like network of unilamellar vesicles\nabout 300 nm in size. Under such conditions, neutralization of the cationic\ncharges by pulmonary surfactant may inhibit TMC permeation enhancer capacity,\nespecially as electrostatic charge complexation is found at low TMC content.\nThe permeation properties of pulmonary surfactant-neutralized TMC should then\nbe evaluated for its applicability as a permeation enhancer for inhalation in\nthe alveolar region.",
+  "authors": [
+    "Jana Szabová",
+    "Filip Mravec",
+    "Mostafa Mokhtari",
+    "Rémi Le Borgne",
+    "Michal Kalina",
+    "Jean-François Berret"
+  ],
+  "published": "2023-04-01T08:47:03Z",
+  "categories": [
+    "q-bio.QM",
+    "cond-mat.soft"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2304.04547v1",
+  "url": "http://arxiv.org/abs/2304.04547v1",
+  "download_date": "2025-08-22T22:11:26.840033",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2304.04547v1.pdf",
+  "file_size": 1229638,
+  "relevance_score": 5
+}

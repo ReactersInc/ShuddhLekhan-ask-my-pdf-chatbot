@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "1604.02242v1",
+  "title": "More on total monochromatic connection of graphs",
+  "abstract": "A graph is said to be {\\it total-colored} if all the edges and the vertices\nof the graph are colored. A total-coloring of a graph is a {\\it total\nmonochromatically-connecting coloring} ({\\it TMC-coloring}, for short) if any\ntwo vertices of the graph are connected by a path whose edges and internal\nvertices on the path have the same color. For a connected graph $G$, the {\\it\ntotal monochromatic connection number}, denoted by $tmc(G)$, is defined as the\nmaximum number of colors used in a TMC-coloring of $G$. Note that a\nTMC-coloring does not exist if $G$ is not connected, in which case we simply\nlet $tmc(G)=0$. In this paper, we first characterize all graphs of order $n$\nand size $m$ with $tmc(G)=3,4,5,6,m+n-2,m+n-3$ and $m+n-4$, respectively. Then\nwe determine the threshold function for a random graph to have $tmc(G)\\geq\nf(n)$, where $f(n)$ is a function satisfying $1\\leq f(n)<\\frac{1}{2}n(n-1)+n$.\nFinally, we show that for a given connected graph $G$, and a positive integer\n$L$ with $L\\leq m+n$, it is NP-complete to decide whether $tmc(G)\\geq L$.",
+  "authors": [
+    "Hui Jiang",
+    "Xueliang Li",
+    "Yingying Zhang"
+  ],
+  "published": "2016-04-08T06:57:38Z",
+  "categories": [
+    "math.CO",
+    "05C15, 05C40, 05C75, 05C80, 68Q17"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/1604.02242v1",
+  "url": "http://arxiv.org/abs/1604.02242v1",
+  "download_date": "2025-08-22T22:11:43.314239",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1604.02242v1.pdf",
+  "file_size": 165986,
+  "relevance_score": 3
+}

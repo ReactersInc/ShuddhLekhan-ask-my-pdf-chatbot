@@ -1,0 +1,98 @@
+{
+  "search_metadata": {
+    "chunks_processed": 3,
+    "total_searches": 3,
+    "unique_urls_found": 5,
+    "content_extracted": 4,
+    "extraction_date": "2025-08-26T00:17:16.099589"
+  },
+  "content_summary": {
+    "total_word_count": 5201,
+    "quality_distribution": {
+      "high": 1,
+      "medium": 3,
+      "low": 0
+    },
+    "average_content_length": 1300
+  },
+  "search_results": [
+    {
+      "url": "https://burabhala.blogspot.com/2017/01/blog-post_24.html?m=0",
+      "title": "डा. होमी जहांगीर भाभा की ५१ वीं पुण्यतिथि",
+      "content": "देश आजाद हुआ तो मशहूर वैज्ञानिक होमी जहांगीर भाभा ने दुनिया भर में काम कर रहे भारतीय वैज्ञानिकों से अपील की कि वे भारत लौट आएं। ... वह",
+      "score": 0.7935067,
+      "raw_content": null,
+      "source_chunk": 1
+    },
+    {
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%B9%E0%A5%8B%E0%A4%AE%E0%A5%80_%E0%A4%9C%E0%A4%B9%E0%A4%BE%E0%A4%82%E0%A4%97%E0%A5%80%E0%A4%B0_%E0%A4%AD%E0%A4%BE%E0%A4%AD%E0%A4%BE",
+      "title": "होमी जहांगीर भाभा",
+      "content": "**होमी जहांगीर भाभा**  (30 अक्टूबर, 1909 - 24 जनवरी, 1966) भारत के एक प्रमुख वैज्ञानिक और स्वप्नदृष्टा थे जिन्होंने भारत के परमाणु ऊर्जा कार्यक्रम की कल्पना की थी। उन्होने मुट्ठी भर वैज्ञानिकों की सहायता से मार्च 1944 में नाभिकीय उर्जा पर अनुसन्धान आरम्भ किया। उन्होंने नाभिकीय विज्ञान में तब कार्य आरम्भ किया जब अविछिन्न शृंखला अभिक्रिया का ज्ञान नहीं के बराबर था और नाभिकीय उर्जा से विद्युत उत्पादन की कल्पना को कोई मानने को तैयार नहीं था। उन्हें 'आर्किटेक्ट ऑफ इंडियन एटॉमिक एनर्जी प्रोग्राम' भी कहा जाता है। भाभा का जन्म मुम्बई के एक सभ्रांत पारसी परिवार में हुआ था। उनकी कीर्ति सारे संसार में फैली। भारत वापस आने पर उन्होंने अपने अनुसंधान को आगे बढ़ाया। भारत को परमाणु शक्ति बनाने के मिशन में प्रथम पग के तौर पर उन्होंने 1945 में मूलभूत विज्ञान में उत्कृष्टता के केंद्र टाटा इंस्टीट्यूट ऑफ फंडामेंटल रिसर्च (टीआइएफआर) की स्थापना की। डा.",
+      "score": 0.66569364,
+      "raw_content": null,
+      "source_chunk": 1
+    },
+    {
+      "url": "https://education.vikaspedia.in/viewcontent/education/93893e92e93e92894d92f-91c94d91e93e928/93093e93794d91f94d93094092f-93894d924930-915947-93893e92e93e92894d92f-91c94d91e93e928/92d93e930924-926947936-915940-93593f93693f93794d91f-91c93e92891593e93093f92f93e902/92d93e93092494092f-93594891c94d91e93e92893f915/%E0%A4%B9%E0%A5%8B%E0%A4%AE%E0%A5%80-%E0%A4%9C%E0%A4%B9%E0%A4%BE%E0%A4%81%E0%A4%97%E0%A5%80%E0%A4%B0-%E0%A4%AD%E0%A4%BE%E0%A4%AD%E0%A4%BE-null-1?lgn=hi",
+      "title": "होमी जहाँगीर भाभा | शिक्षा - Education",
+      "content": "होमी जहांगीर भाभा का जन्म 30 अक्टूबर 1909 को मुम्बई के एक सम्पन्न पारसी परिवार में हुआ था। भाभा परिवार लम्बे समय से शिक्षा क्षेत्र से जुड़ा था। होमी के दादा का नाम भी होमी जहाँगीर भाभा था। वे मैसूर राज्य में शिक्षा विभाग के महानिरीक्षक",
+      "score": 0.98462,
+      "raw_content": null,
+      "source_chunk": 2
+    },
+    {
+      "url": "https://indianexpress.com/article/cities/kolkata/in-kolkata-pm-slams-tmc-promises-to-end-infiltration-corruption-10205726/",
+      "title": "In Kolkata, PM slams TMC, promises to end 'infiltration & ...",
+      "content": "PM Modi claimed that for the past 11 years, the Centre has consistently supported the development of West Bengal (Express/Partha Paul) PRIME MINISTER Narendra Modi on Friday launched a sharp attack on the ruling Trinamool Congress (TMC) government in West Bengal, accusing it of “corruption, misrule and obstructing Bengal’s development” despite the Centre providing funds. Modi chanted six slogans in Bengali, including “TMC jabe, BJP asbe” (TMC will go, BJP will come) and “Bachte chai, BJP Tai” (We want to live, hence we want the BJP), which he said must “reach every household”. For everyone in Bengal to receive these benefits, it’s essential that a BJP government comes to power here as well,” said Modi. Bikoshito Bangla (Developed Bengal) is Modi’s guarantee,” said Modi.",
+      "score": 0.8145405,
+      "raw_content": null,
+      "source_chunk": 3
+    },
+    {
+      "url": "https://www.newindianexpress.com/nation/2025/Aug/22/in-bengal-pm-modi-raises-infiltration-to-attack-state-government-tmc-hits-back",
+      "title": "In Bengal, PM Modi raises infiltration to attack state ...",
+      "content": "KOLKATA: Prime Minister Narendra Modi on Friday launched a sharp attack on the Trinamool Congress, accusing West Bengal’s ruling party of “promoting infiltration” for “the sake of political power and securing votes”. Speaking at a BJP rally at Dum Dum Central Jail Maidan in Kolkata, he said the BJP-led Union government had launched a campaign against infiltrators “who are changing the demography of West Bengal.” The Trinamool government must also go so that this work can be done properly,” Modi added. But there is no such law for the Chief Minister or Prime Minister if they go to jail,” Modi said. Modi went on to say: “Two TMC ministers, even after going to jail on corruption charges, were not willing to give up their posts.”",
+      "score": 0.77994305,
+      "raw_content": null,
+      "source_chunk": 3
+    }
+  ],
+  "extracted_content": [
+    {
+      "url": "https://burabhala.blogspot.com/2017/01/blog-post_24.html?m=0",
+      "quality": "medium",
+      "quality_score": 0.7,
+      "word_count": 1224,
+      "cached": true,
+      "content_file": "5860e5cb6c9e55ca4f2cba392cebf7ad.json",
+      "metadata_file": "5860e5cb6c9e55ca4f2cba392cebf7ad.json"
+    },
+    {
+      "url": "https://hi.wikipedia.org/wiki/%E0%A4%B9%E0%A5%8B%E0%A4%AE%E0%A5%80_%E0%A4%9C%E0%A4%B9%E0%A4%BE%E0%A4%82%E0%A4%97%E0%A5%80%E0%A4%B0_%E0%A4%AD%E0%A4%BE%E0%A4%AD%E0%A4%BE",
+      "quality": "high",
+      "quality_score": 0.85,
+      "word_count": 1345,
+      "cached": true,
+      "content_file": "1a43e74e2bff543646bd53d17c7fb916.json",
+      "metadata_file": "1a43e74e2bff543646bd53d17c7fb916.json"
+    },
+    {
+      "url": "https://indianexpress.com/article/cities/kolkata/in-kolkata-pm-slams-tmc-promises-to-end-infiltration-corruption-10205726/",
+      "quality": "medium",
+      "quality_score": 0.8,
+      "word_count": 1649,
+      "cached": false,
+      "content_file": "6677bf47b95862f7dce461a67e3142db.json",
+      "metadata_file": "6677bf47b95862f7dce461a67e3142db.json"
+    },
+    {
+      "url": "https://www.newindianexpress.com/nation/2025/Aug/22/in-bengal-pm-modi-raises-infiltration-to-attack-state-government-tmc-hits-back",
+      "quality": "medium",
+      "quality_score": 0.8,
+      "word_count": 983,
+      "cached": false,
+      "content_file": "9060c7ad681d50bb7637cb6cd1b29e26.json",
+      "metadata_file": "9060c7ad681d50bb7637cb6cd1b29e26.json"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "filename": "HindiPlagTest",
+  "k": 5,
+  "per_store": 2,
+  "arxiv_vectors_root": "vector_store",
+  "sections": [
+    {
+      "section": "Unknown",
+      "top_matches": [
+        {
+          "vector_dir": "vector_store/New_Folder/HindiPlagTest",
+          "source": "HindiPlagTest",
+          "section": null,
+          "distance": 1.0140763521194458,
+          "similarity": 0.49650550682832034,
+          "text": "देश आजाद हुआ तो होमी जहांगीर भाभा ने दुनिया भर में काम कर रहे भारतीय वैज्ञानिकों से अपील की कि वे भारत\nलौट आएं। उनकी अपील का असर हुआ और कुछ वैज्ञानिक भारत लौटे भी। इन्हीं में एक थे मैनचेस्टर की इंपीरियल\nकैमिकल कंपनी में काम करने वाले होमी नौशेरवांजी सेठना। अमेरिका की मिशिगन यूनिवर्सिटी से पोस्ट ग्रेजुएशन करने"
+        },
+        {
+          "vector_dir": "vector_store/New_Folder/HindiPlagTest",
+          "source": "HindiPlagTest",
+          "section": null,
+          "distance": 3.8850669860839844,
+          "similarity": 0.2047054836399756,
+          "text": "कैमिकल कंपनी में काम करने वाले होमी नौशेरवांजी सेठना। अमेरिका की मिशिगन यूनिवर्सिटी से पोस्ट ग्रेजुएशन करने\nवाले सेठना में भाभा को काफी संभावनाएं दिखाई दीं। ये दोनों वैज्ञानिक भारत को परमाणु शक्ति संपन्न बनाने के अपने\nकार्यक्रम में जुट गए। यह कार्यक्रम मूल रूप से डॉ॰ भाभा की ही देन था, लेकिन यह सेठना ही थे, जिनकी वजह से डॉ॰"
+        },
+        {
+          "vector_dir": "vector_store/Exascale-extreme-test/2/3/three/Convergence_of_High_Performance_Computing_Big_Data_and_Machine_Learning_Applications_on_Containerized_Infrastructures",
+          "source": "Convergence_of_High_Performance_Computing_Big_Data_and_Machine_Learning_Applications_on_Containerized_Infrastructures",
+          "section": null,
+          "distance": 10.036327362060547,
+          "similarity": 0.09060985300578236,
+          "text": "un equip multidisciplinari d’experts en HPC, BD i ML, i utilitzar una combinaci´o de tec-\nnologies i enfocaments. Preveiem que les tecnologies de virtualitzaci´o i contenidoritzaci´o\npoden ser la base per a la converg`encia, perqu`e resideixen com a ponts entre les aplica-"
+        },
+        {
+          "vector_dir": "vector_store/Exascale-extreme-test/1/snir-et-al-2014-addressing-failures-in-exascale-computing",
+          "source": "snir-et-al-2014-addressing-failures-in-exascale-computing",
+          "section": null,
+          "distance": 10.319811820983887,
+          "similarity": 0.088340691154094,
+          "text": "Sriram Krishnamoorthy received his BE degree from\nthe College of Engineering-Guindy, Anna University,\nChennai, and his MS and PhD degrees from The Ohio\nState University, Columbus, Ohio. He is currently a\nresearch\nscientist\nat\nPacific\nNorthwest\nNational\nLaboratory. His research focuses on parallel program-"
+        },
+        {
+          "vector_dir": "vector_store/Exascale-extreme-test/2/3/three/CRIUgpu-_Transparent_Checkpointing_of_GPU-Accelerated_Workloads",
+          "source": "CRIUgpu-_Transparent_Checkpointing_of_GPU-Accelerated_Workloads",
+          "section": null,
+          "distance": 10.426736831665039,
+          "similarity": 0.0875140483877133,
+          "text": "[58] Muthian Sivathanu, Srinidhi Viswanatha, Dharma Kir-\nitkumar Shukla, Nipun Kwatra, Ramachandran Ram-\njee, Rimma Vladimirovna Nehme, Pankaj Sharma, Bha-\nlakumaaran Erode Ranganathan, and Vaibhav Sharma.\nTransparent pre-emption and migration for planet-scale\ncomputer, September 2022. US Patent App. 17/359,553."
+        }
+      ],
+      "avg_similarity": 0.19353511660317713
+    },
+    {
+      "section": "शिक्",
+      "top_matches": [
+        {
+          "vector_dir": "vector_store/New_Folder/HindiPlagTest",
+          "source": "HindiPlagTest",
+          "section": null,
+          "distance": 1.2253327369689941,
+          "similarity": 0.4493710011933075,
+          "text": "शिक्षा\n\nउन्होंने मुंबई से कैथड्रल और जॉन केनन स्कूल से पढ़ाई की। फिर एल्फिस्टन कॉलेज मुंबई और रोयाल इंस्टीट्यूट ऑफ\nसाइंस से बीएससी पास किया। मुंबई से पढ़ाई पूरी करने के बाद भाभा वर्ष 1927 में इंग्लैंड के कैअस कॉलेज, कैंब्रिज\nइंजीनियरिंग की पढ़ाई करने गए। कैम्ब्रिज विश्वविद्यालय में रहकर सन् 1930 में स्नातक उपाधि अर्जित की।"
+        },
+        {
+          "vector_dir": "vector_store/New_Folder/HindiPlagTest",
+          "source": "HindiPlagTest",
+          "section": null,
+          "distance": 4.889359951019287,
+          "similarity": 0.16979773834793835,
+          "text": "सन् 1934 में कैम्ब्रिज विश्वविद्यालय से उन्होंने डाक्टरेट की उपाधि प्राप्त की। जर्मनी में उन्होंने कास्मिक किरणों पर\nअध्ययन और प्रयोग किए। हालांकि इंजीनियरिंग पढ़ने का निर्णय उनका नहीं था। यह परिवार की ख्वाहिश थी कि वे\nएक होनहार इंजीनियर बनें। होमी ने सबकी बातों का ध्यान रखते हुए, इंजीनियरिंग की पढ़ाई जरूर की, लेकिन अपने"
+        },
+        {
+          "vector_dir": "vector_store/Exascale-extreme-test/1/snir-et-al-2014-addressing-failures-in-exascale-computing",
+          "source": "snir-et-al-2014-addressing-failures-in-exascale-computing",
+          "section": null,
+          "distance": 8.705204010009766,
+          "similarity": 0.10303750430888611,
+          "text": "in 2008 and his MSc in Computer Science in 2001, both\nfrom the University of Reading, UK. He also obtained\na German Certified Engineer diploma in Computer\nSystems Engineering in 2001 from the University of\nApplied Sciences, Berlin. Engelmann’s research aims at\ncomputer science challenges for extreme-scale HPC"
+        },
+        {
+          "vector_dir": "vector_store/Exascale-extreme-test/1/snir-et-al-2014-addressing-failures-in-exascale-computing",
+          "source": "snir-et-al-2014-addressing-failures-in-exascale-computing",
+          "section": null,
+          "distance": 9.932330131530762,
+          "similarity": 0.0914718077453428,
+          "text": "Worcester Polytechnic Institute in 1981 with a BS\ndegree in Electrical Engineering. He then attended\nPurdue University, receiving MSEE and PhD degrees\nin Electrical Engineering in 1983 and 1988, respectively.\nFrom 1988 to 1990, Carlson was an Assistant Professor\nat the University of Wisconsin–Madison, where his"
+        },
+        {
+          "vector_dir": "vector_store/Exascale-extreme-test/2/3/three/Exascale_Computing_Study_Technology_Challanges",
+          "source": "Exascale_Computing_Study_Technology_Challanges",
+          "section": null,
+          "distance": 11.750860214233398,
+          "similarity": 0.07842608131518299,
+          "text": "programming based on global address space methods. Dr. Carlson graduated from Worcester\nPolytechnic Institute in 1981 with a BS degree in Electrical Engineering. He then attended\nPurdue University, receiving the MSEE and Ph.D. degrees in Electrical Engineering in 1983\nand 1988, respectively.\nFrom 1988 to 1990, Dr."
+        }
+      ],
+      "avg_similarity": 0.17842082658213154
+    },
+    {
+      "section": "‘केंद्र जो पैसे भेजती है, उसे लूटकर TMC काडर पर किया जाता है",
+      "top_matches": [
+        {
+          "vector_dir": "vector_store/New_Folder/HindiPlagTest",
+          "source": "HindiPlagTest",
+          "section": null,
+          "distance": 2.128748893737793,
+          "similarity": 0.3196165732576063,
+          "text": "‘केंद्र जो पैसे भेजती है, उसे लूटकर TMC काडर पर किया जाता है\nखर्च’, कोलकाता में बोले पीएम मोदी\n\nPM Modi in Kolkata: पीएम मोदी ने कोलकाता में कहा कि बंगाल में विकास कार्यों के सामने चुनौती ये है कि\nबंगाल के लिए जो पैसा हम राज्य सरकार को सीधे भेजते हैं, उसका ज्यादातर हिस्सा यहां लूट लिया जाता है."
+        },
+        {
+          "vector_dir": "vector_store/New_Folder/HindiPlagTest",
+          "source": "HindiPlagTest",
+          "section": null,
+          "distance": 3.6603903770446777,
+          "similarity": 0.21457429938179046,
+          "text": "पीएम मोदी ने कहा, “रेलवे के लिए भी बंगाल का बजट पहले की तुलना में तीन गुना बढ़ाया गया है. लेकिन, बंगाल में\nविकास कार्यों के सामने एक बहुत बड़ी चुनौती है. चुनौती ये है कि बंगाल के लिए जो पैसा हम राज्य सरकार को सीधे\nभेजते हैं, उसका ज्यादातर हिस्सा यहां लूट लिया जाता है. वो पैसा टीएमसी काडर पर खर्च होता है. इसलिए गरीब"
+        },
+        {
+          "vector_dir": "vector_store/Exascale-extreme-test/2/3/three/Convergence_of_High_Performance_Computing_Big_Data_and_Machine_Learning_Applications_on_Containerized_Infrastructures",
+          "source": "Convergence_of_High_Performance_Computing_Big_Data_and_Machine_Learning_Applications_on_Containerized_Infrastructures",
+          "section": null,
+          "distance": 7.700520992279053,
+          "similarity": 0.11493564590987276,
+          "text": "de los flujos de trabajo de ML en Kubernetes, as´ı como la implementaci´on de cargas de\ntrabajo HPC en contenedores (a trav´es del paquete Scanflow(MPI)).\nFinalmente, aprovechamos el conocimiento aprendido del an´alisis de desempe˜no en\nla configuraci´on e implementaci´on de cargas de trabajo de HPC, BD y ML contene-"
+        },
+        {
+          "vector_dir": "vector_store/Exascale-extreme-test/2/3/three/Convergence_of_High_Performance_Computing_Big_Data_and_Machine_Learning_Applications_on_Containerized_Infrastructures",
+          "source": "Convergence_of_High_Performance_Computing_Big_Data_and_Machine_Learning_Applications_on_Containerized_Infrastructures",
+          "section": null,
+          "distance": 7.858758449554443,
+          "similarity": 0.11288263538219576,
+          "text": "un equip multidisciplinari d’experts en HPC, BD i ML, i utilitzar una combinaci´o de tec-\nnologies i enfocaments. Preveiem que les tecnologies de virtualitzaci´o i contenidoritzaci´o\npoden ser la base per a la converg`encia, perqu`e resideixen com a ponts entre les aplica-"
+        },
+        {
+          "vector_dir": "vector_store/Exascale-extreme-test/1/somethings/Improving_Preemptive_Scheduling_with_Application-Transparent_Checkpointing_in_Shared_Clusters",
+          "source": "Improving_Preemptive_Scheduling_with_Application-Transparent_Checkpointing_in_Shared_Clusters",
+          "section": null,
+          "distance": 9.732070922851562,
+          "similarity": 0.0931786611538992,
+          "text": "Federation for Information Processing.\n[6] B. Cho, M. Rahman, T. Chajed, I. Gupta, C. Abad,\nN. Roberts, and P. Lin. Natjam: Design and\nevaluation of eviction policies for supporting priorities\nand deadlines in mapreduce clusters. SOCC ’13, pages\n6:1–6:17, New York, NY, USA, 2013. ACM.\n[7] J. Condit, E. B. Nightingale, C. Frost, E. Ipek, B. Lee,"
+        }
+      ],
+      "avg_similarity": 0.1710375630170729
+    }
+  ]
+}

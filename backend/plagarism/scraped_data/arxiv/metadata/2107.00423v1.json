@@ -1,0 +1,31 @@
+{
+  "arxiv_id": "2107.00423v1",
+  "title": "Evolutionary view through the starless cores in Taurus: deuteration in\n  TMC 1-C and TMC 1-CP",
+  "abstract": "The chemical and physical evolution of starless and pre-stellar cores are of\nparamount importance to understanding the process of star formation. The Taurus\nMolecular Cloud cores TMC 1-C and TMC 1-CP share similar initial conditions and\nprovide an excellent opportunity to understand the evolution of the pre-stellar\ncore phase. We investigated the evolutionary stage of starless cores based on\nobservations towards the prototypical dark cores TMC 1-C and TMC 1-CP, mapping\nthem in the CS $3\\rightarrow 2$, C$^{34}$S $3\\rightarrow 2$, $^{13}$CS\n$2\\rightarrow 1$, DCN $1\\rightarrow 0$, DCN $2\\rightarrow 1$, DNC $1\\rightarrow\n0$, DNC $2\\rightarrow 1$, DN$^{13}$C $1\\rightarrow 0$, DN$^{13}$C $2\\rightarrow\n1$, N$_2$H$^+$ $1\\rightarrow 0$, and N$_2$D$^+$ $1\\rightarrow 0$ transitions.\nWe performed a multi-transitional study of CS and its isotopologs, DCN, and DNC\nlines to characterize the physical and chemical properties of these cores. We\nstudied their chemistry using the state-of-the-art gas-grain chemical code\nNautilus and pseudo time-dependent models to determine their evolutionary\nstage. Observational diagnostics seem to indicate that TMC 1-C is in a later\nevolutionary stage than TMC 1-CP, with a chemical age $\\sim$1 Myr. TMC 1-C\nshows signs of being an evolved core at the onset of star formation, while TMC\n1-CP appears to be in an earlier evolutionary stage due to a more recent\nformation or, alternatively, a collapse slowed down by a magnetic support.",
+  "authors": [
+    "D. Navarro-Almaida",
+    "A. Fuente",
+    "L. Majumdar",
+    "V. Wakelam",
+    "P. Caselli",
+    "P. Rivière-Marichalar",
+    "S. P. Treviño-Morales",
+    "S. Cazaux",
+    "I. Jiménez-Serra",
+    "C. Kramer",
+    "A. Chacón-Tanarro",
+    "J. M. Kirk",
+    "D. Ward-Thompson",
+    "M. Tafalla"
+  ],
+  "published": "2021-07-01T13:08:34Z",
+  "categories": [
+    "astro-ph.GA"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2107.00423v1",
+  "url": "http://arxiv.org/abs/2107.00423v1",
+  "download_date": "2025-08-22T22:11:21.891999",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2107.00423v1.pdf",
+  "file_size": 2059225,
+  "relevance_score": 13
+}

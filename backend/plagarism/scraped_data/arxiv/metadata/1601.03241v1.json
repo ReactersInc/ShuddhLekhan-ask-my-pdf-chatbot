@@ -1,0 +1,21 @@
+{
+  "arxiv_id": "1601.03241v1",
+  "title": "Total monochromatic connection of graphs",
+  "abstract": "A graph is said to be {\\it total-colored} if all the edges and the vertices\nof the graph are colored. A path in a total-colored graph is a {\\it total\nmonochromatic path} if all the edges and internal vertices on the path have the\nsame color. A total-coloring of a graph is a {\\it total\nmonochromatically-connecting coloring} ({\\it TMC-coloring}, for short) if any\ntwo vertices of the graph are connected by a total monochromatic path of the\ngraph. For a connected graph $G$, the {\\it total monochromatic connection\nnumber}, denoted by $tmc(G)$, is defined as the maximum number of colors used\nin a TMC-coloring of $G$. These concepts are inspired by the concepts of\nmonochromatic connection number $mc(G)$, monochromatic vertex connection number\n$mvc(G)$ and total rainbow connection number $trc(G)$ of a connected graph $G$.\nLet $l(T)$ denote the number of leaves of a tree $T$, and let $l(G)=\\max\\{ l(T)\n| $ $T$ is a spanning tree of $G$ $\\}$ for a connected graph $G$. In this\npaper, we show that there are many graphs $G$ such that $tmc(G)=m-n+2+l(G)$,\nand moreover, we prove that for almost all graphs $G$, $tmc(G)=m-n+2+l(G)$\nholds. Furthermore, we compare $tmc(G)$ with $mvc(G)$ and $mc(G)$,\nrespectively, and obtain that there exist graphs $G$ such that $tmc(G)$ is not\nless than $mvc(G)$ and vice versa, and that $tmc(G)=mc(G)+l(G)$ holds for\nalmost all graphs. Finally, we prove that $tmc(G)\\leq mc(G)+mvc(G)$, and the\nequality holds if and only if $G$ is a complete graph.",
+  "authors": [
+    "Hui Jiang",
+    "Xueliang Li",
+    "Yingying Zhang"
+  ],
+  "published": "2016-01-13T13:45:02Z",
+  "categories": [
+    "math.CO",
+    "05C15, 05C40, 05C05"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/1601.03241v1",
+  "url": "http://arxiv.org/abs/1601.03241v1",
+  "download_date": "2025-08-22T22:11:47.211767",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1601.03241v1.pdf",
+  "file_size": 153579,
+  "relevance_score": 3
+}

@@ -7,8 +7,8 @@ def handle_ask_question(request):
         pdf_name = data.get("pdf_name")
         question = data.get("question")
 
-        print('pdf name' , pdf_name)
-        print('question' , question)
+        print('\npdf name:' , pdf_name)
+        print('\nnquestion' , question)
 
 
         if not pdf_name or not question:
@@ -18,5 +18,4 @@ def handle_ask_question(request):
         return jsonify({"answer": answer})
         
     except Exception as e:
-        print('Faillllllllll')
         return jsonify({"error": str(e)}), 500

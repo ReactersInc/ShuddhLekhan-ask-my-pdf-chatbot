@@ -1,0 +1,26 @@
+{
+  "arxiv_id": "2410.18136v1",
+  "title": "Generative Design of Functional Metal Complexes Utilizing the Internal\n  Knowledge of Large Language Models",
+  "abstract": "Designing functional transition metal complexes (TMCs) faces challenges due\nto the vast search space of metals and ligands, requiring efficient\noptimization strategies. Traditional genetic algorithms (GAs) are commonly\nused, employing random mutations and crossovers driven by explicit mathematical\nobjectives to explore this space. Transferring knowledge between different GA\ntasks, however, is difficult. We integrate large language models (LLMs) into\nthe evolutionary optimization framework (LLM-EO) and apply it in both single-\nand multi-objective optimization for TMCs. We find that LLM-EO surpasses\ntraditional GAs by leveraging the chemical knowledge of LLMs gained during\ntheir extensive pretraining. Remarkably, without supervised fine-tuning, LLMs\nutilize the full historical data from optimization processes, outperforming\nthose focusing only on top-performing TMCs. LLM-EO successfully identifies\neight of the top-20 TMCs with the largest HOMO-LUMO gaps by proposing only 200\ncandidates out of a 1.37 million TMCs space. Through prompt engineering using\nnatural language, LLM-EO introduces unparalleled flexibility into\nmulti-objective optimizations, thereby circumventing the necessity for\nintricate mathematical formulations. As generative models, LLMs can suggest new\nligands and TMCs with unique properties by merging both internal knowledge and\nexternal chemistry data, thus combining the benefits of efficient optimization\nand molecular generation. With increasing potential of LLMs as pretrained\nfoundational models and new post-training inference strategies, we foresee\nbroad applications of LLM-based evolutionary optimization in chemistry and\nmaterials design.",
+  "authors": [
+    "Jieyu Lu",
+    "Zhangde Song",
+    "Qiyuan Zhao",
+    "Yuanqi Du",
+    "Yirui Cao",
+    "Haojun Jia",
+    "Chenru Duan"
+  ],
+  "published": "2024-10-21T23:24:34Z",
+  "categories": [
+    "physics.chem-ph",
+    "cs.LG",
+    "cs.NE"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/2410.18136v1",
+  "url": "http://arxiv.org/abs/2410.18136v1",
+  "download_date": "2025-08-22T22:12:35.979141",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/2410.18136v1.pdf",
+  "file_size": 9276278,
+  "relevance_score": 2
+}

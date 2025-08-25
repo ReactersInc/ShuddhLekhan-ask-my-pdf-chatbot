@@ -1,0 +1,22 @@
+{
+  "arxiv_id": "1210.4398v2",
+  "title": "Parton distributions in the presence of target mass corrections",
+  "abstract": "We study the consistency of parton distribution functions in the presence of\ntarget mass corrections (TMCs) at low Q^2. We review the standard operator\nproduct expansion derivation of TMCs in both x and moment space, and present\nthe results in closed form for all unpolarized structure functions and their\nmoments. To avoid the unphysical region at x > 1 in the standard TMC analysis,\nwe propose an expansion of the target mass corrected structure functions order\nby order in M^2/Q^2, and assess the convergence properties of the resulting\nforms numerically.",
+  "authors": [
+    "F. M. Steffens",
+    "M. D. Brown",
+    "W. Melnitchouk",
+    "S. Sanches"
+  ],
+  "published": "2012-10-16T13:33:39Z",
+  "categories": [
+    "hep-ph",
+    "nucl-th"
+  ],
+  "pdf_url": "http://arxiv.org/pdf/1210.4398v2",
+  "url": "http://arxiv.org/abs/1210.4398v2",
+  "download_date": "2025-08-22T22:12:04.932033",
+  "pdf_path": "./plagarism/scraped_data/arxiv/pdfs/1210.4398v2.pdf",
+  "file_size": 354320,
+  "relevance_score": 3
+}

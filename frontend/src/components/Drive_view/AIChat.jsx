@@ -32,11 +32,10 @@ const AIChat = ({ onClose, selectedFile }) => {
 
     try {
       // Extract the PDF name from selectedFolder
-      const pdfName = selectedFile?.name
-      console.log('selected' ,pdfName);
-      
+      const pdfPath = selectedFile?.relative_path || selectedFile?.name;
+      console.log("selected", pdfPath);
 
-      if (!pdfName) {
+      if (!pdfPath) {
         throw new Error("No PDF found in selected folder.");
       }
 
@@ -44,7 +43,7 @@ const AIChat = ({ onClose, selectedFile }) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          pdf_name: pdfName,
+          pdf_name: pdfPath,
           question: userMsg.content,
         }),
       });
