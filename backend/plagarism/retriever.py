@@ -53,7 +53,7 @@ def store_topk_for_sections(
     # load sections
     sections = _load_sections_from_json(section_chunks_json)
     base_name = os.path.basename(section_chunks_json).replace(".chunks.json", "")
-
+    arxiv_vectors_root = "vector_store"
     # discover arxiv vector stores
     faiss_dirs = _find_faiss_dirs(arxiv_vectors_root)
     if not faiss_dirs:
@@ -90,7 +90,7 @@ def store_topk_for_sections(
                         "section": doc.metadata.get("section"),
                         "distance": float(dist),
                         "similarity": similarity,
-                        "text": doc.page_content[:1200]  # preview, cap to keep JSON smaller
+                        "text": doc.page_content  # preview, cap to keep JSON smaller
                     })
             except Exception as e:
                 # skip problematic stores but continue the loop

@@ -105,6 +105,7 @@ from celery_tasks.embed_pdf_task import embed_pdf_task
 from .section_embedded import embed_sections
 from .retriever import store_topk_for_sections
 from global_models import get_embedding_model
+from .sentence_chunker import create_sentence_chunks
 
 UPLOAD_DIR = "./uploads"
 RESULT_DIR = "./results"
@@ -135,6 +136,10 @@ def upload_file():
         print("Processing PDF into chunks...")
         sections, chunks_path = process_pdf(file_path, RESULT_DIR)
         print(f"PDF chunking completed. Found {len(sections)} sections.")
+        print("Creating sentence-level subchunks...")
+        subchunks_data = create_sentence_chunks(chunks_path, RESULT_DIR)
+        subchunks_path = os.path.join(RESULT_DIR, Path(filename).stem + ".subchunks.json")
+        print(f"Sentence-level subchunks created: {len(subchunks_data)} chunks")
 
         # Step 2: Extract keywords & key points (Leader's original functionality)
         print("Starting keyword extraction with LLM...")
@@ -161,7 +166,8 @@ def upload_file():
                         pdf_path = os.path.join(arxiv_pdf_dir, pdf_file)
                         arxiv_base_name = os.path.splitext(pdf_file)[0]
                         # queue Celery task → embeddings go into both summarization & plagiarism folders
-                        result = embed_pdf_task.delay(pdf_file, pdf_path, arxiv_base_name)
+                        relative_path = os.path.join("arxiv", "pdfs", arxiv_base_name)
+                        result = embed_pdf_task.delay(pdf_file, pdf_path, arxiv_base_name, relative_path)
                     print(f"Queued embedding for ArXiv PDF: {pdf_file}")
 
         # Step 3.6: Embed Section Chunks into plagiarism vector store
@@ -259,6 +265,7 @@ def upload_file():
             "keywords_json": keywords_path,
             "sections_count": len(sections),
             "keyword_results_count": len(keyword_results),
+            "subchunks_json": subchunks_path,
             "arxiv_collection": {
                 "success": arxiv_results.get('success', False),
                 "papers_found": arxiv_results.get('papers_found', 0),
