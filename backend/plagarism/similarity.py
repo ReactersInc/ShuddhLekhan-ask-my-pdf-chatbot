@@ -51,10 +51,25 @@ def main(pdf_chunks_path):
                 data = json.load(f)
         except Exception:
             return None
-        scores = list(data.values()) if isinstance(data, dict) else []
+
+        scores = []
+        if isinstance(data, dict):
+            for v in data.values():
+                if isinstance(v, (int, float)):
+                    scores.append(v)
+                elif isinstance(v, dict) and "score" in v:
+                    scores.append(v["score"])
+        elif isinstance(data, list):
+            for v in data:
+                if isinstance(v, (int, float)):
+                    scores.append(v)
+                elif isinstance(v, dict) and "score" in v:
+                    scores.append(v["score"])
+
         if not scores:
             return None
         return round(sum(scores) / len(scores), 4)
+
     arxiv_tfidf_path = f"results/{base_filename}.tfidf.json"
     arxiv_bert_path  = f"results/{base_filename}.bert_score.json"
 
