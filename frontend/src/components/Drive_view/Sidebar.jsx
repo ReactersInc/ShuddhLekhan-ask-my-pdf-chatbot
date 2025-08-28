@@ -5,6 +5,7 @@ import useFileUploader from '../../hooks/useFileUploader';
 import { mergeFolderTrees } from '../../utils/mergeFolderTrees';
 import { API_URL } from '../../config/config';
 import { useNavigate } from 'react-router-dom';
+import UserProfile from '../UserProfile';
 
 const FolderNode = ({ node, selectedFolder, onFolderSelect, toggleExpand, level = 0 }) => {
   return (
@@ -153,6 +154,9 @@ const Sidebar = ({ selectedFolder, onFolderSelect }) => {
           />
         ))}
       </div>
+
+      {/* User Profile Component */}
+      <UserProfile />
     </div>
   );
 };
