@@ -20,9 +20,20 @@ const useFileUploader = () => {
         const formData = new FormData();
         files.forEach(file => formData.append('files', file))
 
+        // Get JWT token for authenticated upload
+        const token = localStorage.getItem('token');
+        if (!token) {
+            setMessage('Authentication required. Please login again.');
+            setUploading(false);
+            return [];
+        }
+
         try {
             const res = await fetch(`${API_URL}/dashboard/upload`, {
                 method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
                 body: formData,
             })
 
@@ -34,7 +45,13 @@ const useFileUploader = () => {
                 setUploadedPaths(data.uploaded_files || [])
                 return folderTree;
             }
-
+            else if (res.status === 401) {
+                setMessage('Authentication expired. Please login again.');
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                window.location.href = '/auth';
+                return [];
+            }
             else {
                 setMessage(data.error || 'Upload failed')
                 return [];

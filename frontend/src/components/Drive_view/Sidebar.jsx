@@ -6,6 +6,7 @@ import { mergeFolderTrees } from '../../utils/mergeFolderTrees';
 import { API_URL } from '../../config/config';
 import { useNavigate } from 'react-router-dom';
 import UserProfile from '../UserProfile';
+import { authFetchJson } from '../../utils/authFetch';
 
 const FolderNode = ({ node, selectedFolder, onFolderSelect, toggleExpand, level = 0 }) => {
   return (
@@ -52,11 +53,19 @@ const Sidebar = ({ selectedFolder, onFolderSelect }) => {
   useEffect(() => {
     const fetchFolderTree = async () => {
       try {
-        const res = await fetch(`${API_URL}/documents/tree`);
-        const data = await res.json();
-        setFolders(data);
+        const data = await authFetchJson('/documents/tree');
+        // Backend returns array with folders and files
+        if (Array.isArray(data)) {
+          // Extract only folders for sidebar navigation
+          const folderItems = data.filter(item => item.type === 'folder');
+          setFolders(folderItems);
+        } else {
+          console.warn('Unexpected tree format:', data);
+          setFolders([]);
+        }
       } catch (err) {
         console.error("Failed to fetch folder tree", err);
+        setFolders([]);
       }
     };
     fetchFolderTree();
@@ -138,20 +147,28 @@ const Sidebar = ({ selectedFolder, onFolderSelect }) => {
       <div className="folder-list">
         <div
           className={`folder-item ${!selectedFolder ? 'active' : ''}`}
-          onClick={() => onFolderSelect(null)}
+          onClick={() => {
+            console.log('All Files clicked');
+            onFolderSelect(null);
+          }}
         >
           <Search size={16} />
           <span>All Files</span>
         </div>
 
-        {folders.map(folder => (
-          <FolderNode
-            key={folder.id}
-            node={folder}
-            selectedFolder={selectedFolder}
-            onFolderSelect={onFolderSelect}
-            toggleExpand={toggleExpand}
-          />
+        {Array.isArray(folders) && folders.map(folder => (
+          <div
+            key={folder.id || folder.name}
+            className={`folder-item ${selectedFolder === folder.name ? 'active' : ''}`}
+            onClick={() => {
+              console.log('Folder clicked:', folder.name);
+              onFolderSelect(folder.name);
+            }}
+          >
+            <Folder size={16} />
+            <span>{folder.name}</span>
+            <span className="count">{folder.count || folder.children?.length || 0}</span>
+          </div>
         ))}
       </div>
 
