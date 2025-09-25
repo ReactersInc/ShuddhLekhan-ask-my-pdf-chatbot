@@ -9,6 +9,7 @@ import {
   Bot,
 } from "lucide-react";
 import "./FileExplorer.css";
+import { authFetchJson, authFetch } from "../../utils/authFetch";
 
 const FileExplorer = ({
   selectedFolder,
@@ -17,7 +18,7 @@ const FileExplorer = ({
   onAIChatToggle,
   onFileSelect,
 }) => {
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState([]); // Initialize as empty array
   const [selectedPDF, setSelectedPDF] = useState(null);
   const [pdfBlobUrl, setPdfBlobUrl] = useState(null);
   const [searchMode, setSearchMode] = useState("search");
@@ -27,15 +28,33 @@ const FileExplorer = ({
   useEffect(() => {
     const fetchFiles = async () => {
       try {
-        const res = await fetch("http://localhost:5000/documents/list");
-        const data = await res.json();
-        setFiles(data);
+        let url = '/documents/list';
+        // Add folder filter if selectedFolder is provided
+        if (selectedFolder) {
+          url += `?folder=${encodeURIComponent(selectedFolder)}`;
+        }
+        
+        console.log('Fetching files with URL:', url, 'selectedFolder:', selectedFolder);
+        
+        const data = await authFetchJson(url);
+        console.log('Files response:', data);
+        // Backend returns { status: 'success', pdfs: [...], files: [...], total_files: 5 }
+        // Extract the files array from the response (check both pdfs and files)
+        const fileList = data?.pdfs || data?.files || [];
+        if (Array.isArray(fileList)) {
+          console.log('Setting files:', fileList.length, 'files found for folder:', selectedFolder);
+          setFiles(fileList);
+        } else {
+          console.warn('Unexpected response format:', data);
+          setFiles([]); // Fallback to empty array
+        }
       } catch (err) {
         console.error("Failed to load files:", err);
+        setFiles([]); // Ensure files is always an array
       }
     };
     fetchFiles();
-  }, []);
+  }, [selectedFolder]); // Re-fetch when selectedFolder changes
 
   const mockSummaries = [
     {
@@ -73,34 +92,57 @@ const FileExplorer = ({
     setIsLoadingSummaries(false);
   };
 
-  const getFolderPath = (folderId) => {
-    const folderMap = {
-      "1-1": "Research Papers / Machine Learning",
-      "2-1": "Legal Documents / Contracts",
-      "3": "Reports",
-    };
-    return folderMap[folderId] || "All Files";
+  const getFolderPath = () => {
+    if (selectedFolder) {
+      return `${selectedFolder} (${filteredFiles.length} files)`;
+    }
+    return `All Files (${filteredFiles.length} files)`;
   };
 
-  const filteredFiles = files.filter(
+  const filteredFiles = Array.isArray(files) ? files.filter(
     (file) =>
-      (!selectedFolder || file.folderId === selectedFolder) &&
-      file.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+      (file.filename || file.original_filename || '').toLowerCase().includes(searchQuery.toLowerCase())
+  ) : [];
 
   const handleFileClick = async (file) => {
     try {
-      const res = await fetch(
-        `http://localhost:5000/documents/view/${file.relative_path}`
-      );
-      if (!res.ok) throw new Error("Failed to fetch PDF");
-      const blob = await res.blob();
+      console.log('File clicked:', file);
+      
+      // Check if file is PDF first
+      const fileName = file.original_filename || file.filename || file.name || '';
+      if (!fileName.toLowerCase().endsWith('.pdf')) {
+        alert('This file is not a PDF document and cannot be viewed in the PDF viewer.');
+        return;
+      }
+      
+      // Handle both legacy (relative_path) and new (file_path) field names
+      const filePath = file.relative_path || file.file_path;
+      console.log('File path for viewing:', filePath);
+      
+      const response = await authFetch(`/documents/view/${filePath}`);
+      console.log('PDF fetch response:', response);
+      
+      if (response.status === 403) {
+        throw new Error("You don't have permission to view this file");
+      } else if (response.status === 400) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || "File is not a valid PDF document");
+      } else if (!response.ok) {
+        throw new Error(`Failed to fetch PDF: ${response.status} ${response.statusText}`);
+      }
+      
+      const blob = await response.blob();
+      console.log('PDF blob created, size:', blob.size);
+      
       const url = URL.createObjectURL(blob);
       setPdfBlobUrl(url);
       setSelectedPDF(file);
-      onFileSelect(file);
+      onFileSelect && onFileSelect(file);
+      
+      console.log('PDF viewer opened successfully');
     } catch (err) {
       console.error("Error loading PDF:", err);
+      alert(`Failed to open PDF: ${err.message}`);
     }
   };
 
@@ -139,12 +181,7 @@ const FileExplorer = ({
       {/* Header */}
       <div className="file-header">
         <div>
-          <h2>{getFolderPath(selectedFolder)}</h2>
-          {selectedFolder && (
-            <div className="file-count">
-              <small>{filteredFiles.length} files</small>
-            </div>
-          )}
+          <h2>{getFolderPath()}</h2>
         </div>
         <button className="ai-button" onClick={onAIChatToggle}>
           <MessageSquare size={16} />
@@ -183,14 +220,14 @@ const FileExplorer = ({
       {selectedPDF && pdfBlobUrl ? (
         <div className="pdf-viewer-container">
           <div className="viewer-toolbar">
-            <span>{selectedPDF.name}</span>
+            <span>{selectedPDF.original_filename || selectedPDF.filename || selectedPDF.name}</span>
             <button onClick={handleClosePDF}>
               <X size={18} />
             </button>
           </div>
           <iframe
             src={pdfBlobUrl}
-            title={selectedPDF.name}
+            title={selectedPDF.original_filename || selectedPDF.filename || selectedPDF.name}
             className="pdf-iframe"
           />
         </div>
@@ -214,16 +251,16 @@ const FileExplorer = ({
           {filteredFiles.length ? (
             filteredFiles.map((file) => (
               <div
-                key={file.id}
+                key={file.file_id || file.id}
                 className="file-card"
                 onClick={() => handleFileClick(file)}
               >
                 <div className="file-info">
                   <div className="file-icon">PDF</div>
                   <div className="file-meta">
-                    <strong>{file.name}</strong>
+                    <strong>{file.original_filename || file.filename || file.name}</strong>
                     <small>
-                      {file.size} • Uploaded {file.uploadDate}
+                      {file.file_size ? `${Math.round(file.file_size / 1024)} KB` : (file.size || 'Unknown size')} • Uploaded {file.uploaded_at ? new Date(file.uploaded_at).toLocaleDateString() : (file.uploadDate || 'Unknown date')}
                     </small>
                   </div>
                 </div>

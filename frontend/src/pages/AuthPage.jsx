@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AuthPage.css";
 import { Eye, EyeOff } from "lucide-react";
@@ -10,6 +10,14 @@ const AuthPage = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // If user is already logged in, redirect to dashboard
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/dashboard');
+    }
+  }, [navigate]);
+
   const togglePassword = () => setShowPassword((prev) => !prev);
 
   const handleChange = (e) => {
@@ -20,7 +28,7 @@ const AuthPage = () => {
     e.preventDefault();
     setError("");
 
-    const endpoint = isLogin ? "/api/login" : "/api/signup"; //Update The API Endpoints as Set in the Backend
+    const endpoint = isLogin ? "/auth/login" : "/auth/signup"; // Fixed endpoint paths
     const payload = isLogin
       ? { email: form.email, password: form.password }
       : form;
@@ -36,12 +44,13 @@ const AuthPage = () => {
 
       if (res.ok && data.token) {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
         navigate("/dashboard");
       } else {
-        setError(data?.error || "Something went wrong");
+        setError(data?.message || data?.error || "Something went wrong");
       }
     } catch (err) {
-      setError("Network error");
+      setError("Network error - Please check if the server is running");
     }
   };
 
