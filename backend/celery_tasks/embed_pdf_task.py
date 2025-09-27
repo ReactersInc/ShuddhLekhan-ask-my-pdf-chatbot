@@ -24,3 +24,24 @@ def embed_pdf_task(filename, filepath, base_name,relative_path=None):
             "filename":filename,
             "error":str(e)
         }
+    
+@celery.task()
+def embed_arxiv_pdf_task(filename, filepath, base_name):
+    try:
+        embedding_model = get_embedding_model()
+        text = extract_text_from_pdf(filepath)
+
+        index_pdf_text(base_name, text, embedding_model=embedding_model, relative_path="vector_store")
+
+        return {
+            "status": "completed",
+            "filename": filename,
+            "message": "ArXiv embedding done successfully (vector_store)"
+        }
+    
+    except Exception as e:
+        return {
+            "status": "error",
+            "filename": filename,
+            "error": str(e)
+        }

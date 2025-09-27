@@ -77,7 +77,7 @@ class ArxivService:
                 params = {
                     'search_query': strategy,
                     'start': 0,
-                    'max_results': min(max_results, 15),
+                    'max_results': min(max_results, 5),
                     'sortBy': 'relevance',
                     'sortOrder': 'descending'
                 }

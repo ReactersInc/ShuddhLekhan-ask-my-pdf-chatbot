@@ -3,6 +3,7 @@ import os, json, glob
 from typing import List, Dict, Any, Optional
 from langchain_community.vectorstores import FAISS
 from global_models import get_embedding_model
+from nltk.tokenize import sent_tokenize
 
 def _find_faiss_dirs(root: str) -> List[str]:
     """
@@ -117,4 +118,25 @@ def store_topk_for_sections(
         json.dump(report, f, indent=2, ensure_ascii=False)
 
     print(f"✅ Stored top-k retrieval results at: {out_path}")
+    chunks = []
+    for sec in report["sections"]:
+        sec_name = sec["section"]
+        for match in sec.get("top_matches", []):
+            text = match.get("text", "")
+            sentences = sent_tokenize(text)
+            for idx, sent in enumerate(sentences):
+                if sent.strip():
+                    chunks.append({
+                        "section": sec_name,
+                        "source": match.get("source"),
+                        "chunk_id": idx + 1,
+                        "text": sent.strip()
+                    })
+
+    chunks_path = os.path.join(out_dir, f"{base_name}_topk_chunks.json")
+    with open(chunks_path, "w", encoding="utf-8") as f:
+        json.dump(chunks, f, indent=2, ensure_ascii=False)
+
+    print(f"✅ Sentence-level chunks saved at: {chunks_path}")
+
     return out_path

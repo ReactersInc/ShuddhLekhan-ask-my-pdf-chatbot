@@ -135,6 +135,8 @@ def upload_file():
         # Step 1: Process PDF into chunks (Leader's original functionality)
         print("Processing PDF into chunks...")
         sections, chunks_path = process_pdf(file_path, RESULT_DIR)
+        if not os.path.exists(chunks_path):
+            raise FileNotFoundError(f"Chunks JSON not created: {chunks_path}")
         print(f"PDF chunking completed. Found {len(sections)} sections.")
         print("Creating sentence-level subchunks...")
         subchunks_data = create_sentence_chunks(chunks_path, RESULT_DIR)
@@ -159,7 +161,7 @@ def upload_file():
         # Step 3.5: Embed ArXiv PDFs into plagiarism vector store
         print("Starting embedding of ArXiv PDFs into plagiarism vector store...")
     
-        arxiv_pdf_dir = os.path.join("scraped_data", "arxiv", "pdfs")
+        arxiv_pdf_dir = os.path.join(os.path.dirname(__file__), "scraped_data", "arxiv", "pdfs")
         if os.path.exists(arxiv_pdf_dir):
                 for pdf_file in os.listdir(arxiv_pdf_dir):
                     if pdf_file.lower().endswith(".pdf"):
@@ -172,22 +174,27 @@ def upload_file():
 
         # Step 3.6: Embed Section Chunks into plagiarism vector store
         print("Starting embedding of section chunks into plagiarism vector store...")
+        sections, chunks_path = process_pdf(file_path, RESULT_DIR)
+        print("Chunks JSON path:", chunks_path)
+        print("Exists?", os.path.exists(chunks_path))  # should be True
+        print("Starting embedding of section chunks into plagiarism vector store...")
+        result = embed_sections(chunks_path)
+        print(f"Queued embedding for section file: {chunks_path}")
+        # results_dir = "results"
+        # user_base_name = Path(filename).stem 
+        # if os.path.exists(results_dir):
+        #         for file in os.listdir(results_dir):
+        #             if file.endswith(".chunks.json"):
+        #                 json_path = os.path.join(results_dir, file)
+        #                 result = embed_sections(json_path)
+        #                 print(f"Queued embedding for section file: {file}")
 
-        results_dir = "results"
-        user_base_name = Path(filename).stem 
-        if os.path.exists(results_dir):
-                for file in os.listdir(results_dir):
-                    if file.endswith(".chunks.json"):
-                        json_path = os.path.join(results_dir, file)
-                        result = embed_sections(json_path)
-                        print(f"Queued embedding for section file: {file}")
-
-        chunks_json = os.path.join("results", f"{user_base_name}.chunks.json")
-        print("Looking for section chunks at:", chunks_json)
-        print("Exists?", os.path.exists(chunks_json))
+        # chunks_json = os.path.join("results", f"{user_base_name}.chunks.json")
+        # print("Looking for section chunks at:", chunks_json)
+        # print("Exists?", os.path.exists(chunks_json))
         embedding_model = get_embedding_model() 
         topk_report_path = store_topk_for_sections(
-                section_chunks_json=chunks_json,
+                section_chunks_json=chunks_path,
                 arxiv_vectors_root="vector_store",
                 out_dir=os.path.join("results", "retrieval"),
                 k=5,
@@ -248,7 +255,34 @@ def upload_file():
         print("Running similarity pipeline...")
         similarity_results = run_similarity(chunks_path)
         print("Similarity pipeline completed.")
+        from .arxiv_text_extractor import build_arxiv_texts
+        base_path = os.path.dirname(__file__)
+        arxiv_dir = os.path.join(base_path, "scraped_data", "arxiv", "pdfs")  # no comma
+        arxiv_text_dir = os.path.join(base_path, "scraped_data", "arxiv", "texts")
+        print("Extracting and cleaning ArXiv PDFs...")
+        extracted_files = build_arxiv_texts(arxiv_pdf_dir=arxiv_dir, out_dir=arxiv_text_dir)
 
+        # Optional: log results
+        print("✅ Extraction complete. Text files saved at:")
+        for k, v in extracted_files.items():
+            print(f"  {k} → {v}")
+        from .test import run_overlap_for_pdf
+        print("Running overlap detection for user-uploaded PDF against ArXiv texts...")
+
+        subchunks_path = subchunks_path  # already defined in your route
+        # arxiv_text_dir = os.path.join("scraped_data", "arxiv", "texts")
+        arxiv_text_dir = os.path.join(os.path.dirname(__file__), "scraped_data", "arxiv", "texts")
+
+        overlap_output_path = os.path.join(RESULT_DIR, f"{Path(filename).stem}_overlap_results.json")
+        overlap_results = run_overlap_for_pdf(
+            subchunks_path=subchunks_path,
+        arxiv_text_dir=arxiv_text_dir,
+        output_path=overlap_output_path,
+        min_length=8,
+        max_length=12,
+        top_k=3,
+        fuzz_threshold=90
+            )
         overall_percent = None
         sources = None
         combined_section = similarity_results.get("combined", {}) if isinstance(similarity_results, dict) else {}
@@ -272,7 +306,11 @@ def upload_file():
                 "papers_downloaded": arxiv_results.get('papers_downloaded', 0),
                 "storage_paths": arxiv_results.get('storage_paths', {}),
                 "query_used": arxiv_results.get('query', ''),
-                "keywords_used": arxiv_results.get('keywords_used', [])[:5]
+                "keywords_used": arxiv_results.get('keywords_used', [])[:5],
+                "message": "Upload and processing completed",
+            "filename": filename,
+            "arxiv_results": arxiv_results,
+            "web_results": web_results,
             },
             "web_collection": {
                 "success": web_results.get('success', False),

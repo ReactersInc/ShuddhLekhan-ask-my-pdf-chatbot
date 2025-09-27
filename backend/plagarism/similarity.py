@@ -75,10 +75,14 @@ def main(pdf_chunks_path):
 
     web_tfidf_path = f"results/{base_filename}.web_tfidf.json"
     web_bert_path  = f"results/{base_filename}.web_bert_score.json"
-
-    web_chunks = load_web_chunks("scraped_data/web/web_results.json")
-    arxiv_chunks, arxiv_pdf_count = load_arxiv_chunks("scraped_data/arxiv/pdfs")
-    web_docs_count = _count_unique_web_docs("scraped_data/web/web_results.json")
+    base_path = os.path.dirname(__file__)
+    arxiv_dir = os.path.join(base_path, "scraped_data/arxiv/pdfs")
+    arxiv_chunks, arxiv_pdf_count = load_arxiv_chunks(arxiv_dir)
+    web_dir = os.path.join(base_path, "scraped_data/web/web_results.json")
+    # web_chunks = load_web_chunks("scraped_data/web/web_results.json")
+    web_chunks = load_web_chunks(web_dir)
+    # arxiv_chunks, arxiv_pdf_count = load_arxiv_chunks("scraped_data/arxiv/pdfs")
+    web_docs_count = _count_unique_web_docs(web_dir)
     combined_sources_count = web_docs_count + (arxiv_pdf_count or 0)
 
     # --- Compute weighted global scores for all sources ---

@@ -16,13 +16,11 @@ _llm_model = None
 def get_embedding_model():
     global _embedding_model
     if _embedding_model is None:
-        if not torch.cuda.is_available():
-            raise RuntimeError("CUDA GPU is required but not available. Aborting embedding initialization.")
-
-        print(f" Loading embedding model [{_MODEL_INSTANCE_ID}] on GPU (cuda)")
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        print(f" Loading embedding model [{_MODEL_INSTANCE_ID}] on device: {device}")
         _embedding_model = HuggingFaceEmbeddings(
             model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
-            model_kwargs={"device": "cuda"}
+            model_kwargs={"device":  device}
         )
     else:
         print(f" Reusing embedding model [{_MODEL_INSTANCE_ID}]")

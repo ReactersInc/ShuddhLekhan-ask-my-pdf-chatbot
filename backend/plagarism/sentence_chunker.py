@@ -11,9 +11,9 @@ except LookupError:
 from nltk.tokenize import sent_tokenize
 
 
-def chunk_sentences(text, min_sent=2, max_sent=3):
+def chunk_sentences(text, min_sent=1, max_sent=1):
     """
-    Break text into smaller chunks of 2-3 sentences.
+    Break text into smaller chunks of 1 sentences.
     """
     sentences = sent_tokenize(text)
     chunks = []

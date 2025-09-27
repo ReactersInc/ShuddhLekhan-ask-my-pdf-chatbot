@@ -75,11 +75,22 @@ from routes.dashboard_routes import dashboard_bp
 from routes.auth_routes import auth_bp
 # from routes.protected_routes import protected_bp
 from plagarism.upload_routes import plag_upload_bp 
+# in your app.py (or a new blueprint)
+from flask import send_from_directory
 
 def create_app():
     app = Flask(__name__)
     CORS(app)
     
+    try:
+        import nltk
+        nltk.data.find("corpora/stopwords")
+    except Exception:
+        try:
+            nltk.download("stopwords", quiet=True)
+        except Exception:
+            pass
+
     # Ensuring required folders exist(otherwise system fails if any of the folder is missing)
     os.makedirs("uploads", exist_ok=True)
     os.makedirs("summaries", exist_ok=True)
@@ -119,7 +130,7 @@ def create_app():
     app.register_blueprint(auth_bp, url_prefix='/auth')
     # app.register_blueprint(protected_bp, url_prefix='/protected')
     app.register_blueprint(plag_upload_bp, url_prefix="/plagiarism")
-
+    
     return app
 
 if __name__ == "__main__":

@@ -33,6 +33,8 @@ import re
 from datetime import datetime
 from urllib.parse import urlparse
 from typing import List, Dict, Any, Optional
+from dotenv import load_dotenv
+load_dotenv() 
 
 # Import trafilatura for content extraction
 try:
