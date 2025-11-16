@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FileText, Folder, Plus, Upload, Search, ChevronDown, ChevronRight, Shield } from 'lucide-react';
+import { FileText, Folder, Plus, Upload, Search, ChevronDown, ChevronRight, Shield, Trash2 } from 'lucide-react';
 import './Sidebar.css';
 import useFileUploader from '../../hooks/useFileUploader';
 import { mergeFolderTrees } from '../../utils/mergeFolderTrees';
 import { API_URL } from '../../config/config';
 import { useNavigate } from 'react-router-dom';
 import UserProfile from '../UserProfile';
-import { authFetchJson } from '../../utils/authFetch';
+import { authFetchJson, authFetch } from '../../utils/authFetch';
 
-const FolderNode = ({ node, selectedFolder, onFolderSelect, toggleExpand, level = 0 }) => {
+const FolderNode = ({ node, selectedFolder, onFolderSelect, toggleExpand, onDeleteFolder, level = 0 }) => {
   return (
     <div style={{ marginLeft: `${level * 12}px` }}>
       <div
@@ -29,6 +29,14 @@ const FolderNode = ({ node, selectedFolder, onFolderSelect, toggleExpand, level 
         <Folder size={16} />
         <span>{node.name}</span>
         <span className="count">{node.count}</span>
+        <Trash2 
+          size={14} 
+          style={{ marginLeft: 'auto', cursor: 'pointer', color: '#888' }}
+          onClick={(e) => {
+            e.stopPropagation();
+            onDeleteFolder(node.name);
+          }}
+        />
       </div>
 
       {/* Recursively render children */}
@@ -39,6 +47,7 @@ const FolderNode = ({ node, selectedFolder, onFolderSelect, toggleExpand, level 
           selectedFolder={selectedFolder}
           onFolderSelect={onFolderSelect}
           toggleExpand={toggleExpand}
+          onDeleteFolder={onDeleteFolder}
           level={level + 1}
         />
       ))}
@@ -98,6 +107,42 @@ const Sidebar = ({ selectedFolder, onFolderSelect }) => {
       }
     }
     e.target.value = ''; // reset file input
+  };
+
+  const handleDeleteFolder = async (folderName) => {
+    if (!confirm(`Are you sure you want to delete the folder "${folderName}" and all its files?`)) {
+      return;
+    }
+
+    try {
+      const response = await authFetch('/documents/folder', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          folder_name: folderName
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete folder');
+      }
+
+      const result = await response.json();
+      // Refresh folder list
+      setFolders(folders.filter(f => f.name !== folderName));
+      
+      // If the deleted folder was selected, clear selection
+      if (selectedFolder === folderName || selectedFolder === `folder_${folderName}`) {
+        onFolderSelect(null);
+      }
+      
+      alert(`Folder deleted successfully. ${result.files_deleted} files removed.`);
+    } catch (err) {
+      console.error('Error deleting folder:', err);
+      alert(`Failed to delete folder: ${err.message}`);
+    }
   };
 
   return (
@@ -168,6 +213,14 @@ const Sidebar = ({ selectedFolder, onFolderSelect }) => {
             <Folder size={16} />
             <span>{folder.name}</span>
             <span className="count">{folder.count || folder.children?.length || 0}</span>
+            <Trash2 
+              size={14} 
+              style={{ marginLeft: 'auto', cursor: 'pointer', color: '#888' }}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDeleteFolder(folder.name);
+              }}
+            />
           </div>
         ))}
       </div>
